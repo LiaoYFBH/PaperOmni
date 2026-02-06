@@ -558,8 +558,8 @@ workflow:
         prompt_template:
         - id: f5b1fb7d-6e09-4847-a146-d397f127ef68
           role: system
-          text: "# Role\n你是一名资深的计算机与AI领域审稿人。你需要根据提供的论文【摘要】和【OCR正文片段】，总结出论文的核心技术细节。\n\
-            \n# Input\n- Title: {{#1768808528449.title_str#}}}\n- Abstract: {{#1768808528449.summary_str#}}}\n\
+          text: "# Role\n你是一名资深的计算机与AI领域审稿人。你需要根据提供的论文摘要和OCR正文片段，总结出论文的核心技术细节。\n\n\
+            # Input\n- Title: {{#1768808528449.title_str#}}}\n- Abstract: {{#1768808528449.summary_str#}}}\n\
             - OCR Text: {{#1768813194176.text#}}}\n\n# Task\n基于以上输入，提取并总结以下 7 个关键字段。\n\
             \n**\U0001F6A8 核心原则（Core Principles）：**\n1.  **拒绝废话**：不要输出“本文提出了一种新颖的方法”这种套话，直接说**具体是什么方法**。\n\
             2.  **深挖细节**：如果没有标准模型名，必须总结其**算法逻辑、损失函数设计或模块交互方式**。\n3.  **数据优先**：在 Metrics\
@@ -578,18 +578,18 @@ workflow:
             \    * 无数字时，描述其具体的**定性优势**（如“在 8k 上下文长度下仍保持连贯”）。\n\n5.  **Chinese_Abstract**\
             \ (String):\n    * (中文) **学术级摘要翻译**。\n    * 要求：信达雅，使用标准的学术术语（如：Ablation\
             \ study -> 消融实验, Robustness -> 鲁棒性, End-to-end -> 端到端）。\n\n6.  **Affiliation**\
-            \ (String):\n    * 从 OCR 文本的前 1000 字符中提取作者机构。\n    * **清洗指令**：去除作者名字上标（如\
-            \ 1, *, †）和无关的地址细节（如街道号、邮编）。\n    * 要求：只保留**大学/实验室/公司**的名称。多个机构用“; ”分隔。\n\
-            \    * *示例*：清华大学; 微软亚洲研究院 (MSRA)\n\n7.  **Code_Url** (String):\n    *\
-            \ **高优先级搜索**。\n    * 查找范围：Abstract, Introduction, Conclusion 以及 OCR 的页眉页脚。\n\
-            \    * **严格鉴别**：\n        1. 必须是**本论文**的官方实现（通常伴随 \"Official implementation\"\
-            , \"Code is released at\"）。\n        2. **排除** 引用文献中的链接（即排除出现在 `[...]`\
-            \ 或 Reference 章节的链接）。\n        3. 必须以 `http` 开头。\n    * *Output*：仅输出 URL。若确无代码，输出\
-            \ \"N/A\"。\n\n# Output Format\n请直接输出纯 JSON 对象，确保可以被 `json.loads` 解析。不要包含\
-            \ Markdown 代码块标记（```json）。\n\n{\n  \"One_Liner\": \"...\",\n  \"Architecture\"\
-            : \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\": \"...\",\n  \"Chinese_Abstract\"\
-            : \"...\",\n  \"Affiliation\": \"...\",\n  \"Code_Url\": \"...\"\n}"
-        selected: false
+            \ (String):\n    * 从 OCR 文本中中提取作者所属的机构。\n    **清洗指令**：去除无关的地址细节（如街道号、邮编）。多个机构用“;\
+            \ ”分隔。\n    **示例**：清华大学; 微软亚洲研究院 (MSRA)。\n\n7.  **Code_Url** (String):\n\
+            \    * **高优先级搜索**。\n    * 查找范围：Abstract, Introduction, Conclusion 以及 OCR\
+            \ 的页眉页脚。\n    * **严格鉴别**：\n        1. 必须是**本论文**的官方实现（通常伴随 \"Official\
+            \ implementation\", \"Code is released at\"）。\n        2. **排除** 引用文献中的链接（即排除出现在\
+            \ `[...]` 或 Reference 章节的链接）。\n        3. 必须以 `http` 开头。\n    * *Output*：仅输出\
+            \ URL。若确无代码，输出 \"N/A\"。\n\n# Output Format\n请直接输出纯 JSON 对象，确保可以被 `json.loads`\
+            \ 解析。不要包含 Markdown 代码块标记（```json）。\n\n{\n  \"One_Liner\": \"...\",\n \
+            \ \"Architecture\": \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\":\
+            \ \"...\",\n  \"Chinese_Abstract\": \"...\",\n  \"Affiliation\": \"...\"\
+            ,\n  \"Code_Url\": \"...\"\n}"
+        selected: true
         title: (LLM)分析
         type: llm
         vision:
@@ -603,7 +603,7 @@ workflow:
       positionAbsolute:
         x: 1400.5331673513087
         y: 251.38496883556758
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -1552,7 +1552,7 @@ workflow:
             value: null
           useChartRecognition:
             type: constant
-            value: false
+            value: true
           useDocOrientationClassify:
             type: constant
             value: false
@@ -1654,7 +1654,7 @@ workflow:
           monthly_days:
           - 1
           on_minute: 0
-          time: 11:46 PM
+          time: 5:30 AM
           weekdays:
           - sun
       height: 128
@@ -1665,7 +1665,7 @@ workflow:
       positionAbsolute:
         x: 53.34869540734945
         y: -619.861793442754
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -2611,17 +2611,17 @@ workflow:
             \    * 无数字时，描述其具体的**定性优势**（如“在 8k 上下文长度下仍保持连贯”）。\n\n5.  **Chinese_Abstract**\
             \ (String):\n    * (中文) **学术级摘要翻译**。\n    * 要求：信达雅，使用标准的学术术语（如：Ablation\
             \ study -> 消融实验, Robustness -> 鲁棒性, End-to-end -> 端到端）。\n\n6.  **Affiliation**\
-            \ (String):\n    * 从 OCR 文本中中提取作者机构。\n    * **清洗指令**：去除作者名字上标（如 1, *,\
-            \ †）和无关的地址细节（如街道号、邮编）。\n    * 要求：只保留**大学/实验室/公司**的名称。多个机构用“; ”分隔。\n  \
-            \  * *示例*：清华大学; 微软亚洲研究院 (MSRA)\n\n7.  **Code_Url** (String):\n    * **高优先级搜索**。\n\
-            \    * 查找范围：Abstract, Introduction, Conclusion 以及 OCR 的页眉页脚。\n    * **严格鉴别**：\n\
-            \        1. 必须是**本论文**的官方实现（通常伴随 \"Official implementation\", \"Code is\
-            \ released at\"）。\n        2. **排除** 引用文献中的链接（即排除出现在 `[...]` 或 Reference\
-            \ 章节的链接）。\n        3. 必须以 `http` 开头。\n    * *Output*：仅输出 URL。若确无代码，输出\
-            \ \"N/A\"。\n\n# Output Format\n请直接输出纯 JSON 对象，确保可以被 `json.loads` 解析。不要包含\
-            \ Markdown 代码块标记（```json）。\n\n{\n  \"One_Liner\": \"...\",\n  \"Architecture\"\
-            : \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\": \"...\",\n  \"Chinese_Abstract\"\
-            : \"...\",\n  \"Affiliation\": \"...\",\n  \"Code_Url\": \"...\"\n}"
+            \ (String):\n    * 从 OCR 文本中中提取作者所属的机构。\n    **清洗指令**：去除无关的地址细节（如街道号、邮编）。多个机构用“;\
+            \ ”分隔。\n    **示例**：清华大学; 微软亚洲研究院 (MSRA)。\n\n7.  **Code_Url** (String):\n\
+            \    * **高优先级搜索**。\n    * 查找范围：Abstract, Introduction, Conclusion 以及 OCR\
+            \ 的页眉页脚。\n    * **严格鉴别**：\n        1. 必须是**本论文**的官方实现（通常伴随 \"Official\
+            \ implementation\", \"Code is released at\"）。\n        2. **排除** 引用文献中的链接（即排除出现在\
+            \ `[...]` 或 Reference 章节的链接）。\n        3. 必须以 `http` 开头。\n    * *Output*：仅输出\
+            \ URL。若确无代码，输出 \"N/A\"。\n\n# Output Format\n请直接输出纯 JSON 对象，确保可以被 `json.loads`\
+            \ 解析。不要包含 Markdown 代码块标记（```json）。\n\n{\n  \"One_Liner\": \"...\",\n \
+            \ \"Architecture\": \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\":\
+            \ \"...\",\n  \"Chinese_Abstract\": \"...\",\n  \"Affiliation\": \"...\"\
+            ,\n  \"Code_Url\": \"...\"\n}"
         selected: false
         title: (LLM)分析-星河
         type: llm
