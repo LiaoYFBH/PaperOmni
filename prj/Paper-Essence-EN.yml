@@ -1,0 +1,2452 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Paper-Essence-EN
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/paddleocr:0.1.4@7b732d21da7e41c97ec4f8547742a3b34777deb3b7ad2e0c56948b5de45219c8
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/supabase:0.1.0@6bdd6f533a5ba5c236c5a3d08a8483176f6d9a749b33181bde6aee1f4b30706e
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: paddle-aistudio/ernie-paddle-aistudio:0.1.1@3281d45224736abd0cd14336b54e1a6ddc681ca3fcc5528ae254957765d92adf
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: wjdsg/163-smtp-send-mail:0.0.1@53922437a73d6512114f3e915dcad3b7c85b7df687ae2013d96e97e6e3b6fd6a
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: ff0fc857-b289-413c-a461-6718b593c2ee
+    name: table_name
+    selector:
+    - env
+    - table_name
+    value: pushed_papers
+    value_type: string
+  - description: ''
+    id: ab5124af-50a4-4219-814c-b7ec7939d259
+    name: SMTP_PORT
+    selector:
+    - env
+    - SMTP_PORT
+    value: '465'
+    value_type: string
+  - description: ''
+    id: 5b4dcaeb-af7b-4272-86c4-dc79795d359d
+    name: SMTP_SERVER
+    selector:
+    - env
+    - SMTP_SERVER
+    value: smtp.163.com
+    value_type: string
+  - description: ''
+    id: 4e52b523-a4c3-43b9-b47a-fb71ecd5bf58
+    name: SMTP_PASSWORD
+    selector:
+    - env
+    - SMTP_PASSWORD
+    value: ''
+    value_type: secret
+  - description: ''
+    id: 60c5cd5b-0463-4b20-928e-e41c5ab5d0f4
+    name: SMTP_USER
+    selector:
+    - env
+    - SMTP_USER
+    value: ''
+    value_type: secret
+  - description: ''
+    id: a30c1c7e-97cb-4196-9f4a-a656810f0322
+    name: MY_RAW_TOPIC
+    selector:
+    - env
+    - MY_RAW_TOPIC
+    value: agent记忆链
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: iteration-start
+        targetType: code
+      id: 1768746557884start-source-1768808528449-target
+      selected: false
+      source: 1768746557884start
+      sourceHandle: source
+      target: '1768808528449'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: end
+      id: 1768746557884-source-1768809610681-target
+      selected: false
+      source: '1768746557884'
+      sourceHandle: source
+      target: '1768809610681'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: template-transform
+      id: 1768746557884-source-1768830612348-target
+      selected: false
+      source: '1768746557884'
+      sourceHandle: source
+      target: '1768830612348'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1768830612348-source-1768809610681-target
+      selected: false
+      source: '1768830612348'
+      sourceHandle: source
+      target: '1768809610681'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: code
+      id: 1769347575869-source-1769347686844-target
+      selected: false
+      source: '1769347575869'
+      sourceHandle: source
+      target: '1769347686844'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: iteration
+      id: 1769349445686-source-1768746557884-target
+      selected: false
+      source: '1769349445686'
+      sourceHandle: source
+      target: '1768746557884'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: template-transform
+        targetType: tool
+      id: 1768830612348-source-1769364120122-target
+      selected: false
+      source: '1768830612348'
+      sourceHandle: source
+      target: '1769364120122'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: tool
+      id: 1768808528449-source-1769957710193-target
+      source: '1768808528449'
+      sourceHandle: source
+      target: '1769957710193'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: tool
+        targetType: tool
+      id: 1769957710193-source-1768813194176-target
+      source: '1769957710193'
+      sourceHandle: source
+      target: '1768813194176'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1770443235033-source-1769954998188-target
+      source: '1770443235033'
+      sourceHandle: source
+      target: '1769954998188'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1769350813065-source-1769349445686-target
+      source: '1769350813065'
+      sourceHandle: source
+      target: '1769349445686'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: llm
+        targetType: code
+      id: 1768746991605-source-1768808667129-target
+      source: '1768746991605'
+      sourceHandle: source
+      target: '1768808667129'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1769347686844-source-1770443235033-target
+      source: '1769347686844'
+      sourceHandle: source
+      target: '1770443235033'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1769954998188-source-1770469411002-target
+      source: '1769954998188'
+      sourceHandle: source
+      target: '1770469411002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1770469411002-source-1770469208395-target
+      selected: false
+      source: '1770469411002'
+      sourceHandle: source
+      target: '1770469208395'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1770469208395-source-1770469838682-target
+      source: '1770469208395'
+      sourceHandle: source
+      target: '1770469838682'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1770469838682-source-1769350813065-target
+      source: '1770469838682'
+      sourceHandle: source
+      target: '1769350813065'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: tool
+        targetType: code
+      id: 1768813194176-source-1770545149288-target
+      source: '1768813194176'
+      sourceHandle: source
+      target: '1770545149288'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: code
+      id: 1770545149288-source-1770556354226-target
+      source: '1770545149288'
+      sourceHandle: source
+      target: '1770556354226'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: llm
+      id: 1770556354226-source-1768746991605-target
+      source: '1770556354226'
+      sourceHandle: source
+      target: '1768746991605'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        error_handle_mode: terminated
+        flatten_output: true
+        height: 200
+        is_parallel: false
+        iterator_input_type: array[object]
+        iterator_selector:
+        - '1769349445686'
+        - top_papers
+        output_selector:
+        - '1768808667129'
+        - merged_paper
+        output_type: array[object]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1768746557884start
+        title: Iteration
+        type: iteration
+        width: 2103.345992405301
+      height: 200
+      id: '1768746557884'
+      position:
+        x: -506.5999838614589
+        y: -279.38448268591503
+      positionAbsolute:
+        x: -506.5999838614589
+        y: -279.38448268591503
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 2103
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1768746557884start
+      parentId: '1768746557884'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: -482.5999838614589
+        y: -211.38448268591503
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: ernie-5.0-thinking-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
+        prompt_template:
+        - id: f5b1fb7d-6e09-4847-a146-d397f127ef68
+          role: system
+          text: "# Role\nYou are a senior reviewer in the field of Computer Science\
+            \ and AI. You need to summarize the core technical details of the paper\
+            \ based on the provided paper abstract and OCR text segments.\n\n# Input\n\
+            - Title: {{#1768808528449.title_str#}}}\n- Abstract: {{#1768808528449.summary_str#}}}\n\
+            - OCR Text: {{{#1770556354226.truncated_text#}}}\n\n# Task\nBased on the\
+            \ above input, extract and summarize the following 7 key fields.\n\n**\U0001F6A8\
+            \ Core Principles:**\n1.  **No Fluff**: Do not output generic phrases\
+            \ like \"This paper proposes a novel method\"; state directly **what the\
+            \ method is**.\n2.  **Deep Dive**: If there is no standard model name,\
+            \ you must summarize the **algorithmic logic, loss function design, or\
+            \ module interaction**.\n3.  **Data First**: In Metrics prioritize showing\
+            \ the **improvement over SOTA**, not just absolute values.\n4.  **No N/A**:\
+            \ If not explicitly stated in the text, make a **reasonable expert inference**\
+            \ (Inferred) based on context, but do not fabricate.\n\n\n# Fields Guide\n\
+            \n1.  **One_Liner** (String):\n    * (English) **One-sentence pain point\
+            \ and solution**.\n    * Format: *\"Targeting [specific pain point/task],\
+            \ proposed [core method/architecture], achieving [core value].\"*\n  \
+            \  * Example: \"Targeting the hallucination problem in long texts, proposed\
+            \ a dynamic retrieval-augmented framework based on knowledge graphs, improving\
+            \ factual accuracy by 15%.\"\n\n2.  **Architecture** (String):\n    *\
+            \ (English) **Model architecture and key innovations (bullet points)**.\n\
+            \    * **Must Include**: Core module names, specific mathematical mechanisms\
+            \ (e.g., Attention variants), Loss function design, or training strategies.\n\
+            \    * **Format Requirements**: Please use `\\n- ` for line breaks and\
+            \ bullet points to ensure clear display on the UI.\n    * *Example*:\n\
+            \        \"Proposed Llama-adapter-v2 architecture:\\n- Introduced zero-initialized\
+            \ attention mechanism to solve instability in early training;\\n- Adopted\
+            \ a two-stage fine-tuning strategy, optimizing read-only parameters first\
+            \ then full fine-tuning;\\n- Designed a multi-modal alignment projection\
+            \ layer to achieve lossless injection of image features.\"\n\n3.  **Dataset**\
+            \ (String):\n    * (English) **Data source and scale**.\n    * Priority\
+            \ Extraction: **Dataset Name** + **Data Scale** (e.g., 1M, 70k, 3000 hours).\n\
+            \    * If private/synthetic data, describe its **generation logic** or\
+            \ **source domain** (e.g., \"50k code instruction pairs generated by GPT-4\"\
+            ).\n\n4.  **Metrics** (String):\n    * (English) **Core performance metrics**.\n\
+            \    * Extract performance on key benchmarks.\n    * **Critical**: If\
+            \ there is a comparison, please write *\"Improved by X% over SOTA (e.g.,\
+            \ ResNet-50)\"* or *\"Maintained accuracy while reducing parameters by\
+            \ Y%\"*.\n    * If no numbers, describe specific **qualitative advantages**\
+            \ (e.g., \"Maintained coherence at 8k context length\").\n\n5.  **Affiliation**\
+            \ (String):\n* Extract the author's affiliated institution from the OCR\
+            \ text.\n* **Key Strategies**:\n    1. **Find Location**: **Priority:\
+            \ Check** sections of the OCR text explicitly marked as 【Affiliation Block\
+            \ (may contain author affiliation information)】. Additionally, check **below\
+            \ the title**, **footnotes**, or the **bottom of the first page**. Affiliation\
+            \ information often appears in small print or as footnotes (e.g., `$ ^{1}\
+            \ $ Department of...`).\n    2. **Ignore Noise**: Automatically ignore\
+            \ OCR-generated special superscript/subscript symbols (e.g., `$ ^{1} $`,\
+            \ `*`, `†`). Extract the institution name directly following these symbols.\n\
+            \    3. **Keyword Matching**: Extract segments containing keywords such\
+            \ as \"University\", \"Institute\", \"Laboratory\", \"Department\", \"\
+            School\", \"College\", \"Group\", \"Research\", \"Center\", \"AG\", \"\
+            GmbH\", \"Corporation\", \"Company\", \"Lab\".\n* **Fallback Source**:\
+            \ If no affiliation information can be extracted from the OCR text, **then\
+            \ attempt to identify affiliation information from the previously extracted\
+            \ {{#1770545149288.footnote_text#}}**. Footnotes often contain author\
+            \ affiliation information, especially paragraphs marked with superscripts\
+            \ (e.g., `$ ^{1} $`, `*`).\n* **Cleaning Instruction**: Remove specific\
+            \ addresses (e.g., street, postal code, city name if appearing alone).\
+            \ Retain only the highest-level institutional name (e.g., \"University\
+            \ of Oxford\" instead of \"Oxford, UK\").\n* **Format**: For multiple\
+            \ affiliations, separate them using \"; \".\n* **Examples**:\n    - Input:\
+            \ 【FOOTNOTE】: `$ ^{1} $ Mercedes-Benz AG, Germany`\n    - Output: `Mercedes-Benz\
+            \ AG`\n    - Input: 【FOOTNOTE】: `$ ^{1} $ Stanford University, USA; $\
+            \ ^{2} $ MIT, USA`\n    - Output: `Stanford University; MIT`\n    - Input:\
+            \ OCR text contains no affiliation info, but extracted from footnote_text:\
+            \ `$ ^{1} $ Department of Computer Science, University of Cambridge`\n\
+            \    - Output: `Department of Computer Science, University of Cambridge`\n\
+            \n**Processing Priority Flow**:\n   1. First, attempt to extract affiliation\
+            \ information from the OCR text.\n   2. If extraction from OCR text fails\
+            \ or results are empty, proceed to analyze footnote_text.\n   3. Search\
+            \ footnote_text for segments containing affiliation keywords.\n   4. Clean\
+            \ and return the affiliation name(s).\n\n\n6.  **Code_Url** (String):\n\
+            \    * **High Priority Search**.\n    * Search Range: Abstract, Introduction,\
+            \ Conclusion, and OCR headers/footers.\n    * **Strict Verification**:\n\
+            \        1. Must be the **official implementation** of **this paper**\
+            \ (usually accompanied by \"Official implementation\", \"Code is released\
+            \ at\").\n        2. **Exclude** links in citations (i.e., exclude links\
+            \ appearing in `[...]` or Reference sections).\n        3. Must start\
+            \ with `http`.\n    * *Output*: Output only the URL. If definitely no\
+            \ code, output \"N/A\".\n\n# Output Format\nPlease output a pure JSON\
+            \ object directly, ensuring it can be parsed by `json.loads` Do not include\
+            \ Markdown code block tags (```json).\n\n{\n  \"One_Liner\": \"...\",\n\
+            \  \"Architecture\": \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\"\
+            : \"...\",\n  \"Affiliation\": \"...\",\n  \"Code_Url\": \"...\"\n}"
+        reasoning_format: separated
+        selected: false
+        title: (LLM) Analysis
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1768746991605'
+      parentId: '1768746557884'
+      position:
+        x: 1531.1976039884366
+        y: 65
+      positionAbsolute:
+        x: 1024.5976201269777
+        y: -214.38448268591503
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "def main(arg1: dict) -> dict:\n    \"\"\"\n    DataUnpack: Unpack iteration\
+          \ item (arg1) into independent variables\n    \"\"\"\n    return {\n   \
+          \     \"title_str\": arg1.get('title', 'No Title'),\n        \"pdf_url\"\
+          : arg1.get('pdf_url', ''),\n        \"summary_str\": arg1.get('summary',\
+          \ ''),\n        \"published\": arg1.get('published', ''),\n        \"authors\"\
+          : arg1.get('authors', 'Unknown Authors'),\n        \"comment\": arg1.get('comment',\
+          \ 'N/A'),\n        \"arxiv_id\": arg1.get('arxiv_id', '')\n    }"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          arxiv_id:
+            children: null
+            type: string
+          authors:
+            children: null
+            type: string
+          comment:
+            children: null
+            type: string
+          pdf_url:
+            children: null
+            type: string
+          published:
+            children: null
+            type: string
+          summary_str:
+            children: null
+            type: string
+          title_str:
+            children: null
+            type: string
+        selected: false
+        title: DataUnpack
+        type: code
+        variables:
+        - value_selector:
+          - '1768746557884'
+          - item
+          value_type: object
+          variable: arg1
+      height: 50
+      id: '1768808528449'
+      parentId: '1768746557884'
+      position:
+        x: 78.20073681427095
+        y: 66.74110112659224
+      positionAbsolute:
+        x: -428.39924704718794
+        y: -212.6433815593228
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "import json\nimport re\n\ndef main(title: str, url: str, summary: str,\
+          \ llm_string: str, pub_date: str, comment: str, authors: str) -> dict:\n\
+          \    pub_status = \"Preprint\"\n    comment = comment if comment else \"\
+          N/A\"\n    \n    if comment != \"N/A\":\n        conf_keywords = ['cvpr',\
+          \ 'iccv', 'eccv', 'nips', 'neurips', 'iclr', 'aaai', 'ijcai', 'acl', 'emnlp',\
+          \ 'naacl', 'siggraph', 'kdd', 'icml']\n        lower_comment = comment.lower()\n\
+          \        \n        for kw in conf_keywords:\n            if kw in lower_comment:\n\
+          \                display_comment = comment[:25] + \"...\" if len(comment)\
+          \ > 25 else comment\n                pub_status = f\"\U0001F389 {kw.upper()}\
+          \ ({display_comment})\"\n                break\n        else:\n        \
+          \    if 'conf' in lower_comment or 'proc' in lower_comment:\n          \
+          \      pub_status = \"\U0001F4C5 Conference/Journal\"\n            elif\
+          \ 'workshop' in lower_comment:\n                pub_status = \"\U0001F6E0\
+          ️ Workshop\"\n    \n    try:\n        clean_date = pub_date[:10]\n    except:\n\
+          \        clean_date = \"Recent\"\n\n    full_status_line = f\"{clean_date}\
+          \ | {pub_status}\"\n\n    ai_data = {\n        \"One_Liner\": \"AI is reading...\"\
+          ,\n        \"Architecture\": \"Integrated architecture\",\n        \"Dataset\"\
+          : \"Relevant data\",\n        \"Metrics\": \"Core metrics\",\n        \"\
+          Affiliation\": \"Extracting...\",\n        \"Code_Url\": \"N/A\"\n    }\n\
+          \n    try:\n        if llm_string:\n            clean_content = llm_string.strip()\n\
+          \            \n            code_block_match = re.search(\n             \
+          \   r'```(?:json)?\\s*(\\{.*?\\})\\s*```',\n                clean_content,\n\
+          \                re.DOTALL\n            )\n            if code_block_match:\n\
+          \                clean_json = code_block_match.group(1)\n            else:\n\
+          \                match = re.search(r'\\{.*\\}', clean_content, re.DOTALL)\n\
+          \                clean_json = match.group() if match else clean_content\n\
+          \            \n            clean_json = clean_json.strip()\n           \
+          \ \n            try:\n                parsed_data = json.loads(clean_json,\
+          \ strict=False)\n            except json.JSONDecodeError:\n            \
+          \    clean_json = clean_json.replace(\"'\", '\"')\n                clean_json\
+          \ = re.sub(r',\\s*}', '}', clean_json)\n                clean_json = re.sub(r',\\\
+          s*]', ']', clean_json)\n                try:\n                    parsed_data\
+          \ = json.loads(clean_json, strict=False)\n                except:\n    \
+          \                parsed_data = None\n            \n            if parsed_data\
+          \ and isinstance(parsed_data, dict):\n                for key in ai_data:\n\
+          \                    if key in parsed_data and parsed_data[key] and parsed_data[key]\
+          \ != \"N/A\":\n                        ai_data[key] = parsed_data[key]\n\
+          \                    elif key.lower() in parsed_data and parsed_data[key.lower()]\
+          \ and parsed_data[key.lower()] != \"N/A\":\n                        ai_data[key]\
+          \ = parsed_data[key.lower()]\n    except:\n        pass\n    \n    extracted_code\
+          \ = ai_data.get(\"Code_Url\", \"N/A\")\n    display_code = \"N/A\"\n   \
+          \ final_code_url = \"N/A\"\n    \n    invalid_keywords = [\"n/a\", \"none\"\
+          , \"null\", \"unknown\", \"coming soon\", \"no code\", \"\"]\n    \n   \
+          \ if extracted_code and str(extracted_code).strip().lower() not in invalid_keywords:\n\
+          \        clean_url = str(extracted_code).strip(\".,()[]'\\\"`。， \\t\\n\\\
+          r\")\n        if clean_url.startswith((\"http://\", \"https://\")):\n  \
+          \          display_code = \"✅ Code Available\"\n            final_code_url\
+          \ = clean_url\n        elif \".\" in clean_url:\n            final_code_url\
+          \ = f\"https://{clean_url.lstrip('www.')}\"\n            display_code =\
+          \ \"✅ Code Available\"\n\n    paper = {\n        \"title\": title or \"\
+          No Title\",\n        \"authors\": authors if authors else \"Unknown Authors\"\
+          ,\n        \"affiliation\": ai_data.get(\"Affiliation\", \"N/A\"),\n   \
+          \     \"pdf_url\": url,\n        \"summary\": summary,\n        \"published\"\
+          : full_status_line,\n        \"github_stats\": display_code,\n        \"\
+          code_url\": final_code_url,\n        \"ai_evaluation\": ai_data\n    }\n\
+          \    \n    return {\n        \"merged_paper\": paper\n    }\n"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          merged_paper:
+            children: null
+            type: object
+        selected: false
+        title: Data Assembly
+        type: code
+        variables:
+        - value_selector:
+          - '1768808528449'
+          - title_str
+          value_type: string
+          variable: title
+        - value_selector:
+          - '1768808528449'
+          - pdf_url
+          value_type: string
+          variable: url
+        - value_selector:
+          - '1768808528449'
+          - summary_str
+          value_type: string
+          variable: summary
+        - value_selector:
+          - '1768746991605'
+          - text
+          value_type: string
+          variable: llm_string
+        - value_selector:
+          - '1768808528449'
+          - published
+          value_type: string
+          variable: pub_date
+        - value_selector:
+          - '1768808528449'
+          - comment
+          value_type: string
+          variable: comment
+        - value_selector:
+          - '1768808528449'
+          - authors
+          value_type: string
+          variable: authors
+      height: 50
+      id: '1768808667129'
+      parentId: '1768746557884'
+      position:
+        x: 1846.3459924053009
+        y: 65
+      positionAbsolute:
+        x: 1339.746008543842
+        y: -214.38448268591503
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        outputs:
+        - value_selector:
+          - '1768830612348'
+          - output
+          value_type: string
+          variable: output_1
+        selected: false
+        title: Output
+        type: end
+      height: 87
+      id: '1768809610681'
+      position:
+        x: 2012.302781093006
+        y: -313.16120854540577
+      positionAbsolute:
+        x: 2012.302781093006
+        y: -313.16120854540577
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        isInIteration: true
+        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1768746557884'
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file.
+            ja_JP: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file.
+            pt_BR: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file.
+            zh_Hans: 图像文件或 PDF 文件的 URL，或上述类型文件内容的 Base64 编码结果。
+          label:
+            en_US: File
+            ja_JP: File
+            pt_BR: File
+            zh_Hans: 文件
+          llm_description: The URL of an image or PDF file, or the Base64-encoded
+            result of the content of such a file.
+          max: null
+          min: null
+          name: file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: File type. 0 indicates a PDF file, and 1 indicates an image file.
+              If not specified, the file type will be inferred from the URL.
+            ja_JP: File type. 0 indicates a PDF file, and 1 indicates an image file.
+              If not specified, the file type will be inferred from the URL.
+            pt_BR: File type. 0 indicates a PDF file, and 1 indicates an image file.
+              If not specified, the file type will be inferred from the URL.
+            zh_Hans: 文件类型。0 表示 PDF 文件，1 表示图像文件。若不设置，则将根据 URL 推断文件类型。
+          label:
+            en_US: File Type
+            ja_JP: File Type
+            pt_BR: File Type
+            zh_Hans: 文件类型
+          llm_description: File type. 0 indicates a PDF file, and 1 indicates an image
+            file. If not specified, the file type will be inferred from the URL.
+          max: null
+          min: null
+          name: fileType
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            ja_JP: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            pt_BR: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            zh_Hans: 是否启用文档方向分类功能。启用该功能可以将输入图像自动转正。
+          label:
+            en_US: Whether to Enable Document Orientation Classification
+            ja_JP: Whether to Enable Document Orientation Classification
+            pt_BR: Whether to Enable Document Orientation Classification
+            zh_Hans: 是否启用文档方向分类
+          llm_description: Whether to enable the document orientation classification
+            function. Enabling this feature allows the input image to be automatically
+            rotated to the correct orientation. Keep this feature disabled unless
+            the user ask for it.
+          max: null
+          min: null
+          name: useDocOrientationClassify
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            ja_JP: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            pt_BR: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            zh_Hans: 是否启用文本图像矫正功能。启用该功能可以对发生畸变的文本图像进行自动矫正。
+          label:
+            en_US: Whether to Enable Text Image Unwarping
+            ja_JP: Whether to Enable Text Image Unwarping
+            pt_BR: Whether to Enable Text Image Unwarping
+            zh_Hans: 是否启用文本图像矫正
+          llm_description: Whether to enable the text image unwarping function. Enabling
+            this feature allows automatic correction of distorted text images. Keep
+            this feature disabled unless the user ask for it.
+          max: null
+          min: null
+          name: useDocUnwarping
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to enable the layout detection function.
+            ja_JP: Whether to enable the layout detection function.
+            pt_BR: Whether to enable the layout detection function.
+            zh_Hans: 是否启用版面检测功能。
+          label:
+            en_US: Whether to Enable Layout Detection
+            ja_JP: Whether to Enable Layout Detection
+            pt_BR: Whether to Enable Layout Detection
+            zh_Hans: 是否启用版面检测
+          llm_description: Whether to enable the layout detection function.
+          max: null
+          min: null
+          name: useLayoutDetection
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the chart recognition function.
+            ja_JP: Whether to enable the chart recognition function.
+            pt_BR: Whether to enable the chart recognition function.
+            zh_Hans: 是否启用图表识别功能。
+          label:
+            en_US: Whether to Enable Chart Recognition
+            ja_JP: Whether to Enable Chart Recognition
+            pt_BR: Whether to Enable Chart Recognition
+            zh_Hans: 是否启用图表识别
+          llm_description: Whether to enable the chart recognition function.
+          max: null
+          min: null
+          name: useChartRecognition
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to perform NMS on layout detection results.
+            ja_JP: Whether to perform NMS on layout detection results.
+            pt_BR: Whether to perform NMS on layout detection results.
+            zh_Hans: 是否对版面检测结果进行 NMS。
+          label:
+            en_US: Whether to Perform NMS on Layout Detection Results
+            ja_JP: Whether to Perform NMS on Layout Detection Results
+            pt_BR: Whether to Perform NMS on Layout Detection Results
+            zh_Hans: 是否对版面检测结果进行 NMS
+          llm_description: Whether to perform NMS on layout detection results.
+          max: null
+          min: null
+          name: layoutNms
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Prompt type for the VLM. Possible values are "ocr", "formula",
+              "table", and "chart". Takes effect only when layout detection is disabled.
+            ja_JP: Prompt type for the VLM. Possible values are "ocr", "formula",
+              "table", and "chart". Takes effect only when layout detection is disabled.
+            pt_BR: Prompt type for the VLM. Possible values are "ocr", "formula",
+              "table", and "chart". Takes effect only when layout detection is disabled.
+            zh_Hans: VLM 的 prompt 类型。可能的值为："ocr"、"formula"、"table"、"chart"。仅当禁用版面检测时有效。
+          label:
+            en_US: Prompt Type for the VLM
+            ja_JP: Prompt Type for the VLM
+            pt_BR: Prompt Type for the VLM
+            zh_Hans: VLM 的 prompt 类型
+          llm_description: Prompt type for the VLM. Possible values are "ocr", "formula",
+            "table", and "chart". Takes effect only when layout detection is disabled.
+          max: null
+          min: null
+          name: promptLabel
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to format block content.
+            ja_JP: Whether to format block content.
+            pt_BR: Whether to format block content.
+            zh_Hans: 是否格式化 block 内容。
+          label:
+            en_US: Whether to Format Block Content
+            ja_JP: Whether to Format Block Content
+            pt_BR: Whether to Format Block Content
+            zh_Hans: 是否格式化 block 内容
+          llm_description: Whether to format block content.
+          max: null
+          min: null
+          name: formatBlockContent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Repetition penalty parameter used in VLM sampling.
+            ja_JP: Repetition penalty parameter used in VLM sampling.
+            pt_BR: Repetition penalty parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的重复惩罚参数。
+          label:
+            en_US: Repetition Penalty Parameter Used in VLM Sampling
+            ja_JP: Repetition Penalty Parameter Used in VLM Sampling
+            pt_BR: Repetition Penalty Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的重复惩罚参数
+          llm_description: Repetition penalty parameter used in VLM sampling.
+          max: null
+          min: null
+          name: repetitionPenalty
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Temperature parameter used in VLM sampling.
+            ja_JP: Temperature parameter used in VLM sampling.
+            pt_BR: Temperature parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的温度参数。
+          label:
+            en_US: Temperature Parameter Used in VLM Sampling
+            ja_JP: Temperature Parameter Used in VLM Sampling
+            pt_BR: Temperature Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的温度参数
+          llm_description: Temperature parameter used in VLM sampling.
+          max: null
+          min: null
+          name: temperature
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top-p parameter used in VLM sampling.
+            ja_JP: Top-p parameter used in VLM sampling.
+            pt_BR: Top-p parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的 top-p 参数。
+          label:
+            en_US: Top-p Parameter Used in VLM Sampling
+            ja_JP: Top-p Parameter Used in VLM Sampling
+            pt_BR: Top-p Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的 top-p 参数
+          llm_description: Top-p parameter used in VLM sampling.
+          max: null
+          min: null
+          name: topP
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Minimum number of pixels allowed during VLM preprocessing.
+            ja_JP: Minimum number of pixels allowed during VLM preprocessing.
+            pt_BR: Minimum number of pixels allowed during VLM preprocessing.
+            zh_Hans: VLM 预处理时允许的最小像素数。
+          label:
+            en_US: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            ja_JP: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            pt_BR: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            zh_Hans: VLM 预处理时允许的最小像素数。
+          llm_description: Minimum number of pixels allowed during VLM preprocessing.
+          max: null
+          min: null
+          name: minPixels
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum number of pixels allowed during VLM preprocessing.
+            ja_JP: Maximum number of pixels allowed during VLM preprocessing.
+            pt_BR: Maximum number of pixels allowed during VLM preprocessing.
+            zh_Hans: VLM 预处理时允许的最大像素数。
+          label:
+            en_US: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            ja_JP: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            pt_BR: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            zh_Hans: VLM 预处理时允许的最大像素数。
+          llm_description: Maximum number of pixels allowed during VLM preprocessing.
+          max: null
+          min: null
+          name: maxPixels
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to prettify the output Markdown text.
+            ja_JP: Whether to prettify the output Markdown text.
+            pt_BR: Whether to prettify the output Markdown text.
+            zh_Hans: 是否美化输出的 Markdown 文本。
+          label:
+            en_US: Whether to Prettify the Output Markdown Text
+            ja_JP: Whether to Prettify the Output Markdown Text
+            pt_BR: Whether to Prettify the Output Markdown Text
+            zh_Hans: 是否美化输出的 Markdown 文本
+          llm_description: Whether to prettify the output Markdown text.
+          max: null
+          min: null
+          name: prettifyMarkdown
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to include formula numbers in the output markdown text.
+            ja_JP: Whether to include formula numbers in the output markdown text.
+            pt_BR: Whether to include formula numbers in the output markdown text.
+            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号。
+          label:
+            en_US: Whether to Include Formula Numbers in the Output Markdown Text
+            ja_JP: Whether to Include Formula Numbers in the Output Markdown Text
+            pt_BR: Whether to Include Formula Numbers in the Output Markdown Text
+            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号
+          llm_description: Whether to include formula numbers in the output markdown
+            text.
+          max: null
+          min: null
+          name: showFormulaNumber
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether or not to return visualization results.
+            ja_JP: Whether or not to return visualization results.
+            pt_BR: Whether or not to return visualization results.
+            zh_Hans: 是否返回可视化结果。
+          label:
+            en_US: Whether to Return Visualization Results
+            ja_JP: Whether to Return Visualization Results
+            pt_BR: Whether to Return Visualization Results
+            zh_Hans: 是否返回可视化结果
+          llm_description: Whether or not to return visualization results.
+          max: null
+          min: null
+          name: visualize
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          file: ''
+          fileType: ''
+          formatBlockContent: ''
+          layoutNms: ''
+          maxPixels: ''
+          minPixels: ''
+          prettifyMarkdown: ''
+          promptLabel: ''
+          repetitionPenalty: ''
+          showFormulaNumber: ''
+          temperature: ''
+          topP: ''
+          useChartRecognition: ''
+          useDocOrientationClassify: ''
+          useDocUnwarping: ''
+          useLayoutDetection: ''
+          visualize: ''
+        plugin_id: langgenius/paddleocr
+        plugin_unique_identifier: langgenius/paddleocr:0.1.4@7b732d21da7e41c97ec4f8547742a3b34777deb3b7ad2e0c56948b5de45219c8
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=be1517bb-1196-402b-b2bd-601dbc4b7e82&filename=f6742a8ecae19d42dedb6641125203e86a70016f465191b85a3bbe1588234c80.png
+        provider_id: langgenius/paddleocr/paddleocr
+        provider_name: langgenius/paddleocr/paddleocr
+        provider_type: builtin
+        retry_config:
+          max_retries: 5
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: LLM Doc Parsing
+        tool_configurations: {}
+        tool_description: PaddleOCR LLM Document Parsing Tool, capable of extracting
+          tables, formulas, seals, etc. from documents while retaining the original
+          layout structure.
+        tool_label: LLM Doc Parsing
+        tool_name: document_parsing_vl
+        tool_node_version: '2'
+        tool_parameters:
+          file:
+            type: mixed
+            value: '{{#1768808528449.pdf_url#}}'
+          fileType:
+            type: constant
+            value: 0
+          formatBlockContent:
+            type: constant
+            value: false
+          layoutNms:
+            type: constant
+            value: true
+          maxPixels:
+            type: constant
+            value: null
+          minPixels:
+            type: constant
+            value: null
+          prettifyMarkdown:
+            type: constant
+            value: true
+          promptLabel:
+            type: mixed
+            value: null
+          repetitionPenalty:
+            type: constant
+            value: null
+          showFormulaNumber:
+            type: constant
+            value: false
+          temperature:
+            type: constant
+            value: null
+          topP:
+            type: constant
+            value: null
+          useChartRecognition:
+            type: constant
+            value: true
+          useDocOrientationClassify:
+            type: constant
+            value: false
+          useDocUnwarping:
+            type: constant
+            value: false
+          useLayoutDetection:
+            type: constant
+            value: true
+          visualize:
+            type: constant
+            value: false
+        type: tool
+      height: 79
+      id: '1768813194176'
+      parentId: '1768746557884'
+      position:
+        x: 632.9307447959025
+        y: 65
+      positionAbsolute:
+        x: 126.33076093444356
+        y: -214.38448268591503
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        selected: false
+        template: "\U0001F4C5 PaperEssence Daily\r\nBased on your specified research\
+          \ topic \"{{ raw_topic }}\", here are the top 3 papers selected from ArXiv\
+          \ updates in recent times.\r\n--------------------------------------------------\r\
+          \n--------------------------------------------------\r\n⚠️ Note: Content\
+          \ is AI-generated and for academic reference only. Please verify by checking\
+          \ the original PDF before citing or conducting in-depth research.\r\nDate:\
+          \ {{ items.target_date | default('Today') }}\r\n==================================================\r\
+          \n\r\n{# Automatically adapt data structure #}\r\n{% set final_list = items.paper\
+          \ | default(items) %}\r\n\r\n{% for item in final_list %}\r\n\U0001F4C4\
+          \ [{{ loop.index }}] {{ item.title }}\r\n--------------------------------------------------\r\
+          \n\U0001F464 Authors: {{ item.authors }}\r\n\U0001F3E2 Affiliation: {{ item.affiliation\
+          \ }}\r\n\U0001F517 PDF: {{ item.pdf_url }}\r\n\U0001F4C5 Status: {{ item.published\
+          \ }}\r\n{% if item.code_url and item.code_url != 'N/A' %}\r\n\U0001F4E6\
+          \ Code: {{ item.github_stats }}\r\n   \U0001F517 {{ item.code_url }}\r\n\
+          {% else %}\r\n\U0001F4E6 Code: {{ item.github_stats }}\r\n{% endif %}\r\n\
+          Abstract:\r\n{{ item.summary | replace('\\n', ' ') }}\r\n\r\n\U0001F680\
+          \ Core Innovation:\r\n{{ item.ai_evaluation.One_Liner }}\r\n\r\n\U0001F4CA\
+          \ Summary:\r\n{# Use newlines and indentation for hierarchy, not relying\
+          \ on HTML tags #}\r\n--------------------------------------------------\r\
+          \n\U0001F3D7️ Architecture:\r\n{{ item.ai_evaluation.Architecture | replace('\\\
+          n- ', '\\n\\n   \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\
+          \n\U0001F4BE Dataset:\r\n{{ item.ai_evaluation.Dataset | replace('\\n- ',\
+          \ '\\n\\n   \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n\U0001F4C8\
+          \ Metrics:\r\n{{ item.ai_evaluation.Metrics | replace('\\n- ', '\\n\\n \
+          \  \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n==================================================\r\
+          \n{% else %}\r\n⚠️ No new papers today.\r\n{% endfor %}"
+        title: Template Transform
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1768746557884'
+          - output
+          value_type: array[object]
+          variable: items
+        - value_selector:
+          - '1769347686844'
+          - raw_topic
+          value_type: string
+          variable: raw_topic
+      height: 50
+      id: '1768830612348'
+      position:
+        x: 1628.9925749984425
+        y: -207.99933649563303
+      positionAbsolute:
+        x: 1628.9925749984425
+        y: -207.99933649563303
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        config:
+          frequency: daily
+          mode: visual
+          timezone: UTC
+          visual_config:
+            monthly_days:
+            - 1
+            on_minute: 0
+            time: 12:00 AM
+            weekdays:
+            - sun
+        frequency: daily
+        mode: visual
+        selected: true
+        timezone: Asia/Shanghai
+        title: Scheduled Trigger
+        type: trigger-schedule
+        visual_config:
+          monthly_days:
+          - 1
+          on_minute: 0
+          time: 9:19 PM
+          weekdays:
+          - sun
+      height: 128
+      id: '1769347575869'
+      position:
+        x: -322.0432644426813
+        y: -669.2232020013064
+      positionAbsolute:
+        x: -322.0432644426813
+        y: -669.2232020013064
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import os\n\ndef main(\n    SMTP_USER: str,\n    MY_RAW_TOPIC: str,\n\
+          \    SMTP_PORT: str,\n    SMTP_SERVER: str,\n    SMTP_PASSWORD: str,\n \
+          \   table_name: str\n) -> dict:\n\n    user_email = SMTP_USER\n    raw_topic\
+          \ = MY_RAW_TOPIC\n\n    smtp_port = SMTP_PORT\n    smtp_server = SMTP_SERVER\n\
+          \    smtp_password = SMTP_PASSWORD\n    table_name = table_name\n\n    return\
+          \ {\n        # Search query\n        \"raw_topic\": raw_topic,\n\n     \
+          \   # Recipient email\n        \"user_email\": user_email,\n        # SMTP\
+          \ config (for subsequent mail nodes)\n        \"smtp_port\": smtp_port,\n\
+          \        \"smtp_server\": smtp_server,\n        \"smtp_password\": smtp_password,\n\
+          \n        # Other non-sensitive configs\n        \"fetch_count\": 50,\n\
+          \        \"push_limit\": 3,\n        \"days_lookback\": 30,\n        \"\
+          table_name\": table_name\n    }"
+        code_language: python3
+        outputs:
+          days_lookback:
+            children: null
+            type: number
+          fetch_count:
+            children: null
+            type: number
+          push_limit:
+            children: null
+            type: number
+          raw_topic:
+            children: null
+            type: string
+          smtp_password:
+            children: null
+            type: string
+          smtp_port:
+            children: null
+            type: string
+          smtp_server:
+            children: null
+            type: string
+          table_name:
+            children: null
+            type: string
+          user_email:
+            children: null
+            type: string
+        selected: false
+        title: Configuration
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - SMTP_PORT
+          value_type: string
+          variable: SMTP_PORT
+        - value_selector:
+          - env
+          - SMTP_SERVER
+          value_type: string
+          variable: SMTP_SERVER
+        - value_selector:
+          - env
+          - SMTP_USER
+          value_type: secret
+          variable: SMTP_USER
+        - value_selector:
+          - env
+          - SMTP_PASSWORD
+          value_type: secret
+          variable: SMTP_PASSWORD
+        - value_selector:
+          - env
+          - MY_RAW_TOPIC
+          value_type: string
+          variable: MY_RAW_TOPIC
+        - value_selector:
+          - env
+          - table_name
+          value_type: string
+          variable: table_name
+      height: 50
+      id: '1769347686844'
+      position:
+        x: -35.10312416167743
+        y: -626.1144342228893
+      positionAbsolute:
+        x: -35.10312416167743
+        y: -626.1144342228893
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\n\ndef main(llm_string) -> dict:\n    selected_papers\
+          \ = []\n\n    def try_parse(content):\n        \"\"\"Try to parse arbitrary\
+          \ content into Python object\"\"\"\n        if isinstance(content, dict)\
+          \ or isinstance(content, list):\n            return content\n        try:\n\
+          \            # Try direct parsing\n            return json.loads(content)\n\
+          \        except:\n            # Try regex extraction of JSON\n         \
+          \   match = re.search(r'(\\{.*\\}|\\[.*\\])', str(content), re.DOTALL)\n\
+          \            if match:\n                try:\n                    return\
+          \ json.loads(match.group())\n                except:\n                 \
+          \   pass\n        return None\n\n    try:\n        # First layer parsing\n\
+          \        data = try_parse(llm_string)\n\n        # Handle nesting\n    \
+          \    if isinstance(data, dict) and 'text' in data:\n            inner_data\
+          \ = try_parse(data['text'])\n            if inner_data: \n             \
+          \   data = inner_data\n        \n        # Normalization\n        if isinstance(data,\
+          \ list):\n            selected_papers = data\n        elif isinstance(data,\
+          \ dict):\n            # Prioritize finding papers field\n            if\
+          \ 'papers' in data and isinstance(data['papers'], list):\n             \
+          \   selected_papers = data['papers']\n            elif 'top_papers' in data\
+          \ and isinstance(data['top_papers'], list):\n                selected_papers\
+          \ = data['top_papers']\n            else:\n                for v in data.values():\n\
+          \                    if isinstance(v, list):\n                        selected_papers\
+          \ = v\n                        break\n        \n        if not isinstance(selected_papers,\
+          \ list):\n            selected_papers = []\n\n    except Exception as e:\n\
+          \        print(f\"Parsing failed severely: {str(e)}\")\n        selected_papers\
+          \ = []\n\n    return {\n        \"top_papers\": selected_papers,\n     \
+          \   \"count\": len(selected_papers)\n    }"
+        code_language: python3
+        outputs:
+          count:
+            children: null
+            type: number
+          top_papers:
+            children: null
+            type: array[object]
+        selected: false
+        title: JSON Parse
+        type: code
+        variables:
+        - value_selector:
+          - '1769350813065'
+          - text
+          value_type: string
+          variable: llm_string
+      height: 50
+      id: '1769349445686'
+      position:
+        x: 698.4876495683322
+        y: -420.66450128500423
+      positionAbsolute:
+        x: 698.4876495683322
+        y: -420.66450128500423
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: ernie-4.5-turbo-128k-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
+        prompt_template:
+        - id: 57470293-294d-4555-b0de-aa67069937e8
+          role: system
+          text: "# Role\nYou are a review committee composed of Area Chairs from top\
+            \ conferences like NeurIPS, ICLR, and CVPR. You have high academic taste,\
+            \ zero tolerance for \"Incremental Work\", and only look for \"Groundbreaking\
+            \ Work\" that pushes the field forward.\n\n# Task\nThe input is {{#1770469838682.count#}}\
+            \ newly published papers in the field of Computer Vision and Large Models.\n\
+            Please conduct a strict **Peer Review** process to select the **Top 3**\
+            \ most valuable papers from the list.\n\n# Review Criteria\nScore each\
+            \ paper mentally (do not output scores, use only for filtering):\n1. **Novelty**:\n\
+            \   - ✅ Must propose a new architecture, new training paradigm, or solve\
+            \ a long-standing unresolved pain point.\n   - ❌ Reject simple \"A+B\"\
+            \ stitching, mere parameter fine-tuning, or minor modifications to known\
+            \ methods.\n2. **Insight**:\n   - ✅ Does the paper provide surprising\
+            \ findings? Does it challenge existing cognition?\n   - ❌ Reject mere\
+            \ \"SOTA-chasing\" papers (improving only 0.1% on a dataset).\n3. **Completeness**:\n\
+            \   - ✅ Does the abstract contain clear methodology, experimental conclusions,\
+            \ and specific metrics.\n\n# Negative Filtering (Discard immediately if\
+            \ encountered)\n- Review articles with titles containing \"A Survey of...\"\
+            \ or \"Review\" (unless the field desperately lacks a review).\n- Papers\
+            \ with hollow abstracts, full of \"State-of-the-art\" buzzwords but without\
+            \ explaining the specific method.\n- Edge application papers irrelevant\
+            \ to core Computer Science/AI technology.\n\n# Output Constraints (CRITICAL)\n\
+            1. **Pure JSON**: Output must be raw JSON array format `[...]`. **Strictly\
+            \ forbidden** to add \"Here is...\" or \"```json\" Markdown tags before\
+            \ or after JSON.\n2. **Structural Integrity**: Must retain all original\
+            \ fields of the input object (title, pdf_url, summary, authors, published,\
+            \ etc.), **Strictly forbidden to modify field names**, strictly forbidden\
+            \ to add new fields.\n3. **Quantity Control**:\n   - If input papers >\
+            \ 3: Strictly output the top **3** highest-rated papers.\n   - If input\
+            \ papers <= 3: Output all.\n\n# Input Data\n{{#1770469838682.result#}}}"
+        selected: false
+        title: LLM Initial Review
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1769350813065'
+      position:
+        x: 380.03753984288755
+        y: -460.709827196626
+      positionAbsolute:
+        x: 380.03753984288755
+        y: -460.709827196626
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Email username
+            ja_JP: Email username
+            pt_BR: Email username
+            zh_Hans: 邮箱用户名
+          label:
+            en_US: Email username
+            ja_JP: Email username
+            pt_BR: Email username
+            zh_Hans: 邮箱用户名
+          llm_description: Email username
+          max: null
+          min: null
+          name: username_send
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: AUTHORIZE CODE
+            ja_JP: AUTHORIZE CODE
+            pt_BR: CODE DE AUTORIZAÇÃO
+            zh_Hans: 授权码
+          label:
+            en_US: AUTHORIZE CODE
+            ja_JP: AUTHORIZE CODE
+            pt_BR: CODE DE AUTORIZAÇÃO
+            zh_Hans: 授权码
+          llm_description: AUTHORIZE CODE
+          max: null
+          min: null
+          name: authorization_code
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Recipient mailbox, multiple mailboxes separated by commas
+            ja_JP: Recipient mailbox, multiple mailboxes separated by commas
+            pt_BR: Recipiente de correio electrónico, endereços de correio electrónico
+              múltiplos separados por vírgulas
+            zh_Hans: 收件人邮箱，多个邮箱逗号隔开
+          label:
+            en_US: Recipient mailbox, multiple mailboxes separated by commas
+            ja_JP: Recipient mailbox, multiple mailboxes separated by commas
+            pt_BR: Recipiente de correio electrónico, endereços de correio electrónico
+              múltiplos separados por vírgulas
+            zh_Hans: 收件人邮箱，多个邮箱逗号隔开
+          llm_description: Recipient mailbox, multiple mailboxes separated by commas
+          max: null
+          min: null
+          name: username_recv
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: subject
+            ja_JP: subject
+            pt_BR: tema
+            zh_Hans: 主题
+          label:
+            en_US: subject
+            ja_JP: subject
+            pt_BR: tema
+            zh_Hans: 主题
+          llm_description: subject
+          max: null
+          min: null
+          name: subject
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: content
+            ja_JP: content
+            pt_BR: conteúdo
+            zh_Hans: 内容
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: conteúdo
+            zh_Hans: 内容
+          llm_description: 内容
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          authorization_code: ''
+          content: ''
+          subject: ''
+          username_recv: ''
+          username_send: ''
+        plugin_id: wjdsg/163-smtp-send-mail
+        plugin_unique_identifier: wjdsg/163-smtp-send-mail:0.0.1@53922437a73d6512114f3e915dcad3b7c85b7df687ae2013d96e97e6e3b6fd6a
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=be1517bb-1196-402b-b2bd-601dbc4b7e82&filename=d34785dd2b36ddffe8dc7c28d648a5a18e590831169662dd0f37d0cc48d3d203.svg
+        provider_id: wjdsg/163-smtp-send-mail/163-smtp-send-mail
+        provider_name: wjdsg/163-smtp-send-mail/163-smtp-send-mail
+        provider_type: builtin
+        selected: false
+        title: 163 SMTP Email Sender
+        tool_configurations: {}
+        tool_description: 163SMTP邮件发送
+        tool_label: 163SMTP邮件发送
+        tool_name: 163-smtp-send-mail
+        tool_node_version: '2'
+        tool_parameters:
+          authorization_code:
+            type: mixed
+            value: '{{#1769347686844.smtp_password#}}'
+          content:
+            type: mixed
+            value: '{{#1768830612348.output#}}'
+          subject:
+            type: mixed
+            value: PaperEssence-{{#1770469411002.cutoff_str#}}-{{#1770469411002.today_str#}}
+          username_recv:
+            type: mixed
+            value: '{{#1769347686844.user_email#}}'
+          username_send:
+            type: mixed
+            value: '{{#1769347686844.user_email#}}'
+        type: tool
+      height: 50
+      id: '1769364120122'
+      position:
+        x: 2079.2556353060527
+        y: 23.567113341135695
+      positionAbsolute:
+        x: 2079.2556353060527
+        y: 23.567113341135695
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of the table to query.
+            ja_JP: クエリ対象のテーブル名。
+            pt_BR: The name of the table to query.
+            zh_Hans: The name of the table to query.
+          label:
+            en_US: Table Name
+            ja_JP: テーブル名
+            pt_BR: Table Name
+            zh_Hans: Table Name
+          llm_description: Provide the name of the table you want to query in Supabase.
+          max: null
+          min: null
+          name: table
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum number of rows to return.
+            ja_JP: 返される最大行数。
+            pt_BR: Maximum number of rows to return.
+            zh_Hans: Maximum number of rows to return.
+          label:
+            en_US: Limit
+            ja_JP: 上限
+            pt_BR: Limit
+            zh_Hans: Limit
+          llm_description: Specify how many rows you want to retrieve. Default is
+            10.
+          max: null
+          min: null
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional filter condition (e.g., 'status=active').
+            ja_JP: オプションのフィルター条件（例：'status=active'）。
+            pt_BR: Optional filter condition (e.g., 'status=active').
+            zh_Hans: Optional filter condition (e.g., 'status=active').
+          label:
+            en_US: Filter
+            ja_JP: フィルター
+            pt_BR: Filter
+            zh_Hans: Filter
+          llm_description: Provide a filter condition if needed. (e.g., 'status=active')
+          max: null
+          min: null
+          name: filter
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          filter: ''
+          limit: ''
+          table: ''
+        plugin_id: langgenius/supabase
+        plugin_unique_identifier: langgenius/supabase:0.1.0@6bdd6f533a5ba5c236c5a3d08a8483176f6d9a749b33181bde6aee1f4b30706e
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=be1517bb-1196-402b-b2bd-601dbc4b7e82&filename=6239d130d5b7cbd43ca28b8fc2c08cccbe1440495aae395a8b8c31f0a086c149.svg
+        provider_id: langgenius/supabase/supabase
+        provider_name: langgenius/supabase/supabase
+        provider_type: builtin
+        selected: false
+        title: Get Rows
+        tool_configurations: {}
+        tool_description: Get rows from a specified table in Supabase.
+        tool_label: Get Rows
+        tool_name: get_rows
+        tool_node_version: '2'
+        tool_parameters:
+          filter:
+            type: mixed
+            value: ''
+          limit:
+            type: constant
+            value: 3000
+          table:
+            type: mixed
+            value: '{{#1769347686844.table_name#}}'
+        type: tool
+      height: 50
+      id: '1769954998188'
+      position:
+        x: 524.3775369091078
+        y: -626.1144342228893
+      positionAbsolute:
+        x: 524.3775369091078
+        y: -626.1144342228893
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        isInIteration: true
+        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1768746557884'
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The name of the table to insert into.
+            ja_JP: 挿入先のテーブル名。
+            pt_BR: The name of the table to insert into.
+            zh_Hans: The name of the table to insert into.
+          label:
+            en_US: Table Name
+            ja_JP: テーブル名
+            pt_BR: Table Name
+            zh_Hans: Table Name
+          llm_description: Provide the name of the table where you want to insert
+            a new row.
+          max: null
+          min: null
+          name: table
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Data for the new row as a JSON object.
+            ja_JP: 新しい行のデータ（JSON オブジェクト形式）。
+            pt_BR: Data for the new row as a JSON object.
+            zh_Hans: Data for the new row as a JSON object.
+          label:
+            en_US: Row Data
+            ja_JP: 行データ
+            pt_BR: Row Data
+            zh_Hans: Row Data
+          llm_description: Provide the data for the new row in JSON format.
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          data: ''
+          table: ''
+        plugin_id: langgenius/supabase
+        plugin_unique_identifier: langgenius/supabase:0.1.0@6bdd6f533a5ba5c236c5a3d08a8483176f6d9a749b33181bde6aee1f4b30706e
+        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=be1517bb-1196-402b-b2bd-601dbc4b7e82&filename=6239d130d5b7cbd43ca28b8fc2c08cccbe1440495aae395a8b8c31f0a086c149.svg
+        provider_id: langgenius/supabase/supabase
+        provider_name: langgenius/supabase/supabase
+        provider_type: builtin
+        selected: false
+        title: Create a Row
+        tool_configurations: {}
+        tool_description: Create a new row in a specified table in Supabase.
+        tool_label: Create a Row
+        tool_name: create_a_row
+        tool_node_version: '2'
+        tool_parameters:
+          data:
+            type: mixed
+            value: "{\n  \"arxiv_id\": \"{{{{#1768808528449.arxiv_id#}}}}\"\n}"
+          table:
+            type: mixed
+            value: '{{#1769347686844.table_name#}}'
+        type: tool
+      height: 50
+      id: '1769957710193'
+      parentId: '1768746557884'
+      position:
+        x: 358.3007398078432
+        y: 68.20831614138345
+      positionAbsolute:
+        x: -148.29924405361572
+        y: -211.17616654453158
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: ernie-4.5-turbo-128k-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
+        prompt_template:
+        - id: a476507a-b960-42dc-b0e3-0d6a7e5babe4
+          role: system
+          text: "# Role\nYou are an ArXiv search expert, responsible for transforming\
+            \ users’ informal descriptions into high-recall **English ArXiv query\
+            \ strings**.\n\n# Task\nAnalyze the user’s input, extract core concepts,\
+            \ expand synonyms, and construct a query string that conforms to ArXiv\
+            \ search syntax.\n\n# Rules\n1. **Terminology Normalization and Expansion\
+            \ (Most Important)**:\n   - Convert informal expressions into standard\
+            \ academic terminology (e.g., “memory chain” → memory OR \"memory mechanism\"\
+            \ OR \"long-term memory\").\n   - Expand abbreviations (e.g., RL → reinforcement\
+            \ OR \"reinforcement learning\").\n   - Include common synonyms of core\
+            \ concepts, connected using `OR`.\n\n2. **Balancing Precision and Recall**:\n\
+            \   - **Prefer unquoted keywords** (e.g., agent, memory) to achieve higher\
+            \ recall.\n   - **Use quotation marks only for proper nouns that require\
+            \ exact matching** (e.g., \"GPT-4\", \"BERT\").\n   - Do not use quotation\
+            \ marks for general concepts (e.g., agent, memory, learning).\n\n3. **Structured\
+            \ Construction**:\n   - Connect different concepts using `AND`.\n   -\
+            \ Group synonyms of the same concept using parentheses `()` and connect\
+            \ them with `OR`.\n\n4. **Noise Reduction**:\n   - Ignore irrelevant phrases\
+            \ such as “find papers about”, “the latest”, “classic”, etc.\n\n5. **Output\
+            \ Constraints**:\n   - **Do not** output `cat:` category tags (this will\
+            \ be handled automatically by downstream code).\n   - **Do not** output\
+            \ any explanations; output only the query string itself.\n\n# Examples\n\
+            Input: Research on agent memory chains, especially methods to reduce forgetting\
+            \  \nOutput: (agent OR \"autonomous agent\" OR \"LLM agent\") AND (memory\
+            \ OR \"memory mechanism\" OR \"long-term memory\") AND (forgetting OR\
+            \ \"catastrophic forgetting\")\n\nInput: Communication optimization in\
+            \ multi-agent systems based on large language models  \nOutput: (\"large\
+            \ language model\" OR LLM OR language model) AND (\"multi-agent\" OR multiagent)\
+            \ AND (communication OR optimization)\n\nInput: Applications of diffusion\
+            \ models in medical image segmentation  \nOutput: (diffusion OR \"diffusion\
+            \ model\") AND (medical OR biomedical) AND (segmentation OR \"image segmentation\"\
+            )\n\nInput: Contrastive learning for recommender systems  \nOutput: (\"\
+            contrastive learning\" OR contrastive) AND (recommendation OR recommender)\n\
+            \n# Input: {{#1769347686844.raw_topic#}}"
+        retry_config:
+          max_retries: 5
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: LLM trans
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1770443235033'
+      position:
+        x: 252.9371576016536
+        y: -648.2232020013064
+      positionAbsolute:
+        x: 252.9371576016536
+        y: -648.2232020013064
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        headers: User-Agent:me
+        method: get
+        params: 'search_query:{{#1770469411002.base_query#}}
+
+          start:0
+
+          max_results:{{#1770469411002.fetch_limit#}}
+
+          sortBy:submittedDate
+
+          sortOrder:descending'
+        retry_config:
+          max_retries: 10
+          retry_enabled: true
+          retry_interval: 2127
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 'HTTP Request '
+        type: http-request
+        url: http://export.arxiv.org/api/query
+        variables: []
+      height: 135
+      id: '1770469208395'
+      position:
+        x: -240.5530570995624
+        y: -471.15643395617946
+      positionAbsolute:
+        x: -240.5530570995624
+        y: -471.15643395617946
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nfrom datetime import datetime, timedelta\nimport re\n\n\
+          def main(topic: str, days_lookback: int, count: int, supabase_output: list\
+          \ = None) -> dict:\n    \"\"\"\n    Preprocessing step that receives keywords\
+          \ already translated into English\n    and constructs an ArXiv-compatible\
+          \ query.\n    \"\"\"\n    # Handle basic date-related parameters\n    today\
+          \ = datetime.now()\n    days = int(days_lookback) if days_lookback else\
+          \ 3  # Fallback window if not provided\n    cutoff_date = today - timedelta(days=days)\n\
+          \    \n    cutoff_str = cutoff_date.strftime('%Y-%m-%d')\n    today_str\
+          \ = today.strftime('%Y-%m-%d')\n    \n    # Parse previously pushed ArXiv\
+          \ IDs with defensive handling\n    pushed_ids = []\n    if supabase_output\
+          \ and isinstance(supabase_output, list):\n        try:\n            # Recursively\
+          \ traverse nested structures to extract arxiv_id fields\n            def\
+          \ extract_ids(obj):\n                ids = []\n                if isinstance(obj,\
+          \ dict):\n                    if \"arxiv_id\" in obj:\n                \
+          \        val = obj[\"arxiv_id\"]\n                        if val:\n    \
+          \                        ids.append(str(val).strip('{} ').split('v')[0])\n\
+          \                    for k, v in obj.items():\n                        ids.extend(extract_ids(v))\n\
+          \                elif isinstance(obj, list):\n                    for item\
+          \ in obj:\n                        ids.extend(extract_ids(item))\n     \
+          \           return ids\n            \n            pushed_ids = list(set(extract_ids(supabase_output)))\n\
+          \        except Exception:\n            pushed_ids = []\n\n    # Build a\
+          \ robust ArXiv search query from free-form keywords\n    def build_robust_query(search_terms):\n\
+          \        # Normalize whitespace in the input string\n        clean_topic\
+          \ = re.sub(r'\\s+', ' ', search_terms.strip())\n        \n        if any(x\
+          \ in clean_topic for x in [' AND ', ' OR ', 'cat:', 'ti:', 'abs:']):\n \
+          \           return clean_topic\n\n        # Split into keywords and drop\
+          \ overly short tokens\n        keywords = [w for w in clean_topic.split()\
+          \ if len(w) > 1]\n        \n        if not keywords:\n            return\
+          \ \"cat:cs.AI\"  # Safe fallback query\n\n        # Construct a conjunctive\
+          \ query over title and abstract fields\n        query_parts = []\n     \
+          \   for kw in keywords:\n            part = f'(ti:{kw} OR abs:{kw})'\n \
+          \           query_parts.append(part)\n        \n        return ' AND '.join(query_parts)\n\
+          \n    base_query = build_robust_query(topic)\n\n    # Automatically append\
+          \ category constraints when none are explicitly provided\n    if 'cat:'\
+          \ not in base_query:\n        topic_lower = topic.lower()\n        cat_map\
+          \ = {\n            'cs.CV': ['vision', 'image', 'detection', 'segmentation',\
+          \ 'video'],\n            'cs.CL': ['nlp', 'language', 'text', 'transformer',\
+          \ 'bert', 'gpt', 'llm', 'prompt'],\n            'cs.RO': ['robot', 'manipulation',\
+          \ 'nav'],\n            'cs.CR': ['security', 'crypto', 'attack', 'defense'],\n\
+          \            'cs.LG': ['machine learning', 'deep learning', 'reinforcement',\
+          \ 'neural'],\n            'cs.SE': ['software', 'code', 'debugging']\n \
+          \       }\n        \n        added_cats = []\n        for cat, triggers\
+          \ in cat_map.items():\n            if any(t in topic_lower for t in triggers):\n\
+          \                added_cats.append(f'cat:{cat}')\n        \n        # Constrain\
+          \ the query if matching categories are found\n        if added_cats:\n \
+          \           cat_query = ' OR '.join(added_cats)\n            base_query\
+          \ = f'({base_query}) AND ({cat_query})'\n\n    # Determine an expanded fetch\
+          \ size to compensate for API pagination noise\n    fetch_limit = max(int(count)\
+          \ * 5, 100)\n\n    # Generate a lowercase keyword list for downstream post-processing\n\
+          \    search_keywords_list = [kw.lower() for kw in topic.split() if len(kw)\
+          \ > 2]\n\n    return {\n        \"base_query\": base_query,\n        \"\
+          pushed_ids\": pushed_ids,\n        \"cutoff_str\": cutoff_str,\n       \
+          \ \"today_str\": today_str,\n        \"fetch_limit\": fetch_limit,\n   \
+          \     \"count\": int(count),\n        \"search_keywords\": search_keywords_list\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          base_query:
+            children: null
+            type: string
+          count:
+            children: null
+            type: number
+          cutoff_str:
+            children: null
+            type: string
+          fetch_limit:
+            children: null
+            type: number
+          pushed_ids:
+            children: null
+            type: array[string]
+          search_keywords:
+            children: null
+            type: array[string]
+          today_str:
+            children: null
+            type: string
+        selected: false
+        title: Search Pre-process
+        type: code
+        variables:
+        - value_selector:
+          - '1770443235033'
+          - text
+          value_type: string
+          variable: topic
+        - value_selector:
+          - '1769347686844'
+          - days_lookback
+          value_type: number
+          variable: days_lookback
+        - value_selector:
+          - '1769347686844'
+          - push_limit
+          value_type: number
+          variable: count
+        - value_selector:
+          - '1769954998188'
+          - json
+          value_type: array[object]
+          variable: supabase_output
+      height: 50
+      id: '1770469411002'
+      position:
+        x: 802.366517729193
+        y: -620.8911308431126
+      positionAbsolute:
+        x: 802.366517729193
+        y: -620.8911308431126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import xml.etree.ElementTree as ET\nfrom datetime import datetime\n\
+          import json\n\ndef main(\n    http_response_body: str,\n    base_query_var:\
+          \ str,\n    pushed_ids_var: list,\n    cutoff_str_var: str,\n    today_str_var:\
+          \ str,\n    fetch_limit_var: int,\n    count_var: int,\n    search_keywords_var:\
+          \ list\n) -> dict:\n    \"\"\"\n    Process the HTTP response, parse the\
+          \ XML content, and filter results\n    using a permissive strategy.\n  \
+          \  \"\"\"\n    try:\n        root = ET.fromstring(http_response_body)\n\
+          \        ns = {'atom': 'http://www.w3.org/2005/Atom', 'arxiv': 'http://arxiv.org/schemas/atom'}\n\
+          \        entries = root.findall('atom:entry', ns)\n        \n        filtered_results\
+          \ = []\n        \n        # Unpack and normalize input variables\n     \
+          \   pushed_ids_str = set(str(item) for item in pushed_ids_var)  # Use a\
+          \ set for faster lookups\n        count = int(count_var)\n        cutoff_date\
+          \ = datetime.strptime(cutoff_str_var, \"%Y-%m-%d\") if cutoff_str_var else\
+          \ datetime.now()\n        \n        debug_counters = {\"duplicate\": 0,\
+          \ \"too_old\": 0, \"kept\": 0}\n\n        for entry in entries:\n      \
+          \      id_url = entry.find('atom:id', ns).text\n            raw_id = id_url.rsplit('/',\
+          \ 1)[-1] if id_url else \"\"\n            arxiv_id = raw_id.split('v')[0].strip()\
+          \  \n            \n            # Skip entries that have already been pushed\n\
+          \            if arxiv_id in pushed_ids_str:\n                debug_counters[\"\
+          duplicate\"] += 1\n                continue\n            \n            #\
+          \ Filter out entries published before the cutoff date\n            published_str\
+          \ = entry.find('atom:published', ns).text\n            try:\n          \
+          \      pub_date_dt = datetime.strptime(published_str[:10], \"%Y-%m-%d\"\
+          )\n                if pub_date_dt.date() < cutoff_date.date():\n       \
+          \             debug_counters[\"too_old\"] += 1\n                    continue\n\
+          \            except:\n                pass  # Allow entries through if date\
+          \ parsing fails\n\n            # Extract and normalize title text\n    \
+          \        title = entry.find('atom:title', ns).text or \"\"\n           \
+          \ title = title.replace('\\n', ' ').strip()\n            \n            #\
+          \ Extract and normalize abstract text\n            summary = entry.find('atom:summary',\
+          \ ns).text or \"\"\n            summary = summary.replace('\\n', ' ').strip()\n\
+          \n            # Extract author names\n            authors = []\n       \
+          \     for author in entry.findall('atom:author', ns):\n                name\
+          \ = author.find('atom:name', ns).text\n                if name:\n      \
+          \              authors.append(name)\n            authors_str = \", \".join(authors[:3])\
+          \ + (\" et al.\" if len(authors) > 3 else \"\")\n\n            # Extract\
+          \ the PDF URL, falling back to a constructed default\n            links\
+          \ = entry.findall('atom:link', ns)\n            pdf_url = f\"https://arxiv.org/pdf/{arxiv_id}.pdf\"\
+          \n            for link in links:\n                if link.attrib.get('title')\
+          \ == 'pdf':\n                    pdf_url = link.attrib.get('href')\n\n \
+          \           result_item = {\n                \"arxiv_id\": arxiv_id,\n \
+          \               \"title\": title,\n                \"summary\": summary,\n\
+          \                \"authors\": authors_str,\n                \"published\"\
+          : published_str[:10],\n                \"pdf_url\": pdf_url,\n         \
+          \       \"url\": id_url\n            }\n            \n            filtered_results.append(result_item)\n\
+          \            debug_counters[\"kept\"] += 1\n\n        return {\n       \
+          \     \"result\": json.dumps(filtered_results, ensure_ascii=False),\n  \
+          \          \"count\": len(filtered_results),\n            \"debug\": f\"\
+          Total fetched: {len(entries)}. Dup: {debug_counters['duplicate']}, Old:\
+          \ {debug_counters['too_old']}, Kept: {debug_counters['kept']}\"\n      \
+          \  }\n\n    except Exception as e:\n        return {\n            \"result\"\
+          : \"[]\",\n            \"count\": 0,\n            \"debug\": f\"Error parsing\
+          \ XML: {str(e)}\"\n        }\n"
+        code_language: python3
+        outputs:
+          count:
+            children: null
+            type: number
+          debug:
+            children: null
+            type: string
+          result:
+            children: null
+            type: string
+        selected: false
+        title: Search Post-process
+        type: code
+        variables:
+        - value_selector:
+          - '1770469208395'
+          - body
+          value_type: string
+          variable: http_response_body
+        - value_selector:
+          - '1770469411002'
+          - base_query
+          value_type: string
+          variable: base_query_var
+        - value_selector:
+          - '1770469411002'
+          - pushed_ids
+          value_type: array[number]
+          variable: pushed_ids_var
+        - value_selector:
+          - '1770469411002'
+          - cutoff_str
+          value_type: string
+          variable: cutoff_str_var
+        - value_selector:
+          - '1770469411002'
+          - today_str
+          value_type: string
+          variable: today_str_var
+        - value_selector:
+          - '1770469411002'
+          - fetch_limit
+          value_type: number
+          variable: fetch_limit_var
+        - value_selector:
+          - '1770469411002'
+          - count
+          value_type: number
+          variable: count_var
+        - value_selector:
+          - '1770469411002'
+          - search_keywords
+          value_type: array[string]
+          variable: search_keywords_var
+      height: 50
+      id: '1770469838682'
+      position:
+        x: 63.15713480309876
+        y: -431.1111080445578
+      positionAbsolute:
+        x: 63.15713480309876
+        y: -431.1111080445578
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(doc_json):\n    if doc_json is None:\n        return {\"footnote_text\"\
+          : \"\"}\n\n    data = doc_json\n    footnotes = []\n\n    def walk(obj):\n\
+          \        if isinstance(obj, dict):\n            if obj.get(\"block_label\"\
+          ) == \"footnote\":\n                content = (obj.get(\"block_content\"\
+          ) or \"\").strip()\n                if content:\n                    footnotes.append(content)\n\
+          \            for v in obj.values():\n                walk(v)\n        elif\
+          \ isinstance(obj, list):\n            for v in obj:\n                walk(v)\n\
+          \n    walk(data)\n\n    return {\"footnote_text\": \"\\n\".join(footnotes).strip()}\n"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          footnote_text:
+            children: null
+            type: string
+        selected: false
+        title: get_footnote_text
+        type: code
+        variables:
+        - value_selector:
+          - '1768813194176'
+          - json
+          value_type: array[object]
+          variable: doc_json
+      height: 50
+      id: '1770545149288'
+      parentId: '1768746557884'
+      position:
+        x: 931.1976039884365
+        y: 65
+      positionAbsolute:
+        x: 424.59762012697763
+        y: -214.38448268591503
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "def main(ocr_text: str, max_tokens: int = 121856) -> dict:\n    \"\"\
+          \"\n    Truncate OCR text to avoid exceeding the token limit of the LLM.\n\
+          \n    Parameters:\n    - ocr_text: Raw OCR text input\n    - max_tokens:\
+          \ Maximum allowed token count (default 121856)\n\n    Returns:\n    - truncated_text:\
+          \ The resulting truncated text\n    - original_length: Length of the original\
+          \ text\n    - truncated_length: Length of the truncated text\n    - is_truncated:\
+          \ Whether truncation was applied\n    \"\"\"\n    \n    if not ocr_text:\n\
+          \        return {\n            \"truncated_text\": \"\",\n            \"\
+          original_length\": 0,\n            \"truncated_length\": 0,\n          \
+          \  \"is_truncated\": False\n        }\n    \n    original_length = len(ocr_text)\n\
+          \    \n    # Rough estimation: 1 token ≈ 0.75 Chinese characters or ≈ 4\
+          \ English characters\n    # For safety, assume 1 token equals 1 character\n\
+          \    # With a 121856 token limit, use the same value as a character cap\n\
+          \    max_chars = max_tokens\n    \n    if original_length <= max_chars:\n\
+          \        # No truncation required\n        return {\n            \"truncated_text\"\
+          : ocr_text,\n            \"original_length\": original_length,\n       \
+          \     \"truncated_length\": original_length,\n            \"is_truncated\"\
+          : False\n        }\n    \n    # Truncation is required\n    # Prefer preserving\
+          \ the beginning of the text, which typically contains\n    # abstracts and\
+          \ introductions, while also keeping a portion of the ending\n    \n    #\
+          \ Strategy: keep the first 80% and the last 20%\n    front_chars = int(max_chars\
+          \ * 0.8)\n    back_chars = int(max_chars * 0.2)\n    \n    truncated_text\
+          \ = (\n        ocr_text[:front_chars] +\n        \"\\n\\n[... middle content\
+          \ omitted ...]\\n\\n\" +\n        ocr_text[-back_chars:]\n    )\n    \n\
+          \    return {\n        \"truncated_text\": truncated_text,\n        \"original_length\"\
+          : original_length,\n        \"truncated_length\": len(truncated_text),\n\
+          \        \"is_truncated\": True\n    }\n"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          is_truncated:
+            children: null
+            type: boolean
+          original_length:
+            children: null
+            type: number
+          truncated_length:
+            children: null
+            type: number
+          truncated_text:
+            children: null
+            type: string
+        selected: false
+        title: truncated_text
+        type: code
+        variables:
+        - value_selector:
+          - '1768813194176'
+          - text
+          value_type: string
+          variable: ocr_text
+      height: 50
+      id: '1770556354226'
+      parentId: '1768746557884'
+      position:
+        x: 1231.1976039884366
+        y: 65
+      positionAbsolute:
+        x: 724.5976201269777
+        y: -214.38448268591503
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    viewport:
+      x: 308.07216016423763
+      y: 536.6055183990414
+      zoom: 0.5743491774985183
+  rag_pipeline_variables: []

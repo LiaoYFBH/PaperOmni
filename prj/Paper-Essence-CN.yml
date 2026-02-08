@@ -3,7 +3,7 @@ app:
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
-  name: Paper-Essence
+  name: Paper-Essence-CN
   use_icon_as_answer_icon: false
 dependencies:
 - current_identifier: null
@@ -19,12 +19,7 @@ dependencies:
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/wenxin:0.1.0@29923083c3ffe5d309a00289b1752cb5d2b83d189d3def2832535201f9a70497
-    version: null
-- current_identifier: null
-  type: marketplace
-  value:
-    marketplace_plugin_unique_identifier: lyf/ernie-paddle-aistudio-api:0.0.1@8416aef33d83954c8a44588f6cbdd12d1694a3b83adf8de8345f62584e67aa85
+    marketplace_plugin_unique_identifier: paddle-aistudio/ernie-paddle-aistudio:0.1.1@3281d45224736abd0cd14336b54e1a6ddc681ca3fcc5528ae254957765d92adf
     version: null
 - current_identifier: null
   type: marketplace
@@ -77,20 +72,12 @@ workflow:
     value: ''
     value_type: secret
   - description: ''
-    id: 2c4147b5-8701-402d-99e4-fc08ee66d9f2
-    name: MY_LLM_KEY_MODE
-    selector:
-    - env
-    - MY_LLM_KEY_MODE
-    value: OPENAI_KEY
-    value_type: string
-  - description: ''
     id: a30c1c7e-97cb-4196-9f4a-a656810f0322
     name: MY_RAW_TOPIC
     selector:
     - env
     - MY_RAW_TOPIC
-    value: RAG系统
+    value: agent记忆
     value_type: string
   features:
     file_upload:
@@ -220,71 +207,6 @@ workflow:
       type: custom
       zIndex: 0
     - data:
-        isInIteration: false
-        isInLoop: false
-        sourceType: code
-        targetType: if-else
-      id: 1769347686844-source-1769668760137-target
-      selected: false
-      source: '1769347686844'
-      sourceHandle: source
-      target: '1769668760137'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
-        targetType: llm
-      id: 1769668760137-false-1768749653285-target
-      selected: false
-      source: '1769668760137'
-      sourceHandle: 'false'
-      target: '1768749653285'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
-        targetType: llm
-      id: 1769669568004-false-1769350813065-target
-      selected: false
-      source: '1769669568004'
-      sourceHandle: 'false'
-      target: '1769350813065'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        sourceType: tool
-        targetType: if-else
-      id: 1768813194176-source-1769670205504-target
-      selected: false
-      source: '1768813194176'
-      sourceHandle: source
-      target: '1769670205504'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        sourceType: if-else
-        targetType: llm
-      id: 1769670205504-false-1768746991605-target
-      selected: false
-      source: '1769670205504'
-      sourceHandle: 'false'
-      target: '1768746991605'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
         isInLoop: false
         sourceType: template-transform
         targetType: tool
@@ -293,100 +215,6 @@ workflow:
       source: '1768830612348'
       sourceHandle: source
       target: '1769364120122'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: llm
-        targetType: code
-      id: 1768749653285-source-1769759651750-target
-      source: '1768749653285'
-      sourceHandle: source
-      target: '1769759651750'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        sourceType: llm
-        targetType: code
-      id: 1768746991605-source-1769759854056-target
-      source: '1768746991605'
-      sourceHandle: source
-      target: '1769759854056'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        sourceType: code
-        targetType: code
-      id: 1769759854056-source-1768808667129-target
-      source: '1769759854056'
-      sourceHandle: source
-      target: '1768808667129'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
-        isInIteration: false
-        isInLoop: false
-        sourceType: code
-        targetType: code
-      id: 1769759887027-source-1769349445686-target
-      source: '1769759887027'
-      sourceHandle: source
-      target: '1769349445686'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: llm
-        targetType: code
-      id: 1769350813065-source-1769759887027-target
-      source: '1769350813065'
-      sourceHandle: source
-      target: '1769759887027'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: code
-        targetType: if-else
-      id: 1768749419467-source-1769669568004-target
-      source: '1768749419467'
-      sourceHandle: source
-      target: '1769669568004'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: code
-        targetType: tool
-      id: 1769759651750-source-1769954998188-target
-      source: '1769759651750'
-      sourceHandle: source
-      target: '1769954998188'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: tool
-        targetType: code
-      id: 1769954998188-source-1768749419467-target
-      selected: false
-      source: '1769954998188'
-      sourceHandle: source
-      target: '1768749419467'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -418,12 +246,12 @@ workflow:
       zIndex: 1002
     - data:
         isInLoop: false
-        sourceType: if-else
-        targetType: llm
-      id: 1769668760137-true-17702096836960-target
-      source: '1769668760137'
-      sourceHandle: 'true'
-      target: '17702096836960'
+        sourceType: llm
+        targetType: tool
+      id: 1770443235033-source-1769954998188-target
+      source: '1770443235033'
+      sourceHandle: source
+      target: '1769954998188'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -431,32 +259,10 @@ workflow:
         isInLoop: false
         sourceType: llm
         targetType: code
-      id: 17702096836960-source-1769759651750-target
-      source: '17702096836960'
+      id: 1769350813065-source-1769349445686-target
+      source: '1769350813065'
       sourceHandle: source
-      target: '1769759651750'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: if-else
-        targetType: llm
-      id: 1769669568004-true-17702097600540-target
-      source: '1769669568004'
-      sourceHandle: 'true'
-      target: '17702097600540'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInLoop: false
-        sourceType: llm
-        targetType: code
-      id: 17702097600540-source-1769759887027-target
-      source: '17702097600540'
-      sourceHandle: source
-      target: '1769759887027'
+      target: '1769349445686'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -464,12 +270,73 @@ workflow:
         isInIteration: true
         isInLoop: false
         iteration_id: '1768746557884'
-        sourceType: if-else
+        sourceType: llm
+        targetType: code
+      id: 1768746991605-source-1768808667129-target
+      source: '1768746991605'
+      sourceHandle: source
+      target: '1768808667129'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: code
         targetType: llm
-      id: 1769670205504-true-1770209844836-target
-      source: '1769670205504'
-      sourceHandle: 'true'
-      target: '1770209844836'
+      id: 1769347686844-source-1770443235033-target
+      source: '1769347686844'
+      sourceHandle: source
+      target: '1770443235033'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1769954998188-source-1770469411002-target
+      source: '1769954998188'
+      sourceHandle: source
+      target: '1770469411002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1770469411002-source-1770469208395-target
+      selected: false
+      source: '1770469411002'
+      sourceHandle: source
+      target: '1770469208395'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1770469208395-source-1770469838682-target
+      source: '1770469208395'
+      sourceHandle: source
+      target: '1770469838682'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: tool
+        targetType: code
+      id: 1768813194176-source-1770531933796-target
+      source: '1768813194176'
+      sourceHandle: source
+      target: '1770531933796'
       targetHandle: target
       type: custom
       zIndex: 1002
@@ -477,20 +344,44 @@ workflow:
         isInIteration: true
         isInLoop: false
         iteration_id: '1768746557884'
-        sourceType: llm
+        sourceType: code
         targetType: code
-      id: 1770209844836-source-1769759854056-target
-      source: '1770209844836'
+      id: 1770531933796-source-1770554824578-target
+      source: '1770531933796'
       sourceHandle: source
-      target: '1769759854056'
+      target: '1770554824578'
       targetHandle: target
       type: custom
       zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: llm
+      id: 1770554824578-source-1768746991605-target
+      source: '1770554824578'
+      sourceHandle: source
+      target: '1768746991605'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1770469838682-source-1769350813065-target
+      source: '1770469838682'
+      sourceHandle: source
+      target: '1769350813065'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         error_handle_mode: terminated
         flatten_output: true
-        height: 456.90595032612896
+        height: 200
         is_parallel: false
         iterator_input_type: array[object]
         iterator_selector:
@@ -505,20 +396,20 @@ workflow:
         start_node_id: 1768746557884start
         title: 迭代
         type: iteration
-        width: 2337.79772851087
-      height: 457
+        width: 2053
+      height: 200
       id: '1768746557884'
       position:
-        x: -91.04013298396148
-        y: 29.47901850943859
+        x: -322.23097232882606
+        y: -319.10612297652585
       positionAbsolute:
-        x: -91.04013298396148
-        y: 29.47901850943859
+        x: -322.23097232882606
+        y: -319.10612297652585
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 2338
+      width: 2053
       zIndex: 1
     - data:
         desc: ''
@@ -534,8 +425,8 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: -67.04013298396148
-        y: 97.47901850943859
+        x: -298.23097232882606
+        y: -251.10612297652585
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -553,15 +444,15 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: ernie-4.5-turbo-128k
-          provider: langgenius/wenxin/wenxin
+          name: ernie-5.0-thinking-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
         prompt_template:
         - id: f5b1fb7d-6e09-4847-a146-d397f127ef68
           role: system
           text: "# Role\n你是一名资深的计算机与AI领域审稿人。你需要根据提供的论文摘要和OCR正文片段，总结出论文的核心技术细节。\n\n\
-            # Input\n- Title: {{#1768808528449.title_str#}}}\n- Abstract: {{#1768808528449.summary_str#}}}\n\
-            - OCR Text: {{#1768813194176.text#}}}\n\n# Task\n基于以上输入，提取并总结以下 7 个关键字段。\n\
-            \n**\U0001F6A8 核心原则（Core Principles）：**\n1.  **拒绝废话**：不要输出“本文提出了一种新颖的方法”这种套话，直接说**具体是什么方法**。\n\
+            # Input\n- Title:{ {{#1768808528449.title_str#}}}\n- Abstract:{ {{#1768808528449.summary_str#}}}\n\
+            - OCR Text: {{#1770554824578.truncated_text#}}}\n\n# Task\n基于以上输入，提取并总结以下\
+            \ 7 个关键字段。\n\n**\U0001F6A8 核心原则（Core Principles）：**\n1.  **拒绝废话**：不要输出“本文提出了一种新颖的方法”这种套话，直接说**具体是什么方法**。\n\
             2.  **深挖细节**：如果没有标准模型名，必须总结其**算法逻辑、损失函数设计或模块交互方式**。\n3.  **数据优先**：在 Metrics\
             \ 中，优先展示**对比 SOTA 的提升幅度**，而不仅仅是绝对值。\n4.  **禁止 N/A**：如果文中未明确，根据上下文进行**合理的专家推断**（Inferred），但不要捏造。\n\
             \n# Fields Guide\n\n1.  **One_Liner** (String):\n    * (中文) **一句话痛点与解决方案**。\n\
@@ -578,273 +469,56 @@ workflow:
             \    * 无数字时，描述其具体的**定性优势**（如“在 8k 上下文长度下仍保持连贯”）。\n\n5.  **Chinese_Abstract**\
             \ (String):\n    * (中文) **学术级摘要翻译**。\n    * 要求：信达雅，使用标准的学术术语（如：Ablation\
             \ study -> 消融实验, Robustness -> 鲁棒性, End-to-end -> 端到端）。\n\n6.  **Affiliation**\
-            \ (String):\n    * 从 OCR 文本中中提取作者所属的机构。\n    **清洗指令**：去除无关的地址细节（如街道号、邮编）。多个机构用“;\
-            \ ”分隔。\n    **示例**：清华大学; 微软亚洲研究院 (MSRA)。\n\n7.  **Code_Url** (String):\n\
-            \    * **高优先级搜索**。\n    * 查找范围：Abstract, Introduction, Conclusion 以及 OCR\
-            \ 的页眉页脚。\n    * **严格鉴别**：\n        1. 必须是**本论文**的官方实现（通常伴随 \"Official\
-            \ implementation\", \"Code is released at\"）。\n        2. **排除** 引用文献中的链接（即排除出现在\
-            \ `[...]` 或 Reference 章节的链接）。\n        3. 必须以 `http` 开头。\n    * *Output*：仅输出\
-            \ URL。若确无代码，输出 \"N/A\"。\n\n# Output Format\n请直接输出纯 JSON 对象，确保可以被 `json.loads`\
-            \ 解析。不要包含 Markdown 代码块标记（```json）。\n\n{\n  \"One_Liner\": \"...\",\n \
-            \ \"Architecture\": \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\":\
-            \ \"...\",\n  \"Chinese_Abstract\": \"...\",\n  \"Affiliation\": \"...\"\
-            ,\n  \"Code_Url\": \"...\"\n}"
-        selected: true
+            \ (String):\n* 从 OCR 文本中提取作者所属的机构。\n* **关键策略**：\n    1. **查找位置**：**优先检查**\
+            \ OCR 文本中明确标注为【机构区块（可能包含作者机构信息）】的部分。此外，也需检查**标题下方**、**页脚（Footnotes）**或**首页底部**。机构信息常以小字或脚注形式出现（如\
+            \ `$ ^{1} $ Department of...`）。\n    2. **忽略噪声**：自动忽略 OCR 产生的特殊上标/下标符号（如\
+            \ `$ ^{1} $`、`*`、`†`），直接提取后面的机构名称。\n    3. **关键词匹配**：提取包含 \"University\"\
+            、\"Institute\"、\"Laboratory\"、\"Department\"、\"School\"、\"College\"、\"\
+            Group\"、\"Research\"、\"Center\"、\"AG\"、\"GmbH\"、\"Corporation\"、\"Company\"\
+            、\"Lab\" 等词汇的片段。\n* **备选来源**：如果 OCR 文本中无法提取到机构信息，**则从上一步提取的 {{#1770531933796.footnote_text#}}中尝试识别机构信息**。脚注常常包含作者机构信息，特别是带有上标标记（如`$\
+            \ ^{1} $`、`*`）的段落。\n* **清洗指令**：去除具体地址（如街道、邮编、城市名如果单独出现），只保留最高级机构名称（如\"\
+            University of Oxford\"而不是\"Oxford, UK\"）。\n* **格式**：多个机构请使用\"; \"分隔。\n\
+            * **示例**：\n    - 输入：【FOOTNOTE】: `$ ^{1} $ Mercedes-Benz AG, Germany`\n\
+            \    - 输出：`Mercedes-Benz AG`\n    - 输入：【FOOTNOTE】: `$ ^{1} $ Stanford\
+            \ University, USA; $ ^{2} $ MIT, USA`\n    - 输出：`Stanford University;\
+            \ MIT`\n    - 输入：OCR文本无机构信息，但从footnote_text中提取到：`$ ^{1} $ Department of\
+            \ Computer Science, University of Cambridge`\n    - 输出：`Department of\
+            \ Computer Science, University of Cambridge`\n\n**处理流程优先级**：\n1. 首先尝试从OCR文本中提取机构信息\n\
+            2. 如果OCR文本中提取失败或结果为空，则转向分析footnote_text\n3. 从footnote_text中查找包含机构关键词的片段\n\
+            4. 清理并返回机构名称\n\n7.  **Code_Url** (String):\n    * **高优先级搜索**。\n    * 查找范围：Abstract,\
+            \ Introduction, Conclusion 以及 OCR 的页眉页脚。\n    * **严格鉴别**：\n        1.\
+            \ 必须是**本论文**的官方实现（通常伴随 \"Official implementation\", \"Code is released\
+            \ at\"）。\n        2. **排除** 引用文献中的链接（即排除出现在 `[...]` 或 Reference 章节的链接）。\n\
+            \        3. 必须以 `http` 开头。\n    * *Output*：仅输出 URL。若确无代码，输出 \"N/A\"。\n\
+            \n# Output Format\n请直接输出纯 JSON 对象，确保可以被 `json.loads` 解析。不要包含 Markdown\
+            \ 代码块标记（```json）。\n\n{\n  \"One_Liner\": \"...\",\n  \"Architecture\"\
+            : \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\": \"...\",\n  \"Chinese_Abstract\"\
+            : \"...\",\n  \"Affiliation\": \"...\",\n  \"Code_Url\": \"...\"\n}"
+        reasoning_format: separated
+        retry_config:
+          max_retries: 5
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
         title: (LLM)分析
         type: llm
         vision:
           enabled: false
-      height: 86
+      height: 115
       id: '1768746991605'
       parentId: '1768746557884'
       position:
-        x: 1491.5733003352702
-        y: 221.905950326129
+        x: 1441.4565028618445
+        y: 65
       positionAbsolute:
-        x: 1400.5331673513087
-        y: 251.38496883556758
-      selected: true
+        x: 1119.2255305330184
+        y: -254.10612297652585
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
       zIndex: 1002
-    - data:
-        code: "import urllib.request\nimport urllib.parse\nimport json\nimport ssl\n\
-          import xml.etree.ElementTree as ET\nfrom datetime import datetime, timedelta\n\
-          import re\n\ndef main(topic: str, days_lookback: int, count: int, supabase_output:\
-          \ list = None) -> dict:\n    \"\"\"\n    ArXiv 搜索 - 动态根据topic搜索论文\n    \"\
-          \"\"\n    # 计算日期\n    today = datetime.now()\n    days = int(days_lookback)\
-          \ if days_lookback else 1\n    cutoff_date = today - timedelta(days=days)\n\
-          \    \n    cutoff_str = cutoff_date.strftime('%Y-%m-%d')\n    today_str\
-          \ = today.strftime('%Y-%m-%d')\n    \n    # 解析已推送的论文记录\n    pushed_ids =\
-          \ []\n    if supabase_output and isinstance(supabase_output, list) and len(supabase_output)\
-          \ > 0:\n        try:\n            first_item = supabase_output[0]\n    \
-          \        if isinstance(first_item, dict):\n                data_list = first_item.get(\"\
-          data\", [])\n                if isinstance(data_list, list):\n         \
-          \           for record in data_list:\n                        if isinstance(record,\
-          \ dict):\n                            arxiv_id_with_braces = record.get(\"\
-          arxiv_id\", \"\")\n                            if arxiv_id_with_braces:\n\
-          \                                # 提取arxiv_id，处理{{}}格式\n               \
-          \                 arxiv_id = arxiv_id_with_braces.strip('{}')\n        \
-          \                        if arxiv_id:\n                                \
-          \    pushed_ids.append(arxiv_id.strip())\n        except Exception:\n  \
-          \          pass\n    \n    debug_info = f\"已推送论文ID数: {len(pushed_ids)}\"\
-          \n\n    # 动态构建查询字符串\n    def build_query_from_topic(topic_str):\n      \
-          \  \"\"\"\n        根据topic字符串构建ArXiv查询\n        支持多种格式：\n        1. 简单关键词:\
-          \ \"machine learning\"\n        2. 布尔查询: \"machine learning\" AND \"deep\
-          \ learning\"\n        3. 字段查询: ti:\"transformer\" AND cat:cs.LG\n      \
-          \  \"\"\"\n        # 清理topic字符串\n        topic_str = topic_str.strip()\n\
-          \        \n        # 检查是否已经是ArXiv查询格式\n        # 如果包含AND/OR/NOT和括号，或者是字段查询，直接使用\n\
-          \        if any(op in topic_str.upper() for op in [' AND ', ' OR ', ' NOT\
-          \ ']) or \\\n           any(field in topic_str.lower() for field in ['ti:',\
-          \ 'abs:', 'cat:', 'all:']):\n            return topic_str\n        \n  \
-          \      # 处理带引号的短语\n        phrases = re.findall(r'\"([^\"]*)\"', topic_str)\n\
-          \        if phrases:\n            # 如果有引号内的短语，直接使用这些短语\n            query_parts\
-          \ = []\n            for phrase in phrases:\n                query_parts.append(f'ti:\"\
-          {phrase}\" OR abs:\"{phrase}\"')\n            return ' AND '.join([f'({part})'\
-          \ for part in query_parts])\n        else:\n            # 按空格分割关键词\n   \
-          \         keywords = topic_str.split()\n            if len(keywords) ==\
-          \ 1:\n                # 单个关键词\n                return f'ti:\"{keywords[0]}\"\
-          \ OR abs:\"{keywords[0]}\"'\n            else:\n                # 多个关键词，使用AND连接\n\
-          \                query_parts = []\n                for keyword in keywords:\n\
-          \                    query_parts.append(f'ti:\"{keyword}\" OR abs:\"{keyword}\"\
-          ')\n                return ' AND '.join([f'({part})' for part in query_parts])\n\
-          \    \n    # 构建查询\n    base_query = build_query_from_topic(topic)\n    \n\
-          \    # 添加分类限制以提高相关性（机器学习相关）\n    # 如果查询中已经有分类，则不添加\n    if 'cat:' not in\
-          \ base_query.lower():\n        # 根据topic判断可能的分类\n        topic_lower = topic.lower()\n\
-          \        if any(word in topic_lower for word in ['machine learning', 'deep\
-          \ learning', 'neural', 'ai', 'artificial intelligence']):\n            base_query\
-          \ = f'({base_query}) AND (cat:cs.LG OR cat:cs.AI OR cat:cs.CV OR cat:cs.CL\
-          \ OR cat:stat.ML)'\n        elif any(word in topic_lower for word in ['computer\
-          \ vision', 'vision', 'image']):\n            base_query = f'({base_query})\
-          \ AND (cat:cs.CV)'\n        elif any(word in topic_lower for word in ['nlp',\
-          \ 'natural language', 'language model', 'transformer']):\n            base_query\
-          \ = f'({base_query}) AND (cat:cs.CL)'\n        elif any(word in topic_lower\
-          \ for word in ['robotics', 'robot']):\n            base_query = f'({base_query})\
-          \ AND (cat:cs.RO)'\n        elif any(word in topic_lower for word in ['cryptography',\
-          \ 'security']):\n            base_query = f'({base_query}) AND (cat:cs.CR)'\n\
-          \        elif any(word in topic_lower for word in ['database', 'data']):\n\
-          \            base_query = f'({base_query}) AND (cat:cs.DB)'\n\n    # 构造请求参数\n\
-          \    base_url = \"https://export.arxiv.org/api/query?\"\n    \n    # 增加获取数量，确保过滤后还有足够结果\n\
-          \    fetch_limit = max(int(count) * 3, 100)\n    \n    query_params = {\n\
-          \        \"search_query\": base_query,\n        \"start\": 0,\n        \"\
-          max_results\": str(fetch_limit),\n        \"sortBy\": \"submittedDate\"\
-          ,\n        \"sortOrder\": \"descending\"\n    }\n    \n    filtered_results\
-          \ = []\n    \n    try:\n        # 创建SSL上下文\n        ssl_context = ssl._create_unverified_context()\n\
-          \        url = base_url + urllib.parse.urlencode(query_params)\n       \
-          \ req = urllib.request.Request(url, headers={'User-Agent': 'Dify-Bot/1.0\
-          \ (Mozilla/5.0)'})\n        \n        # 添加调试信息\n        debug_info += f\"\
-          \ | 查询URL: {url[:100]}...\"\n        \n        with urllib.request.urlopen(req,\
-          \ context=ssl_context, timeout=60) as response:\n            xml_data =\
-          \ response.read().decode('utf-8')\n        \n        # 解析 XML\n        root\
-          \ = ET.fromstring(xml_data)\n        ns = {'atom': 'http://www.w3.org/2005/Atom',\
-          \ 'arxiv': 'http://arxiv.org/schemas/atom'}\n        entries = root.findall('atom:entry',\
-          \ ns)\n        \n        filtered_out_count = 0\n        date_filtered_count\
-          \ = 0\n        keyword_filtered_count = 0\n        \n        # 从topic中提取关键词用于本地过滤（提高相关性）\n\
-          \        search_keywords = []\n        topic_lower = topic.lower()\n   \
-          \     \n        # 提取所有单词作为关键词\n        words = re.findall(r'\\b[a-zA-Z]+\\\
-          b', topic_lower)\n        search_keywords.extend(words)\n        \n    \
-          \    # 提取引号内的短语\n        quoted_phrases = re.findall(r'\"([^\"]*)\"', topic_lower)\n\
-          \        for phrase in quoted_phrases:\n            search_keywords.append(phrase)\n\
-          \        \n        # 去重\n        search_keywords = list(set(search_keywords))\n\
-          \        \n        # 移除太常见的词\n        common_words = ['the', 'and', 'or',\
-          \ 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by']\n        search_keywords\
-          \ = [kw for kw in search_keywords if kw not in common_words and len(kw)\
-          \ > 2]\n        \n        for entry in entries:\n            if len(filtered_results)\
-          \ >= int(count):\n                break\n\n            # 提取ID\n        \
-          \    id_url = entry.find('atom:id', ns).text\n            raw_id = id_url.rsplit('/',\
-          \ 1)[-1] if id_url else \"\"\n            arxiv_id = raw_id.split('v')[0].strip()\n\
-          \            \n            # 检查是否已推送\n            if arxiv_id in pushed_ids:\n\
-          \                filtered_out_count += 1\n                continue\n   \
-          \         \n            # 检查日期\n            published_str = entry.find('atom:published',\
-          \ ns).text\n            try:\n                pub_date_dt = datetime.strptime(published_str[:10],\
-          \ \"%Y-%m-%d\")\n                if pub_date_dt.date() < cutoff_date.date():\n\
-          \                    date_filtered_count += 1\n                    continue\n\
-          \            except Exception:\n                pass\n\n            # 提取论文信息\n\
-          \            title = entry.find('atom:title', ns).text.replace('\\n', '\
-          \ ').strip()\n            summary = entry.find('atom:summary', ns).text.replace('\\\
-          n', ' ').strip()\n            \n            # 本地关键词过滤（确保相关性）\n         \
-          \   title_lower = title.lower()\n            summary_lower = summary.lower()\n\
-          \            \n            # 如果有关键词列表，检查标题或摘要中是否包含至少一个关键词\n            if\
-          \ search_keywords:\n                found_keyword = False\n            \
-          \    for keyword in search_keywords:\n                    if keyword.lower()\
-          \ in title_lower or keyword.lower() in summary_lower:\n                \
-          \        found_keyword = True\n                        break\n         \
-          \       \n                # 如果没有找到任何关键词，跳过这篇论文\n                if not found_keyword:\n\
-          \                    keyword_filtered_count += 1\n                    continue\n\
-          \            \n            # 作者处理\n            authors_list = []\n     \
-          \       affiliations = []\n            for author_node in entry.findall('atom:author',\
-          \ ns):\n                name_node = author_node.find('atom:name', ns)\n\
-          \                if name_node is not None:\n                    authors_list.append(name_node.text)\n\
-          \                aff_node = author_node.find('arxiv:affiliation', ns)\n\
-          \                if aff_node is not None and aff_node.text:\n          \
-          \          affiliations.append(aff_node.text)\n            \n          \
-          \  authors_str = \", \".join(authors_list)\n            aff_str = \", \"\
-          .join(list(set(affiliations))) if affiliations else \"N/A\"\n\n        \
-          \    # 来源处理\n            journal_ref = entry.find('arxiv:journal_ref', ns)\n\
-          \            journal_str = journal_ref.text if journal_ref is not None else\
-          \ \"\"\n            comment = entry.find('arxiv:comment', ns)\n        \
-          \    comment_str = comment.text if comment is not None else \"\"\n     \
-          \       venue = journal_str if journal_str else (comment_str if comment_str\
-          \ else \"arXiv\")\n            \n            pdf_url = f\"https://arxiv.org/pdf/{arxiv_id}.pdf\"\
-          \ if arxiv_id else \"\"\n            \n            filtered_results.append({\n\
-          \                \"arxiv_id\": arxiv_id,\n                \"title\": title,\n\
-          \                \"summary\": summary[:500] + \"...\" if len(summary) >\
-          \ 500 else summary,\n                \"authors\": authors_str,\n       \
-          \         \"affiliation\": aff_str,\n                \"venue\": venue,\n\
-          \                \"published\": published_str[:10],\n                \"\
-          pdf_url\": pdf_url\n            })\n        \n        return {\n       \
-          \     \"result\": json.dumps(filtered_results, ensure_ascii=False),\n  \
-          \          \"count\": len(filtered_results),\n            \"cutoff_str\"\
-          : cutoff_str,\n            \"today_str\": today_str,\n            \"debug\"\
-          : f\"{debug_info} | 查询: {base_query[:100]}... | 总获取: {len(entries)} | 旧日期过滤:\
-          \ {date_filtered_count} | 已推过滤: {filtered_out_count} | 关键词过滤: {keyword_filtered_count}\
-          \ | 剩余: {len(filtered_results)}\"\n        }\n\n    except Exception as\
-          \ e:\n        return {\n            \"result\": \"[]\", \n            \"\
-          count\": 0, \n            \"cutoff_str\": cutoff_str,\n            \"today_str\"\
-          : today_str,\n            \"debug\": f\"{debug_info} | 查询: {base_query[:100]}...\
-          \ | 错误: {str(e)[:200]}\"\n        }"
-        code_language: python3
-        outputs:
-          count:
-            children: null
-            type: number
-          cutoff_str:
-            children: null
-            type: string
-          debug:
-            children: null
-            type: string
-          result:
-            children: null
-            type: string
-          today_str:
-            children: null
-            type: string
-        selected: false
-        title: 搜索论文
-        type: code
-        variables:
-        - value_selector:
-          - '1769759651750'
-          - result
-          value_type: string
-          variable: topic
-        - value_selector:
-          - '1769347686844'
-          - fetch_count
-          value_type: number
-          variable: count
-        - value_selector:
-          - '1769347686844'
-          - days_lookback
-          value_type: number
-          variable: days_lookback
-        - value_selector:
-          - '1769954998188'
-          - json
-          value_type: array[object]
-          variable: supabase_output
-      height: 50
-      id: '1768749419467'
-      position:
-        x: 2028.8467560176132
-        y: -534.1462817800073
-      positionAbsolute:
-        x: 2028.8467560176132
-        y: -534.1462817800073
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        context:
-          enabled: false
-          variable_selector: []
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: ernie-4.5-turbo-128k
-          provider: langgenius/wenxin/wenxin
-        prompt_template:
-        - id: c9d252ac-2420-410e-80c0-33933325a6d3
-          role: system
-          text: "# Role\n你是一个精通 ArXiv 搜索语法的科研助手，擅长从非正式的科研描述中提取核心技术关键词并构建复杂的检索表达式。\n\
-            \n# Task\n用户的输入可能是一个详细的研究方向描述（中文）{{#1769347686844.raw_topic#}}。你的任务是将其转换为\
-            \ ArXiv API 效率最高、最精确的 **英文布尔查询字符串**。\n\n# Rules\n1. **核心概念提取**：从用户的长描述中识别核心算法（如\
-            \ Reinforcement Learning）、问题领域（如 Communication Efficiency）和研究对象（如 Multi-Agent\
-            \ Systems）。\n2. **术语翻译**：将中文术语准确翻译为学术英语。\n3. **布尔逻辑构建**：\n   - 使用 `AND`\
-            \ 连接必须同时满足的不同概念维度（例如：研究对象 AND 解决的问题）。\n   - 使用 `OR` 连接同义词或高度相关的词，增加搜索覆盖面。\n\
-            \   - 使用双引号 `\"\"` 包裹词组（如 `\"multi-agent systems\"`）以实现精确匹配。\n4. **去噪**：忽略“我正在研究”、“帮我找论文”、“最近的研究”等非学术性的语气词。\n\
-            5. **只输出结果**：不要包含任何解释、前缀或后缀，只输出构建好的查询字符串。\n\n# Examples\nInput: 我想研究基于大模型的多智能体系统的通信开销优化，特别是通过拓扑结构改进来节省\
-            \ Token 的方法。\nOutput: (\"multi-agent systems\" OR \"multi-agent collaboration\"\
-            ) AND (\"communication efficiency\" OR \"topology optimization\" OR \"\
-            token reduction\")\n\nInput: 关注多智能体任务规划中的自我纠错机制，特别是通过辩论或者评论家模型来减少幻觉。\n\
-            Output: \"multi-agent planning\" AND (\"self-correction\" OR \"reflexion\"\
-            \ OR \"debate\" OR \"critic\")\n\nInput: 强化学习智能体在机器人导航中的应用\nOutput: \"\
-            reinforcement learning\" AND agents AND \"robot navigation\"\n\n# Input:\
-            \ {{#1769347686844.raw_topic#}}"
-        selected: false
-        title: 研究领域LLM翻译
-        type: llm
-        vision:
-          enabled: false
-      height: 86
-      id: '1768749653285'
-      position:
-        x: 983.5700100881809
-        y: -506.11331344282917
-      positionAbsolute:
-        x: 983.5700100881809
-        y: -506.11331344282917
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
     - data:
         code: "def main(arg1: dict) -> dict:\n    \"\"\"\n    DataUnpack: 将迭代项 item\
           \ (arg1) 拆解为独立的变量\n    \"\"\"\n    return {\n        \"title_str\": arg1.get('title',\
@@ -892,11 +566,11 @@ workflow:
       id: '1768808528449'
       parentId: '1768746557884'
       position:
-        x: 76.45963568767871
-        y: 65
+        x: 78.20073681427095
+        y: 66.74110112659224
       positionAbsolute:
-        x: -14.580497296282772
-        y: 94.47901850943859
+        x: -244.0302355145551
+        y: -252.3650218499336
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -907,51 +581,59 @@ workflow:
         code: "import json\nimport re\n\ndef main(title: str, url: str, summary: str,\
           \ llm_string: str, pub_date: str, comment: str, authors: str) -> dict:\n\
           \    pub_status = \"Preprint\"\n    comment = comment if comment else \"\
-          N/A\"\n    \n    if comment != \"N/A\":\n        # 常见顶会关键词库\n        conf_keywords\
-          \ = ['cvpr', 'iccv', 'eccv', 'nips', 'neurips', 'iclr', 'aaai', 'ijcai',\
-          \ 'acl', 'emnlp', 'naacl', 'siggraph', 'kdd', 'icml']\n        lower_comment\
-          \ = comment.lower()\n        \n        for kw in conf_keywords:\n      \
-          \      if kw in lower_comment:\n                display_comment = comment[:25]\
-          \ + \"...\" if len(comment) > 25 else comment\n                pub_status\
-          \ = f\"\U0001F389 {kw.upper()} ({display_comment})\"\n                break\n\
-          \        else:\n            if 'conf' in lower_comment or 'proc' in lower_comment:\n\
-          \                pub_status = \"\U0001F4C5 Conference/Journal\"\n      \
-          \      elif 'workshop' in lower_comment:\n                pub_status = \"\
-          \U0001F6E0️ Workshop\"\n    \n    try:\n        clean_date = pub_date[:10]\n\
-          \    except:\n        clean_date = \"Recent\"\n\n    full_status_line =\
-          \ f\"{clean_date} | {pub_status}\"\n\n    # 默认兜底值\n    ai_data = {\n   \
-          \     \"One_Liner\": \"AI 正在阅读...\",\n        \"Architecture\": \"综合架构\"\
-          ,\n        \"Dataset\": \"相关数据\",\n        \"Metrics\": \"核心指标\",\n    \
-          \    \"Chinese_Abstract\": \"摘要生成中...\",\n        \"Affiliation\": \"提取中...\"\
-          ,\n        \"Code_Url\": \"N/A\"\n    }\n\n    try:\n        if llm_string:\n\
-          \            # 强制移除 <think>...</think> 标签及其内部所有内容\n            # flags=re.DOTALL\
-          \ 确保 . 能匹配换行符\n            clean_content = re.sub(r'<think>.*?</think>',\
-          \ '', llm_string, flags=re.DOTALL).strip()\n            \n            #\
-          \ 处理 Markdown 代码块 (```json ... ```)\n            # 优先尝试匹配被代码块包裹的内容\n   \
-          \         code_block_match = re.search(r'```json\\s*(\\{.*?\\})\\s*```',\
-          \ clean_content, re.DOTALL)\n            if code_block_match:\n        \
-          \        clean_json = code_block_match.group(1)\n            else:\n   \
-          \             # 如果没有代码块，再尝试寻找最外层的 {}\n                # 此时 <think> 已被移除，找到第一个\
-          \ { 通常就是 JSON 的开始\n                clean_json = clean_content.replace(\"\
-          ```json\", \"\").replace(\"```\", \"\").strip()\n                match =\
-          \ re.search(r'\\{.*\\}', clean_json, re.DOTALL)\n                if match:\n\
-          \                    clean_json = match.group()\n            \n        \
-          \    # 解析 JSON\n            parsed_data = json.loads(clean_json)\n     \
-          \       \n            if isinstance(parsed_data, dict):\n              \
-          \  ai_data.update(parsed_data)  \n    except:\n        pass\n    extracted_code\
+          N/A\"\n    \n    if comment != \"N/A\":\n        conf_keywords = ['cvpr',\
+          \ 'iccv', 'eccv', 'nips', 'neurips', 'iclr', 'aaai', 'ijcai', 'acl', 'emnlp',\
+          \ 'naacl', 'siggraph', 'kdd', 'icml']\n        lower_comment = comment.lower()\n\
+          \        \n        for kw in conf_keywords:\n            if kw in lower_comment:\n\
+          \                display_comment = comment[:25] + \"...\" if len(comment)\
+          \ > 25 else comment\n                pub_status = f\"\U0001F389 {kw.upper()}\
+          \ ({display_comment})\"\n                break\n        else:\n        \
+          \    if 'conf' in lower_comment or 'proc' in lower_comment:\n          \
+          \      pub_status = \"\U0001F4C5 Conference/Journal\"\n            elif\
+          \ 'workshop' in lower_comment:\n                pub_status = \"\U0001F6E0\
+          ️ Workshop\"\n    \n    try:\n        clean_date = pub_date[:10]\n    except:\n\
+          \        clean_date = \"Recent\"\n\n    full_status_line = f\"{clean_date}\
+          \ | {pub_status}\"\n\n    ai_data = {\n        \"One_Liner\": \"AI is reading...\"\
+          ,\n        \"Architecture\": \"Integrated architecture\",\n        \"Dataset\"\
+          : \"Relevant data\",\n        \"Metrics\": \"Core metrics\",\n        \"\
+          Affiliation\": \"Extracting...\",\n        \"Code_Url\": \"N/A\"\n    }\n\
+          \n    try:\n        if llm_string:\n            clean_content = llm_string.strip()\n\
+          \            \n            code_block_match = re.search(\n             \
+          \   r'```(?:json)?\\s*(\\{.*?\\})\\s*```',\n                clean_content,\n\
+          \                re.DOTALL\n            )\n            if code_block_match:\n\
+          \                clean_json = code_block_match.group(1)\n            else:\n\
+          \                match = re.search(r'\\{.*\\}', clean_content, re.DOTALL)\n\
+          \                clean_json = match.group() if match else clean_content\n\
+          \            \n            clean_json = clean_json.strip()\n           \
+          \ \n            try:\n                parsed_data = json.loads(clean_json,\
+          \ strict=False)\n            except json.JSONDecodeError:\n            \
+          \    clean_json = clean_json.replace(\"'\", '\"')\n                clean_json\
+          \ = re.sub(r',\\s*}', '}', clean_json)\n                clean_json = re.sub(r',\\\
+          s*]', ']', clean_json)\n                try:\n                    parsed_data\
+          \ = json.loads(clean_json, strict=False)\n                except:\n    \
+          \                parsed_data = None\n            \n            if parsed_data\
+          \ and isinstance(parsed_data, dict):\n                for key in ai_data:\n\
+          \                    if key in parsed_data and parsed_data[key] and parsed_data[key]\
+          \ != \"N/A\":\n                        ai_data[key] = parsed_data[key]\n\
+          \                    elif key.lower() in parsed_data and parsed_data[key.lower()]\
+          \ and parsed_data[key.lower()] != \"N/A\":\n                        ai_data[key]\
+          \ = parsed_data[key.lower()]\n    except:\n        pass\n    \n    extracted_code\
           \ = ai_data.get(\"Code_Url\", \"N/A\")\n    display_code = \"N/A\"\n   \
           \ final_code_url = \"N/A\"\n    \n    invalid_keywords = [\"n/a\", \"none\"\
-          , \"null\", \"未找到\", \"unknown\", \"coming soon\", \"no code\"]\n    \n\
-          \    if extracted_code and extracted_code.lower() not in invalid_keywords:\n\
-          \        clean_url = extracted_code.strip(\".,()[]'\\\"`。，\")\n        if\
-          \ clean_url.startswith(\"http\"):\n            display_code = \"✅ Code Available\"\
-          \n            final_code_url = clean_url\n\n    paper = {\n        \"title\"\
-          : title or \"No Title\",\n        \"authors\": authors if authors else \"\
-          Unknown Authors\",\n        \"affiliation\": ai_data.get('Affiliation',\
-          \ 'N/A'),\n        \"pdf_url\": url,\n        \"summary\": summary,\n  \
-          \      \"published\": full_status_line,\n        \"github_stats\": display_code,\
-          \ \n        \"code_url\": final_code_url, \n        \"ai_evaluation\": ai_data\n\
-          \    }\n    \n    return {\n        \"merged_paper\": paper\n    }"
+          , \"null\", \"unknown\", \"coming soon\", \"no code\", \"\"]\n    \n   \
+          \ if extracted_code and str(extracted_code).strip().lower() not in invalid_keywords:\n\
+          \        clean_url = str(extracted_code).strip(\".,()[]'\\\"`。， \\t\\n\\\
+          r\")\n        if clean_url.startswith((\"http://\", \"https://\")):\n  \
+          \          display_code = \"✅ Code Available\"\n            final_code_url\
+          \ = clean_url\n        elif \".\" in clean_url:\n            final_code_url\
+          \ = f\"https://{clean_url.lstrip('www.')}\"\n            display_code =\
+          \ \"✅ Code Available\"\n\n    paper = {\n        \"title\": title or \"\
+          No Title\",\n        \"authors\": authors if authors else \"Unknown Authors\"\
+          ,\n        \"affiliation\": ai_data.get(\"Affiliation\", \"N/A\"),\n   \
+          \     \"pdf_url\": url,\n        \"summary\": summary,\n        \"published\"\
+          : full_status_line,\n        \"github_stats\": display_code,\n        \"\
+          code_url\": final_code_url,\n        \"ai_evaluation\": ai_data\n    }\n\
+          \    \n    return {\n        \"merged_paper\": paper\n    }\n"
         code_language: python3
         isInIteration: true
         isInLoop: false
@@ -980,8 +662,8 @@ workflow:
           value_type: string
           variable: summary
         - value_selector:
-          - '1769759854056'
-          - result
+          - '1768746991605'
+          - text
           value_type: string
           variable: llm_string
         - value_selector:
@@ -1003,11 +685,11 @@ workflow:
       id: '1768808667129'
       parentId: '1768746557884'
       position:
-        x: 2079.79772851087
-        y: 132.55018359523493
+        x: 1710.345992405301
+        y: 102.99999999999994
       positionAbsolute:
-        x: 1988.7575955269085
-        y: 162.02920210467352
+        x: 1388.115020076475
+        y: -216.1061229765259
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1022,16 +704,16 @@ workflow:
           value_type: string
           variable: output_1
         selected: false
-        title: 输出 2
+        title: 输出
         type: end
       height: 87
       id: '1768809610681'
       position:
-        x: 2696.2830721400205
-        y: -158.09974797613438
+        x: 2220.4059932785626
+        y: -345.91204008998875
       positionAbsolute:
-        x: 2696.2830721400205
-        y: -158.09974797613438
+        x: 2220.4059932785626
+        y: -345.91204008998875
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1570,11 +1252,11 @@ workflow:
       id: '1768813194176'
       parentId: '1768746557884'
       position:
-        x: 780.5379885017392
-        y: 82.04649523880565
+        x: 596.9307447959025
+        y: 71
       positionAbsolute:
-        x: 689.4978555177777
-        y: 111.52551374824424
+        x: 274.6997724670764
+        y: -248.10612297652585
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1583,29 +1265,28 @@ workflow:
       zIndex: 1002
     - data:
         selected: false
-        template: "\U0001F4C5 PaperEssence 科研日报\r\n根据您指定的研究内容“{{ raw_topic }}”，每天推送arxiv近7日天更新论文中挑选的3篇论文。\r\
-          \n--------------------------------------------------\r\n<small><i>⚠️ 注：内容由\
-          \ AI 生成，仅供学术参考。请在引用或深入研究前，务必点击 PDF 链接查阅原始论文进行核实。</i></small>\r\n生成日期: {{\
-          \ items.target_date | default('Today') }}\r\n==================================================\r\
-          \n\r\n{# 自动适配数据结构 #}\r\n{% set final_list = items.paper | default(items)\
-          \ %}\r\n\r\n{% for item in final_list %}\r\n\U0001F4C4 [{{ loop.index }}]\
-          \ {{ item.title }}\r\n--------------------------------------------------\r\
-          \n\U0001F464 作者: {{ item.authors }}\r\n\U0001F3E2 机构: {{ item.affiliation\
-          \ }}\r\n\U0001F517 PDF: {{ item.pdf_url }}\r\n\U0001F4C5 状态: {{ item.published\
-          \ }}\r\n{% if item.code_url and item.code_url != 'N/A' %}\r\n\U0001F4E6\
-          \ Code: {{ item.github_stats }}\r\n   \U0001F517 {{ item.code_url }}\r\n\
-          {% else %}\r\n\U0001F4E6 Code: {{ item.github_stats }}\r\n{% endif %}\r\n\
-          English Abstract:\r\n{{ item.summary | replace('\\n', ' ') }}\r\n\r\n中文摘要:\r\
-          \n{{ item.ai_evaluation.Chinese_Abstract }}\r\n\r\n\U0001F680 核心创新:\r\n\
-          {{ item.ai_evaluation.One_Liner }}\r\n\r\n\U0001F4CA 总结:\r\n{# 利用换行和缩进制造层级感，不依赖\
-          \ HTML 标签 #}\r\n--------------------------------------------------\r\n\U0001F3D7\
-          ️ 架构:\r\n{{ item.ai_evaluation.Architecture | replace('\\n- ', '\\n\\n \
-          \  \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n\U0001F4BE\
-          \ 数据:\r\n{{ item.ai_evaluation.Dataset | replace('\\n- ', '\\n\\n   \U0001F539\
-          \ ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n\U0001F4C8 指标:\r\n{{ item.ai_evaluation.Metrics\
-          \ | replace('\\n- ', '\\n\\n   \U0001F539 ') | replace('- ', '   \U0001F539\
-          \ ') }}\r\n\r\n==================================================\r\n{%\
-          \ else %}\r\n⚠️ 今日无新论文更新。\r\n{% endfor %}"
+        template: "\U0001F4C5 PaperEssence 科研日报\r\n根据您指定的研究内容“{{ raw_topic }}”，每天推送arxiv近段时间更新论文中挑选的3篇论文。\r\
+          \n--------------------------------------------------\r\n⚠️ 注：内容由 AI 生成，仅供学术参考。请在引用或深入研究前，务必点击\
+          \ PDF 链接查阅原始论文进行核实。\r\n生成日期: {{ items.target_date | default('Today') }}\r\
+          \n==================================================\r\n\r\n{# 自动适配数据结构\
+          \ #}\r\n{% set final_list = items.paper | default(items) %}\r\n\r\n{% for\
+          \ item in final_list %}\r\n\U0001F4C4 [{{ loop.index }}] {{ item.title }}\r\
+          \n--------------------------------------------------\r\n\U0001F464 作者: {{\
+          \ item.authors }}\r\n\U0001F3E2 机构: {{ item.affiliation }}\r\n\U0001F517\
+          \ PDF: {{ item.pdf_url }}\r\n\U0001F4C5 状态: {{ item.published }}\r\n{% if\
+          \ item.code_url and item.code_url != 'N/A' %}\r\n\U0001F4E6 Code: {{ item.github_stats\
+          \ }}\r\n   \U0001F517 {{ item.code_url }}\r\n{% else %}\r\n\U0001F4E6 Code:\
+          \ {{ item.github_stats }}\r\n{% endif %}\r\nEnglish Abstract:\r\n{{ item.summary\
+          \ | replace('\\n', ' ') }}\r\n\r\n中文摘要:\r\n{{ item.ai_evaluation.Chinese_Abstract\
+          \ }}\r\n\r\n\U0001F680 核心创新:\r\n{{ item.ai_evaluation.One_Liner }}\r\n\r\
+          \n\U0001F4CA 总结:\r\n{# 利用换行和缩进制造层级感，不依赖 HTML 标签 #}\r\n--------------------------------------------------\r\
+          \n\U0001F3D7️ 架构:\r\n{{ item.ai_evaluation.Architecture | replace('\\n-\
+          \ ', '\\n\\n   \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n\
+          \U0001F4BE 数据:\r\n{{ item.ai_evaluation.Dataset | replace('\\n- ', '\\n\\\
+          n   \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n\U0001F4C8\
+          \ 指标:\r\n{{ item.ai_evaluation.Metrics | replace('\\n- ', '\\n\\n   \U0001F539\
+          \ ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n==================================================\r\
+          \n{% else %}\r\n⚠️ 今日无新论文更新。\r\n{% endfor %}"
         title: 模板转换
         type: template-transform
         variables:
@@ -1622,11 +1303,11 @@ workflow:
       height: 50
       id: '1768830612348'
       position:
-        x: 2385.3807992500524
-        y: 67.29515787140579
+        x: 1865.2448215151871
+        y: -205.10612297652602
       positionAbsolute:
-        x: 2385.3807992500524
-        y: 67.29515787140579
+        x: 1865.2448215151871
+        y: -205.10612297652602
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1654,17 +1335,17 @@ workflow:
           monthly_days:
           - 1
           on_minute: 0
-          time: 5:30 AM
+          time: 5:00 AM
           weekdays:
           - sun
       height: 128
       id: '1769347575869'
       position:
-        x: 53.34869540734945
-        y: -619.861793442754
+        x: -330.0432644426813
+        y: -669.2232020013064
       positionAbsolute:
-        x: 53.34869540734945
-        y: -619.861793442754
+        x: -330.0432644426813
+        y: -669.2232020013064
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1672,18 +1353,16 @@ workflow:
       width: 242
     - data:
         code: "import os\n\ndef main(\n    SMTP_USER: str,\n    MY_RAW_TOPIC: str,\n\
-          \    MY_LLM_KEY_MODE: str,\n    SMTP_PORT: str,\n    SMTP_SERVER: str,\n\
-          \    SMTP_PASSWORD: str,\n    table_name: str\n) -> dict:\n\n    user_email\
-          \ = SMTP_USER\n    raw_topic = MY_RAW_TOPIC\n    llm_key_mode = MY_LLM_KEY_MODE\n\
-          \n    smtp_port = SMTP_PORT\n    smtp_server = SMTP_SERVER\n    smtp_password\
-          \ = SMTP_PASSWORD\n    table_name = table_name\n\n    return {\n       \
-          \ # 搜索语句\n        \"raw_topic\": raw_topic,\n\n        # 接收邮箱\n        \"\
-          user_email\": user_email,\n        \"llm_key_mode\": llm_key_mode,\n   \
-          \ \n        # SMTP 配置（供后续邮件节点使用）\n        \"smtp_port\": smtp_port,\n  \
-          \      \"smtp_server\": smtp_server,\n        \"smtp_password\": smtp_password,\n\
-          \n        # 其他不敏感的配置\n        \"fetch_count\": 50,\n        \"push_limit\"\
-          : 5,\n        \"days_lookback\": 7,\n        \"table_name\": table_name\n\
-          \    }"
+          \    SMTP_PORT: str,\n    SMTP_SERVER: str,\n    SMTP_PASSWORD: str,\n \
+          \   table_name: str\n) -> dict:\n\n    user_email = SMTP_USER\n    raw_topic\
+          \ = MY_RAW_TOPIC\n\n    smtp_port = SMTP_PORT\n    smtp_server = SMTP_SERVER\n\
+          \    smtp_password = SMTP_PASSWORD\n    table_name = table_name\n\n    return\
+          \ {\n        # 搜索语句\n        \"raw_topic\": raw_topic,\n\n        # 接收邮箱\n\
+          \        \"user_email\": user_email,\n        # SMTP 配置（供后续邮件节点使用）\n   \
+          \     \"smtp_port\": smtp_port,\n        \"smtp_server\": smtp_server,\n\
+          \        \"smtp_password\": smtp_password,\n\n        # 其他不敏感的配置\n     \
+          \   \"fetch_count\": 50,\n        \"push_limit\": 3,\n        \"days_lookback\"\
+          : 30,\n        \"table_name\": table_name\n    }"
         code_language: python3
         outputs:
           days_lookback:
@@ -1692,9 +1371,6 @@ workflow:
           fetch_count:
             children: null
             type: number
-          llm_key_mode:
-            children: null
-            type: string
           push_limit:
             children: null
             type: number
@@ -1742,11 +1418,6 @@ workflow:
           variable: SMTP_PASSWORD
         - value_selector:
           - env
-          - MY_LLM_KEY_MODE
-          value_type: string
-          variable: MY_LLM_KEY_MODE
-        - value_selector:
-          - env
           - MY_RAW_TOPIC
           value_type: string
           variable: MY_RAW_TOPIC
@@ -1758,11 +1429,11 @@ workflow:
       height: 50
       id: '1769347686844'
       position:
-        x: 359.9774733927296
-        y: -544.5983876035843
+        x: -35.10312416167743
+        y: -626.1144342228893
       positionAbsolute:
-        x: 359.9774733927296
-        y: -544.5983876035843
+        x: -35.10312416167743
+        y: -626.1144342228893
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1806,18 +1477,18 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1769759887027'
-          - result
+          - '1769350813065'
+          - text
           value_type: string
           variable: llm_string
       height: 50
       id: '1769349445686'
       position:
-        x: 1608.4336753464022
-        y: -235.65305123320064
+        x: 784.487649568333
+        y: -444.66450128500423
       positionAbsolute:
-        x: 1608.4336753464022
-        y: -235.65305123320064
+        x: 784.487649568333
+        y: -444.66450128500423
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1831,14 +1502,14 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: ernie-4.5-turbo-128k
-          provider: langgenius/wenxin/wenxin
+          name: ernie-4.5-turbo-128k-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
         prompt_template:
         - id: 57470293-294d-4555-b0de-aa67069937e8
           role: system
           text: "# Role\n你是由 NeurIPS, ICLR, CVPR 顶级会议 Area Chair 组成的评审委员会。你拥有极高的学术品味，对\
             \ \"Incremental Work\" (增量工作) 零容忍，只寻找能推动领域发展的 \"Groundbreaking Work\"\
-            \ (突破性工作)。\n\n# Task\n输入是{{#1768749419467.count#}}篇最新发布的计算机视觉与大模型领域论文。\n\
+            \ (突破性工作)。\n\n# Task\n输入是{{#1770469838682.count#}}篇最新发布的计算机视觉与大模型领域论文。\n\
             请执行严格的 **同行评审 (Peer Review)** 流程，从列表中筛选出 **Top 3** 篇最有价值的论文。\n\n# Review\
             \ Criteria (评分标准)\n在脑海中对每篇论文进行打分 (不要输出分数，仅用于筛选)：\n1. **创新性 (Novelty)**:\n\
             \   - ✅ 必须提出新的架构、新的训练范式、或解决了一个长期未决的痛点。\n   - ❌ 拒绝简单的 \"A+B\" 缝合怪、单纯的参数微调或已知方法的微小改动。\n\
@@ -1851,7 +1522,7 @@ workflow:
             \ \"```json\" 等 Markdown 标记。\n2. **结构完整**: 必须保留输入对象的所有原始字段 (title, pdf_url,\
             \ summary, authors, published, etc.)，**严禁修改字段名**，严禁添加新字段。\n3. **数量控制**:\n\
             \   - 如果输入论文 > 3 篇：严格输出评分最高的 **3** 篇。\n   - 如果输入论文 <= 3 篇：输出全部。\n\n# Input\
-            \ Data\n{{{#1768749419467.result#}}}"
+            \ Data\n{{#1770469838682.result#}}}"
         selected: false
         title: LLM初审
         type: llm
@@ -1860,11 +1531,11 @@ workflow:
       height: 86
       id: '1769350813065'
       position:
-        x: 684.1580932248758
-        y: -182.35010922228395
+        x: 376.0375398428883
+        y: -454.70982719662607
       positionAbsolute:
-        x: 684.1580932248758
-        y: -182.35010922228395
+        x: 376.0375398428883
+        y: -454.70982719662607
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2023,7 +1694,7 @@ workflow:
             value: '{{#1768830612348.output#}}'
           subject:
             type: mixed
-            value: PaperEssence-{{#1768749419467.cutoff_str#}}-{{#1768749419467.today_str#}}
+            value: PaperEssence-{{#1770469411002.cutoff_str#}}-{{#1770469411002.today_str#}}
           username_recv:
             type: mixed
             value: '{{#1769347686844.user_email#}}'
@@ -2034,234 +1705,11 @@ workflow:
       height: 50
       id: '1769364120122'
       position:
-        x: 2731.8832975950895
-        y: 159.7144782886925
+        x: 2191.656668036981
+        y: -126.02520157127343
       positionAbsolute:
-        x: 2731.8832975950895
-        y: 159.7144782886925
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        cases:
-        - case_id: 'true'
-          conditions:
-          - comparison_operator: is
-            id: 22c628ae-bd11-4e1a-8437-3edfafd47ad3
-            value: OPENAI_KEY
-            varType: string
-            variable_selector:
-            - '1769347686844'
-            - llm_key_mode
-          id: 'true'
-          logical_operator: and
-        selected: false
-        title: 条件分支
-        type: if-else
-      height: 122
-      id: '1769668760137'
-      position:
-        x: 649.8141549260844
-        y: -584.5870137950735
-      positionAbsolute:
-        x: 649.8141549260844
-        y: -584.5870137950735
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        cases:
-        - case_id: 'true'
-          conditions:
-          - comparison_operator: is
-            id: f28fc4af-6c83-4c9b-8d41-62aefb467dea
-            value: OPENAI_KEY
-            varType: string
-            variable_selector:
-            - '1769347686844'
-            - llm_key_mode
-          id: 'true'
-          logical_operator: and
-        selected: false
-        title: 条件分支 2
-        type: if-else
-      height: 122
-      id: '1769669568004'
-      position:
-        x: -49.37157635408994
-        y: -235.65305123320064
-      positionAbsolute:
-        x: -49.37157635408994
-        y: -235.65305123320064
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        cases:
-        - case_id: 'true'
-          conditions:
-          - comparison_operator: is
-            id: fcb68fa4-8ddb-405e-bbc1-91dbc3d9e14a
-            value: OPENAI_KEY
-            varType: string
-            variable_selector:
-            - '1769347686844'
-            - llm_key_mode
-          id: 'true'
-          logical_operator: and
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        selected: false
-        title: 条件分支 3
-        type: if-else
-      height: 122
-      id: '1769670205504'
-      parentId: '1768746557884'
-      position:
-        x: 1208.7335485068713
-        y: 65
-      positionAbsolute:
-        x: 1117.6934155229098
-        y: 94.47901850943859
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-      zIndex: 1002
-    - data:
-        code: "def main(arg1: str, arg2: str, llm_key_mode: str) -> dict:\n    if\
-          \ llm_key_mode == \"OPENAI_KEY\":\n        return {\n            \"result\"\
-          : arg1\n        }\n    else:\n        return {\n            \"result\":\
-          \ arg2\n        }\n"
-        code_language: python3
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 汇总-翻译
-        type: code
-        variables:
-        - value_selector:
-          - '17702096836960'
-          - text
-          value_type: string
-          variable: arg1
-        - value_selector:
-          - '1768749653285'
-          - text
-          value_type: string
-          variable: arg2
-        - value_selector:
-          - '1769347686844'
-          - llm_key_mode
-          value_type: string
-          variable: llm_key_mode
-      height: 50
-      id: '1769759651750'
-      position:
-        x: 1375.439020789732
-        y: -555.1250823209191
-      positionAbsolute:
-        x: 1375.439020789732
-        y: -555.1250823209191
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        code: "def main(arg1: str, arg2: str, llm_key_mode: str) -> dict:\n    if\
-          \ llm_key_mode == \"OPENAI_KEY\":\n        return {\n            \"result\"\
-          : arg1\n        }\n    else:\n        return {\n            \"result\":\
-          \ arg2\n        }\n"
-        code_language: python3
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 汇总-分析
-        type: code
-        variables:
-        - value_selector:
-          - '1770209844836'
-          - text
-          value_type: string
-          variable: arg1
-        - value_selector:
-          - '1768746991605'
-          - text
-          value_type: string
-          variable: arg2
-        - value_selector:
-          - '1769347686844'
-          - llm_key_mode
-          value_type: string
-          variable: llm_key_mode
-      height: 50
-      id: '1769759854056'
-      parentId: '1768746557884'
-      position:
-        x: 1798.4242598891783
-        y: 134.6197981928247
-      positionAbsolute:
-        x: 1707.3841269052168
-        y: 164.0988167022633
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-      zIndex: 1002
-    - data:
-        code: "def main(arg1: str, arg2: str, llm_key_mode: str) -> dict:\n    if\
-          \ llm_key_mode == \"OPENAI_KEY\":\n        return {\n            \"result\"\
-          : arg1\n        }\n    else:\n        return {\n            \"result\":\
-          \ arg2\n        }\n"
-        code_language: python3
-        outputs:
-          result:
-            children: null
-            type: string
-        selected: false
-        title: 汇总-初审
-        type: code
-        variables:
-        - value_selector:
-          - '17702097600540'
-          - text
-          value_type: string
-          variable: arg1
-        - value_selector:
-          - '1769350813065'
-          - text
-          value_type: string
-          variable: arg2
-        - value_selector:
-          - '1769347686844'
-          - llm_key_mode
-          value_type: string
-          variable: llm_key_mode
-      height: 50
-      id: '1769759887027'
-      position:
-        x: 1239.7471167588672
-        y: -244.92798321863165
-      positionAbsolute:
-        x: 1239.7471167588672
-        y: -244.92798321863165
+        x: 2191.656668036981
+        y: -126.02520157127343
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2366,7 +1814,7 @@ workflow:
             value: ''
           limit:
             type: constant
-            value: null
+            value: 3000
           table:
             type: mixed
             value: '{{#1769347686844.table_name#}}'
@@ -2374,11 +1822,11 @@ workflow:
       height: 50
       id: '1769954998188'
       position:
-        x: 1691.7585071868298
-        y: -555.1250823209191
+        x: 524.3775369091078
+        y: -626.1144342228893
       positionAbsolute:
-        x: 1691.7585071868298
-        y: -555.1250823209191
+        x: 524.3775369091078
+        y: -626.1144342228893
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2467,11 +1915,11 @@ workflow:
       id: '1769957710193'
       parentId: '1768746557884'
       position:
-        x: 480.53798850173916
-        y: 82.04649523880565
+        x: 334.30073980784323
+        y: 78.20831614138342
       positionAbsolute:
-        x: 389.4978555177777
-        y: 111.52551374824424
+        x: 12.069767479017173
+        y: -240.89780683514243
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2487,155 +1935,492 @@ workflow:
             temperature: 0.7
           mode: chat
           name: ernie-4.5-turbo-128k-preview
-          provider: lyf/ernie-paddle-aistudio-api/ernie-paddle-aistudio-api
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
         prompt_template:
-        - id: c9d252ac-2420-410e-80c0-33933325a6d3
+        - id: a476507a-b960-42dc-b0e3-0d6a7e5babe4
           role: system
-          text: "# Role\n你是一个精通 ArXiv 搜索语法的科研助手，擅长从非正式的科研描述中提取核心技术关键词并构建复杂的检索表达式。\n\
-            \n# Task\n用户的输入可能是一个详细的研究方向描述（中文）{{#1769347686844.raw_topic#}}。你的任务是将其转换为\
-            \ ArXiv API 效率最高、最精确的 **英文布尔查询字符串**。\n\n# Rules\n1. **核心概念提取**：从用户的长描述中识别核心算法（如\
-            \ Reinforcement Learning）、问题领域（如 Communication Efficiency）和研究对象（如 Multi-Agent\
-            \ Systems）。\n2. **术语翻译**：将中文术语准确翻译为学术英语。\n3. **布尔逻辑构建**：\n   - 使用 `AND`\
-            \ 连接必须同时满足的不同概念维度（例如：研究对象 AND 解决的问题）。\n   - 使用 `OR` 连接同义词或高度相关的词，增加搜索覆盖面。\n\
-            \   - 使用双引号 `\"\"` 包裹词组（如 `\"multi-agent systems\"`）以实现精确匹配。\n4. **去噪**：忽略“我正在研究”、“帮我找论文”、“最近的研究”等非学术性的语气词。\n\
-            5. **只输出结果**：不要包含任何解释、前缀或后缀，只输出构建好的查询字符串。\n\n# Examples\nInput: 我想研究基于大模型的多智能体系统的通信开销优化，特别是通过拓扑结构改进来节省\
-            \ Token 的方法。\nOutput: (\"multi-agent systems\" OR \"multi-agent collaboration\"\
-            ) AND (\"communication efficiency\" OR \"topology optimization\" OR \"\
-            token reduction\")\n\nInput: 关注多智能体任务规划中的自我纠错机制，特别是通过辩论或者评论家模型来减少幻觉。\n\
-            Output: \"multi-agent planning\" AND (\"self-correction\" OR \"reflexion\"\
-            \ OR \"debate\" OR \"critic\")\n\nInput: 强化学习智能体在机器人导航中的应用\nOutput: \"\
-            reinforcement learning\" AND agents AND \"robot navigation\"\n\n# Input:\
-            \ {{#1769347686844.raw_topic#}}"
-        selected: false
-        title: 研究领域LLM翻译-星河
-        type: llm
-        vision:
-          enabled: false
-      height: 86
-      id: '17702096836960'
-      position:
-        x: 978.3006566679312
-        y: -645.2438858353544
-      positionAbsolute:
-        x: 978.3006566679312
-        y: -645.2438858353544
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-    - data:
-        context:
-          enabled: false
-          variable_selector: []
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: ernie-4.5-turbo-128k-preview
-          provider: lyf/ernie-paddle-aistudio-api/ernie-paddle-aistudio-api
-        prompt_template:
-        - id: 57470293-294d-4555-b0de-aa67069937e8
-          role: system
-          text: "# Role\n你是由 NeurIPS, ICLR, CVPR 顶级会议 Area Chair 组成的评审委员会。你拥有极高的学术品味，对\
-            \ \"Incremental Work\" (增量工作) 零容忍，只寻找能推动领域发展的 \"Groundbreaking Work\"\
-            \ (突破性工作)。\n\n# Task\n输入是{{#1768749419467.count#}}篇最新发布的计算机视觉与大模型领域论文。\n\
-            请执行严格的 **同行评审 (Peer Review)** 流程，从列表中筛选出 **Top 3** 篇最有价值的论文。\n\n# Review\
-            \ Criteria (评分标准)\n在脑海中对每篇论文进行打分 (不要输出分数，仅用于筛选)：\n1. **创新性 (Novelty)**:\n\
-            \   - ✅ 必须提出新的架构、新的训练范式、或解决了一个长期未决的痛点。\n   - ❌ 拒绝简单的 \"A+B\" 缝合怪、单纯的参数微调或已知方法的微小改动。\n\
-            2. **启发性 (Insight)**:\n   - ✅ 论文是否提供了令人惊讶的发现？是否挑战了现有的认知？\n   - ❌ 拒绝单纯的“刷榜”论文\
-            \ (仅在某个数据集上提升 0.1%)。\n3. **完整性 (Completeness)**:\n   - ✅ 摘要中是否包含明确的方法论、实验结论和具体指标。\n\
-            \n# Negative Filtering (负面过滤 - 遇到此类直接剔除)\n- 标题含有 \"A Survey of...\" 或\
-            \ \"Review\" 的综述文章 (除非该领域极度缺乏综述)。\n- 摘要空洞，充满 \"State-of-the-art\" 堆砌但没有讲清楚具体方法的文章。\n\
-            - 与计算机科学/AI 核心技术无关的边缘应用文章。\n\n# Output Constraints (CRITICAL)\n1. **纯净\
-            \ JSON**: 输出必须是原始 JSON 数组格式 `[...]`。**严禁**在 JSON 前后添加 \"Here is...\" 或\
-            \ \"```json\" 等 Markdown 标记。\n2. **结构完整**: 必须保留输入对象的所有原始字段 (title, pdf_url,\
-            \ summary, authors, published, etc.)，**严禁修改字段名**，严禁添加新字段。\n3. **数量控制**:\n\
-            \   - 如果输入论文 > 3 篇：严格输出评分最高的 **3** 篇。\n   - 如果输入论文 <= 3 篇：输出全部。\n\n# Input\
-            \ Data\n{{{#1768749419467.result#}}}"
+          text: '# Role
+
+            你是一个 ArXiv 搜索专家，专门负责将用户的非正式中文描述转化为高召回率的 **英文 ArXiv 查询字符串**。
+
+
+
+            # Task
+
+            分析用户的输入，提取核心概念，扩展同义词，并构建符合 ArXiv 语法的查询字符串。
+
+
+
+            # Rules
+
+            1. **术语标准化与扩展 (最重要)**：
+
+               - 将非正式表达转化为标准的学术术语（如"记忆链" -> memory OR "memory mechanism" OR "long-term
+            memory"）。
+
+               - 扩展缩写（如 RL -> reinforcement OR "reinforcement learning"）。
+
+               - 包含核心概念的常见同义词，用 `OR` 连接。
+
+
+
+            2. **平衡精确度与召回率**：
+
+               - **优先使用不带引号的单词**（如 agent, memory），以获得更高召回率。
+
+               - **仅对必须精确匹配的专有名词使用引号**（如 "GPT-4", "BERT"）。
+
+               - 对于通用概念（如 agent, memory, learning），不要加引号。
+
+
+
+            3. **结构化构建**：
+
+               - 不同概念之间用 `AND` 连接。
+
+               - 同一概念的同义词组用括号 `()` 包裹，并用 `OR` 连接。
+
+
+
+            4. **去噪**：忽略"帮我找"、"最新的"、"经典的"等无关词汇。
+
+
+
+            5. **输出限制**：
+
+               - **不要**输出 `cat:` 分类标签（这一步由后续代码自动处理）。
+
+               - **不要**输出任何解释，只输出查询字符串本身。
+
+
+
+            # Examples
+
+            Input: 搜索关于agent记忆链的研究，特别是怎么减少遗忘
+
+            Output: (agent OR "autonomous agent" OR "LLM agent") AND (memory OR "memory
+            mechanism" OR "long-term memory") AND (forgetting OR "catastrophic forgetting")
+
+
+
+            Input: 基于大模型的多智能体通信优化
+
+            Output: ("large language model" OR LLM OR language model) AND ("multi-agent"
+            OR multiagent) AND (communication OR optimization)
+
+
+
+            Input: 扩散模型在医疗图像分割中的应用
+
+            Output: (diffusion OR "diffusion model") AND (medical OR biomedical) AND
+            (segmentation OR "image segmentation")
+
+
+
+            Input: 对比学习用于推荐系统
+
+            Output: ("contrastive learning" OR contrastive) AND (recommendation OR
+            recommender)
+
+
+
+            # Input: {{#1769347686844.raw_topic#}}'
         retry_config:
           max_retries: 5
           retry_enabled: true
-          retry_interval: 1374
+          retry_interval: 1000
         selected: false
-        title: LLM初审-星河
+        title: 研究领域LLM翻译
         type: llm
         vision:
           enabled: false
       height: 115
-      id: '17702097600540'
+      id: '1770443235033'
       position:
-        x: 649.8141549260844
-        y: -300.9546209437918
+        x: 252.9371576016536
+        y: -648.2232020013064
       positionAbsolute:
-        x: 649.8141549260844
-        y: -300.9546209437918
+        x: 252.9371576016536
+        y: -648.2232020013064
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 241
     - data:
-        context:
-          enabled: false
-          variable_selector: []
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        headers: User-Agent:test_sea
+        method: get
+        params: 'search_query:{{#1770469411002.base_query#}}
+
+          start:0
+
+          max_results:{{#1770469411002.fetch_limit#}}
+
+          sortBy:submittedDate
+
+          sortOrder:descending'
+        retry_config:
+          max_retries: 10
+          retry_enabled: true
+          retry_interval: 2127
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 'HTTP 请求 '
+        type: http-request
+        url: http://export.arxiv.org/api/query
+        variables: []
+      height: 135
+      id: '1770469208395'
+      position:
+        x: -240.5530570995624
+        y: -471.15643395617946
+      positionAbsolute:
+        x: -240.5530570995624
+        y: -471.15643395617946
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nfrom datetime import datetime, timedelta\nimport re\n\n\
+          def main(topic: str, days_lookback: int, count: int, supabase_output: list\
+          \ = None) -> dict:\n    \"\"\"\n    预处理：接收已转换为英文的关键词，构建ArXiv查询\n    \"\"\
+          \"\n    # 基础参数处理\n    today = datetime.now()\n    days = int(days_lookback)\
+          \ if days_lookback else 3 # 默认多看几天\n    cutoff_date = today - timedelta(days=days)\n\
+          \    \n    cutoff_str = cutoff_date.strftime('%Y-%m-%d')\n    today_str\
+          \ = today.strftime('%Y-%m-%d')\n    \n    # 解析已推送ID \n    pushed_ids = []\n\
+          \    if supabase_output and isinstance(supabase_output, list):\n       \
+          \ try:\n            # 尝试递归查找或扁平化处理，防止结构变化导致崩溃\n            def extract_ids(obj):\n\
+          \                ids = []\n                if isinstance(obj, dict):\n \
+          \                   if \"arxiv_id\" in obj:\n                        val\
+          \ = obj[\"arxiv_id\"]\n                        if val: ids.append(str(val).strip('{}\
+          \ ').split('v')[0])\n                    for k, v in obj.items():\n    \
+          \                    ids.extend(extract_ids(v))\n                elif isinstance(obj,\
+          \ list):\n                    for item in obj:\n                       \
+          \ ids.extend(extract_ids(item))\n                return ids\n          \
+          \  \n            pushed_ids = list(set(extract_ids(supabase_output)))\n\
+          \        except Exception:\n            pushed_ids = []\n\n    # 构建鲁棒的查询字符串\n\
+          \    def build_robust_query(search_terms):\n        # 预清洗：移除多余空格，转小写\n \
+          \       clean_topic = re.sub(r'\\s+', ' ', search_terms.strip())\n     \
+          \   \n        # 如果 LLM 已经生成了带有布尔逻辑的字符串（如 AND/OR），直接使用\n        if any(x\
+          \ in clean_topic for x in [' AND ', ' OR ', 'cat:', 'ti:', 'abs:']):\n \
+          \           return clean_topic\n\n        # 提取关键词（排除极短词）\n        keywords\
+          \ = [w for w in clean_topic.split() if len(w) > 1]\n        \n        if\
+          \ not keywords:\n            return \"cat:cs.AI\" # 兜底\n\n        # 策略：构建\
+          \ (ti:A OR abs:A) AND (ti:B OR abs:B)\n        # 只要标题或摘要里有这个词就算命中\n    \
+          \    query_parts = []\n        for kw in keywords:\n            # 给关键词加引号以进行精确匹配，避免\
+          \ partial match 干扰\n            part = f'(ti:{kw} OR abs:{kw})'\n      \
+          \      query_parts.append(part)\n        \n        return ' AND '.join(query_parts)\n\
+          \n    base_query = build_robust_query(topic)\n\n    # 自动追加分类限制\n    # 只有当查询中没有显式指定分类时才自动追加\n\
+          \    if 'cat:' not in base_query:\n        topic_lower = topic.lower()\n\
+          \        cat_map = {\n            'cs.CV': ['vision', 'image', 'detection',\
+          \ 'segmentation', 'video'],\n            'cs.CL': ['nlp', 'language', 'text',\
+          \ 'transformer', 'bert', 'gpt', 'llm', 'prompt'],\n            'cs.RO':\
+          \ ['robot', 'manipulation', 'nav'],\n            'cs.CR': ['security', 'crypto',\
+          \ 'attack', 'defense'],\n            'cs.LG': ['machine learning', 'deep\
+          \ learning', 'reinforcement', 'neural'],\n            'cs.SE': ['software',\
+          \ 'code', 'debugging']\n        }\n        \n        added_cats = []\n \
+          \       for cat, triggers in cat_map.items():\n            if any(t in topic_lower\
+          \ for t in triggers):\n                added_cats.append(f'cat:{cat}')\n\
+          \        \n        # 如果匹配到分类，限制范围；如果没有，默认搜索整个 CS 领域或保持原样\n        if added_cats:\n\
+          \            # 使用 OR 连接多个可能的分类，例如既可能是 CV 也可能是 LG\n            cat_query\
+          \ = ' OR '.join(added_cats)\n            base_query = f'({base_query}) AND\
+          \ ({cat_query})'\n\n    # 计算 Fetch Limit\n    # ArXiv API 分页如果不准确，多抓一点由后处理去过滤\n\
+          \    fetch_limit = max(int(count) * 5, 100)\n\n    # 生成供后处理使用的关键词列表\n  \
+          \  search_keywords_list = [kw.lower() for kw in topic.split() if len(kw)\
+          \ > 2]\n\n    return {\n        \"base_query\": base_query,\n        \"\
+          pushed_ids\": pushed_ids,\n        \"cutoff_str\": cutoff_str,\n       \
+          \ \"today_str\": today_str,\n        \"fetch_limit\": fetch_limit,\n   \
+          \     \"count\": int(count),\n        \"search_keywords\": search_keywords_list\n\
+          \    }"
+        code_language: python3
+        outputs:
+          base_query:
+            children: null
+            type: string
+          count:
+            children: null
+            type: number
+          cutoff_str:
+            children: null
+            type: string
+          fetch_limit:
+            children: null
+            type: number
+          pushed_ids:
+            children: null
+            type: array[string]
+          search_keywords:
+            children: null
+            type: array[string]
+          today_str:
+            children: null
+            type: string
+        selected: false
+        title: 搜索论文节点预处理
+        type: code
+        variables:
+        - value_selector:
+          - '1770443235033'
+          - text
+          value_type: string
+          variable: topic
+        - value_selector:
+          - '1769347686844'
+          - days_lookback
+          value_type: number
+          variable: days_lookback
+        - value_selector:
+          - '1769347686844'
+          - push_limit
+          value_type: number
+          variable: count
+        - value_selector:
+          - '1769954998188'
+          - json
+          value_type: array[object]
+          variable: supabase_output
+      height: 50
+      id: '1770469411002'
+      position:
+        x: 796.6254166026007
+        y: -626.1144342228893
+      positionAbsolute:
+        x: 796.6254166026007
+        y: -626.1144342228893
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import xml.etree.ElementTree as ET\nfrom datetime import datetime\n\
+          import json\n\ndef main(\n    http_response_body: str,\n    base_query_var:\
+          \ str,\n    pushed_ids_var: list,\n    cutoff_str_var: str,\n    today_str_var:\
+          \ str,\n    fetch_limit_var: int,\n    count_var: int,\n    search_keywords_var:\
+          \ list\n) -> dict:\n    \"\"\"\n    处理HTTP响应，解析XML并过滤结果\n    \"\"\"\n  \
+          \  try:\n        root = ET.fromstring(http_response_body)\n        ns =\
+          \ {'atom': 'http://www.w3.org/2005/Atom', 'arxiv': 'http://arxiv.org/schemas/atom'}\n\
+          \        entries = root.findall('atom:entry', ns)\n        \n        filtered_results\
+          \ = []\n        \n        # 变量解包\n        pushed_ids_str = set(str(item)\
+          \ for item in pushed_ids_var) # 用集合查重更快\n        count = int(count_var)\n\
+          \        cutoff_date = datetime.strptime(cutoff_str_var, \"%Y-%m-%d\") if\
+          \ cutoff_str_var else datetime.now()\n        \n        debug_counters =\
+          \ {\"duplicate\": 0, \"too_old\": 0, \"kept\": 0}\n\n        for entry in\
+          \ entries:\n            # if len(filtered_results) >= count:\n         \
+          \   #     break\n\n            # 提取 ID\n            id_url = entry.find('atom:id',\
+          \ ns).text\n            raw_id = id_url.rsplit('/', 1)[-1] if id_url else\
+          \ \"\"\n            arxiv_id = raw_id.split('v')[0].strip() # 移除 v1, v2\n\
+          \            \n            # 过滤已推送\n            if arxiv_id in pushed_ids_str:\n\
+          \                debug_counters[\"duplicate\"] += 1\n                continue\n\
+          \            \n            # 过滤日期\n            published_str = entry.find('atom:published',\
+          \ ns).text\n            try:\n                # 只取 YYYY-MM-DD\n        \
+          \        pub_date_dt = datetime.strptime(published_str[:10], \"%Y-%m-%d\"\
+          )\n                if pub_date_dt.date() < cutoff_date.date():\n       \
+          \             debug_counters[\"too_old\"] += 1\n                    continue\n\
+          \            except:\n                pass # 解析失败则放行，避免误杀\n\n          \
+          \  # 提取信息\n            title = entry.find('atom:title', ns).text or \"\"\
+          \n            title = title.replace('\\n', ' ').strip()\n            \n\
+          \            summary = entry.find('atom:summary', ns).text or \"\"\n   \
+          \         summary = summary.replace('\\n', ' ').strip()\n            \n\n\
+          \            # 提取作者\n            authors = []\n            for author in\
+          \ entry.findall('atom:author', ns):\n                name = author.find('atom:name',\
+          \ ns).text\n                if name: authors.append(name)\n            authors_str\
+          \ = \", \".join(authors[:3]) + (\" et al.\" if len(authors) > 3 else \"\"\
+          )\n\n            # 提取 PDF\n            links = entry.findall('atom:link',\
+          \ ns)\n            pdf_url = f\"https://arxiv.org/pdf/{arxiv_id}.pdf\" #\
+          \ 默认构造\n            for link in links:\n                if link.attrib.get('title')\
+          \ == 'pdf':\n                    pdf_url = link.attrib.get('href')\n\n \
+          \           result_item = {\n                \"arxiv_id\": arxiv_id,\n \
+          \               \"title\": title,\n                \"summary\": summary,\
+          \ # 摘要可以后续由 LLM 总结\n                \"authors\": authors_str,\n        \
+          \        \"published\": published_str[:10],\n                \"pdf_url\"\
+          : pdf_url,\n                \"url\": id_url\n            }\n           \
+          \ \n            filtered_results.append(result_item)\n            debug_counters[\"\
+          kept\"] += 1\n\n        return {\n            \"result\": json.dumps(filtered_results,\
+          \ ensure_ascii=False),\n            \"count\": len(filtered_results),\n\
+          \            \"debug\": f\"Total fetched: {len(entries)}. Dup: {debug_counters['duplicate']},\
+          \ Old: {debug_counters['too_old']}, Kept: {debug_counters['kept']}\"\n \
+          \       }\n\n    except Exception as e:\n        return {\n            \"\
+          result\": \"[]\", \n            \"count\": 0, \n            \"debug\": f\"\
+          Error parsing XML: {str(e)}\"\n        }"
+        code_language: python3
+        outputs:
+          count:
+            children: null
+            type: number
+          debug:
+            children: null
+            type: string
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 搜索论文节点后处理
+        type: code
+        variables:
+        - value_selector:
+          - '1770469208395'
+          - body
+          value_type: string
+          variable: http_response_body
+        - value_selector:
+          - '1770469411002'
+          - base_query
+          value_type: string
+          variable: base_query_var
+        - value_selector:
+          - '1770469411002'
+          - pushed_ids
+          value_type: array[number]
+          variable: pushed_ids_var
+        - value_selector:
+          - '1770469411002'
+          - cutoff_str
+          value_type: string
+          variable: cutoff_str_var
+        - value_selector:
+          - '1770469411002'
+          - today_str
+          value_type: string
+          variable: today_str_var
+        - value_selector:
+          - '1770469411002'
+          - fetch_limit
+          value_type: number
+          variable: fetch_limit_var
+        - value_selector:
+          - '1770469411002'
+          - count
+          value_type: number
+          variable: count_var
+        - value_selector:
+          - '1770469411002'
+          - search_keywords
+          value_type: array[string]
+          variable: search_keywords_var
+      height: 50
+      id: '1770469838682'
+      position:
+        x: 47.15713480309881
+        y: -449.1111080445578
+      positionAbsolute:
+        x: 47.15713480309881
+        y: -449.1111080445578
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "def main(doc_json):\n    if doc_json is None:\n        return {\"footnote_text\"\
+          : \"\"}\n\n    data = doc_json\n    footnotes = []\n\n    def walk(obj):\n\
+          \        if isinstance(obj, dict):\n            if obj.get(\"block_label\"\
+          ) == \"footnote\":\n                content = (obj.get(\"block_content\"\
+          ) or \"\").strip()\n                if content:\n                    footnotes.append(content)\n\
+          \            for v in obj.values():\n                walk(v)\n        elif\
+          \ isinstance(obj, list):\n            for v in obj:\n                walk(v)\n\
+          \n    walk(data)\n\n    return {\"footnote_text\": \"\\n\".join(footnotes).strip()}\n"
+        code_language: python3
+        desc: 机构信息有的时候在json里
         isInIteration: true
         isInLoop: false
         iteration_id: '1768746557884'
-        model:
-          completion_params:
-            temperature: 0.7
-          mode: chat
-          name: ernie-5.0-thinking-preview
-          provider: lyf/ernie-paddle-aistudio-api/ernie-paddle-aistudio-api
-        prompt_template:
-        - id: dd12f470-a22c-45c5-991a-42f777dafd62
-          role: system
-          text: "# Role\n你是一名资深的计算机与AI领域审稿人。你需要根据提供的论文摘要和OCR正文片段，总结出论文的核心技术细节。\n\n\
-            # Input\n- Title: {{#1768808528449.title_str#}}}\n- Abstract: {{#1768808528449.summary_str#}}}\n\
-            - OCR Text: {{#1768813194176.text#}}}\n\n# Task\n基于以上输入，提取并总结以下 7 个关键字段。\n\
-            \n**\U0001F6A8 核心原则（Core Principles）：**\n1.  **拒绝废话**：不要输出“本文提出了一种新颖的方法”这种套话，直接说**具体是什么方法**。\n\
-            2.  **深挖细节**：如果没有标准模型名，必须总结其**算法逻辑、损失函数设计或模块交互方式**。\n3.  **数据优先**：在 Metrics\
-            \ 中，优先展示**对比 SOTA 的提升幅度**，而不仅仅是绝对值。\n4.  **禁止 N/A**：如果文中未明确，根据上下文进行**合理的专家推断**（Inferred），但不要捏造。\n\
-            \n# Fields Guide\n\n1.  **One_Liner** (String):\n    * (中文) **一句话痛点与解决方案**。\n\
-            \    * 格式：*“针对 [具体痛点/任务]，提出 [核心方法/架构]，实现了 [核心价值]。”*\n    * 示例：“针对长文本幻觉问题，提出基于知识图谱的动态检索增强框架，将事实准确率提升了\
-            \ 15%。”\n\n2.  **Architecture** (String):\n    * (中文) **模型架构与关键创新点（分点总结）**。\n\
-            \    * **必须包含**：核心模块名称、特定的数学机制（如 Attention 变体）、Loss 函数设计或训练策略。\n    *\
-            \ **格式要求**：请使用 `\\n- ` 进行换行分点，确保在 UI 上显示清晰。\n    * *示例*：\n        \"提出\
-            \ Llama-adapter-v2 架构：\\n- 引入零初始化注意力机制，解决训练初期不稳定性；\\n- 采用两阶段微调策略，先优化只读参数再全量微调；\\\
-            n- 设计了多模态对齐投影层，实现图像特征的无损注入。\"\n\n3.  **Dataset** (String):\n    * (中文)\
-            \ **数据来源与规模**。\n    * 优先提取：**数据集名称** + **数据量级**（如 1M, 70k, 3000 hours）。\n\
-            \    * 如果是私有/合成数据，描述其**生成逻辑**或**来源领域**（如“GPT-4生成的 50k 代码指令对”）。\n\n4. \
-            \ **Metrics** (String):\n    * (中文) **核心性能指标**。\n    * 提取关键榜单（Benchmarks）上的表现。\n\
-            \    * **关键**：如果有对比，请写出 *“比 SOTA (如 ResNet-50) 提升了 X%”* 或 *“参数量减少 Y% 的同时精度持平”*。\n\
-            \    * 无数字时，描述其具体的**定性优势**（如“在 8k 上下文长度下仍保持连贯”）。\n\n5.  **Chinese_Abstract**\
-            \ (String):\n    * (中文) **学术级摘要翻译**。\n    * 要求：信达雅，使用标准的学术术语（如：Ablation\
-            \ study -> 消融实验, Robustness -> 鲁棒性, End-to-end -> 端到端）。\n\n6.  **Affiliation**\
-            \ (String):\n    * 从 OCR 文本中中提取作者所属的机构。\n    **清洗指令**：去除无关的地址细节（如街道号、邮编）。多个机构用“;\
-            \ ”分隔。\n    **示例**：清华大学; 微软亚洲研究院 (MSRA)。\n\n7.  **Code_Url** (String):\n\
-            \    * **高优先级搜索**。\n    * 查找范围：Abstract, Introduction, Conclusion 以及 OCR\
-            \ 的页眉页脚。\n    * **严格鉴别**：\n        1. 必须是**本论文**的官方实现（通常伴随 \"Official\
-            \ implementation\", \"Code is released at\"）。\n        2. **排除** 引用文献中的链接（即排除出现在\
-            \ `[...]` 或 Reference 章节的链接）。\n        3. 必须以 `http` 开头。\n    * *Output*：仅输出\
-            \ URL。若确无代码，输出 \"N/A\"。\n\n# Output Format\n请直接输出纯 JSON 对象，确保可以被 `json.loads`\
-            \ 解析。不要包含 Markdown 代码块标记（```json）。\n\n{\n  \"One_Liner\": \"...\",\n \
-            \ \"Architecture\": \"...\",\n  \"Dataset\": \"...\",\n  \"Metrics\":\
-            \ \"...\",\n  \"Chinese_Abstract\": \"...\",\n  \"Affiliation\": \"...\"\
-            ,\n  \"Code_Url\": \"...\"\n}"
+        outputs:
+          footnote_text:
+            children: null
+            type: string
         selected: false
-        title: (LLM)分析-星河
-        type: llm
-        vision:
-          enabled: false
-      height: 86
-      id: '1770209844836'
+        title: get_footnote_text
+        type: code
+        variables:
+        - value_selector:
+          - '1768813194176'
+          - json
+          value_type: array[object]
+          variable: doc_json
+      height: 78
+      id: '1770531933796'
       parentId: '1768746557884'
       position:
-        x: 1500.8865660244242
-        y: 92.34335482258663
+        x: 859.4565028618442
+        y: 68.99999999999994
       positionAbsolute:
-        x: 1409.8464330404627
-        y: 121.82237333202522
+        x: 537.2255305330182
+        y: -250.1061229765259
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "def main(ocr_text: str, max_tokens: int = 100000) -> dict:\n    \"\"\
+          \"\n    裁剪 OCR 文本以避免超过 LLM 的 token 限制\n    \n    参数:\n    - ocr_text: 原始\
+          \ OCR 文本\n    - max_tokens: 最大 token 数（默认 100000，约等于 75000 个中文字符）\n    \n\
+          \    返回:\n    - truncated_text: 裁剪后的文本\n    - original_length: 原始文本长度\n\
+          \    - truncated_length: 裁剪后文本长度\n    - is_truncated: 是否进行了裁剪\n    \"\"\"\
+          \n    \n    if not ocr_text:\n        return {\n            \"truncated_text\"\
+          : \"\",\n            \"original_length\": 0,\n            \"truncated_length\"\
+          : 0,\n            \"is_truncated\": False\n        }\n    \n    original_length\
+          \ = len(ocr_text)\n    \n    # 粗略估算：1 token ≈ 0.75 个中文字符，≈ 4 个英文字符，设置为 100000\
+          \ 字符（留出余量给其他输入）\n    max_chars = max_tokens\n    \n    if original_length\
+          \ <= max_chars:\n        # 不需要裁剪\n        return {\n            \"truncated_text\"\
+          : ocr_text,\n            \"original_length\": original_length,\n       \
+          \     \"truncated_length\": original_length,\n            \"is_truncated\"\
+          : False\n        }\n    \n\n    # 策略：保留前 80% 和后 20%\n    front_chars = int(max_chars\
+          \ * 0.8)\n    back_chars = int(max_chars * 0.2)\n    \n    truncated_text\
+          \ = (\n        ocr_text[:front_chars] + \n        \"\\n\\n[... 中间部分已省略 ...]\\\
+          n\\n\" + \n        ocr_text[-back_chars:]\n    )\n    \n    return {\n \
+          \       \"truncated_text\": truncated_text,\n        \"original_length\"\
+          : original_length,\n        \"truncated_length\": len(truncated_text),\n\
+          \        \"is_truncated\": True\n    }\n"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          is_truncated:
+            children: null
+            type: boolean
+          original_length:
+            children: null
+            type: number
+          truncated_length:
+            children: null
+            type: number
+          truncated_text:
+            children: null
+            type: string
+        selected: false
+        title: truncated_text
+        type: code
+        variables:
+        - value_selector:
+          - '1768813194176'
+          - text
+          value_type: string
+          variable: ocr_text
+      height: 50
+      id: '1770554824578'
+      parentId: '1768746557884'
+      position:
+        x: 1135.4565028618445
+        y: 76.48220225318448
+      positionAbsolute:
+        x: 813.2255305330184
+        y: -242.62392072334137
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2643,7 +2428,7 @@ workflow:
       width: 241
       zIndex: 1002
     viewport:
-      x: 210.22620913768833
-      y: 326.6307293051959
-      zoom: 0.3187810697483394
+      x: 274.3654861644126
+      y: 532.0530614882631
+      zoom: 0.5000000000000007
   rag_pipeline_variables: []
