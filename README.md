@@ -1,90 +1,69 @@
-# PaperFlow 📄✨
 
-**[中文](#中文) | [English](#english)**
+# Paper-Essence Workflow 📄✨
 
----
-
-## 中文
-
-> **让论文阅读回归本质** — 一系列基于 [Dify](https://dify.ai) 的学术工作流工具集
-
-我们相信，研究者的时间应该花在思考上，而不是信息检索上。PaperFlow 是一个开源的 Dify 工作流集合，专注于**论文工具**的全流程自动化。每个工具都是一个 `.yml` DSL 文件，导入 Dify 即可测试运行。
-
-**🎯 愿景**：用 AI 工作流消除学术信息差，让每个研究者都能高效追踪前沿。
-
-### 📦 工具列表
-
-| # | 工具名称 | 描述 | 文件 | 教程 |
-|---|---------|------|------|------|
-| 1 | **Paper-Essence** 📚 | 自动化论文日报推送 - 每日从 ArXiv 获取论文，AI 筛选分析后邮件推送 | [DSL](prj/Paper-Essence.yml) | [教程](docs/Paper-Essence-Tutorial.md) |
-| 2 | *Coming Soon...* | 🚧 更多工具正在路上 | - | - |
+**[中文说明](#中文说明) | [English Guide](#english-guide)**
 
 ---
 
-### 🔧 Paper-Essence
+## 中文说明
 
-自动化论文推送工作流，每天从 ArXiv 获取指定领域的最新论文，通过大模型智能筛选分析，生成结构化日报并发送到邮箱。
+> **让论文阅读回归本质**
 
-**✨ 功能亮点**
-- 🕐 定时触发，每天自动运行
-- 🤖 AI 模拟顶会评审流程筛选高质量论文
-- 📄 OCR 解析 PDF，提取核心技术细节
-- 📧 自动生成日报并邮件推送
-- 💾 Supabase 去重，避免重复推送
+Paper-Essence 是基于 [Dify](https://dify.ai) 的自动化论文推送工作流，现已支持**中英文双版本**：
 
-**🔌 依赖插件**：`wenxin` · `paddleocr` · `163-smtp` · `supabase` · `ernie-api`
+- `prj/Paper-Essence-cn.yml`：中文工作流，适合中文用户
+- `prj/Paper-Essence-en.yml`：英文工作流，适合英文用户
 
----
+每个工作流均可直接导入 Dify 平台，自动获取 ArXiv 最新论文，AI 智能筛选、分析并生成日报推送到邮箱。
 
-### 🚀 通用使用方法
+**主要功能：**
+- 🕐 每日定时自动运行
+- 🤖 AI 智能筛选高质量论文
+- 📄 PDF OCR 技术细节提取
+- 📧 邮件自动推送日报
+- 💾 Supabase 去重，避免重复
 
-1. 登录 [Dify](https://dify.ai) 平台
-2. 创建新的工作流应用
-3. 导入对应的 `.yml` DSL 文件
-4. 配置所需的环境变量
+**依赖插件**：`wenxin` · `paddleocr` · `163-smtp` · `supabase` · `ernie-api`
+
+**使用方法：**
+1. 登录 [Dify](https://dify.ai)
+2. 创建新工作流应用
+3. 导入 `prj/Paper-Essence-cn.yml` 或 `prj/Paper-Essence-en.yml`
+4. 配置环境变量
 5. 启动工作流
 
----
-
-## English
-
-> **Let paper reading return to its essence** — A collection of academic workflow tools built on [Dify](https://dify.ai)
-
-We believe researchers' time should be spent on thinking, not information retrieval. PaperFlow is an open-source collection of Dify workflows focused on automating **paper discovery, filtering, analysis, and delivery**. Each tool is a plug-and-play `.yml` DSL file — just import into Dify and run.
-
-**🎯 Vision**: Bridge the academic information gap with AI workflows, enabling every researcher to efficiently track the frontier.
-
-### 📦 Tool List
-
-| # | Tool Name | Description | File | Tutorial |
-|---|-----------|-------------|------|----------|
-| 1 | **Paper-Essence** 📚 | Automated paper digest - Fetches from ArXiv, AI filters & emails daily | [DSL](Paper-Essence.yml) | [Guide](Paper-Essence-Tutorial.md) |
-| 2 | *Coming Soon...* | 🚧 More tools on the way | - | - |
+详细教程见：[中文教程](docs/Paper-Essence-Tutorial.md)
 
 ---
 
-### 🔧 Paper-Essence
+## English Guide
 
-Automated paper recommendation workflow. Fetches latest papers from ArXiv daily, uses LLM to filter and analyze, then sends structured digest to your email.
+> **Let paper reading return to its essence**
 
-**✨ Features**
+Paper-Essence is an automated paper workflow for [Dify](https://dify.ai), now available in **both Chinese and English versions**:
+
+- `prj/Paper-Essence-cn.yml`: Chinese workflow for Chinese users
+- `prj/Paper-Essence-en.yml`: English workflow for English users
+
+Import either workflow into Dify to fetch the latest ArXiv papers, use AI to filter and analyze, and receive a structured daily digest by email.
+
+**Key Features:**
 - 🕐 Scheduled daily execution
-- 🤖 AI-powered top-tier conference review simulation
-- 📄 OCR parsing for PDF technical details
-- 📧 Auto-generated email digest
+- 🤖 AI-powered high-quality paper selection
+- 📄 PDF OCR for technical detail extraction
+- 📧 Automated email digest
 - 💾 Supabase deduplication
 
-**🔌 Plugins**：`wenxin` · `paddleocr` · `163-smtp` · `supabase` · `ernie-api`
+**Plugins required**: `wenxin` · `paddleocr` · `163-smtp` · `supabase` · `ernie-api`
 
----
-
-### 🚀 General Usage
-
-1. Log in to [Dify](https://dify.ai) platform
-2. Create a new workflow application
-3. Import the corresponding `.yml` DSL file
-4. Configure required environment variables
+**How to use:**
+1. Log in to [Dify](https://dify.ai)
+2. Create a new workflow app
+3. Import `prj/Paper-Essence-cn.yml` or `prj/Paper-Essence-en.yml`
+4. Configure environment variables
 5. Start the workflow
+
+See [English Guide](docs/Paper-Essence-Tutorial-en.md) for details.
 
 ---
 
