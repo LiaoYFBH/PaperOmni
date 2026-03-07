@@ -9,7 +9,7 @@ dependencies:
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/paddleocr:0.1.4@7b732d21da7e41c97ec4f8547742a3b34777deb3b7ad2e0c56948b5de45219c8
+    marketplace_plugin_unique_identifier: langgenius/paddleocr:0.2.1@51eb09456be19a284571c18f9569e2a104ee138ef06e21183e2b7b1e26e4c49d
     version: null
 - current_identifier: null
   type: marketplace
@@ -27,10 +27,18 @@ dependencies:
     marketplace_plugin_unique_identifier: wjdsg/163-smtp-send-mail:0.0.1@53922437a73d6512114f3e915dcad3b7c85b7df687ae2013d96e97e6e3b6fd6a
     version: null
 kind: app
-version: 0.5.0
+version: 0.6.0
 workflow:
   conversation_variables: []
   environment_variables:
+  - description: ''
+    id: 962c16da-bb3c-4541-91d9-02e10d2d8d2e
+    name: re_email
+    selector:
+    - env
+    - send_email
+    value: ''
+    value_type: secret
   - description: ''
     id: ff0fc857-b289-413c-a461-6718b593c2ee
     name: table_name
@@ -77,7 +85,7 @@ workflow:
     selector:
     - env
     - MY_RAW_TOPIC
-    value: agent记忆
+    value: 视频生成
     value_type: string
   features:
     file_upload:
@@ -232,19 +240,6 @@ workflow:
       type: custom
       zIndex: 1002
     - data:
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        sourceType: tool
-        targetType: tool
-      id: 1769957710193-source-1768813194176-target
-      source: '1769957710193'
-      sourceHandle: source
-      target: '1768813194176'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
-    - data:
         isInLoop: false
         sourceType: llm
         targetType: tool
@@ -293,18 +288,6 @@ workflow:
     - data:
         isInIteration: false
         isInLoop: false
-        sourceType: tool
-        targetType: code
-      id: 1769954998188-source-1770469411002-target
-      source: '1769954998188'
-      sourceHandle: source
-      target: '1770469411002'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        isInLoop: false
         sourceType: code
         targetType: http-request
       id: 1770469411002-source-1770469208395-target
@@ -327,19 +310,6 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
-    - data:
-        isInIteration: true
-        isInLoop: false
-        iteration_id: '1768746557884'
-        sourceType: tool
-        targetType: code
-      id: 1768813194176-source-1770531933796-target
-      source: '1768813194176'
-      sourceHandle: source
-      target: '1770531933796'
-      targetHandle: target
-      type: custom
-      zIndex: 1002
     - data:
         isInIteration: true
         isInLoop: false
@@ -367,49 +337,290 @@ workflow:
       type: custom
       zIndex: 1002
     - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: code
+      id: 1768808667129-source-1772600001-target
+      selected: false
+      source: '1768808667129'
+      sourceHandle: source
+      target: '1772600001'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: http-request
+      id: 1772600001-source-1772600002-target
+      selected: false
+      source: '1772600001'
+      sourceHandle: source
+      target: '1772600002'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: http-request
+      id: 1772600001-source-1772600003-target
+      selected: false
+      source: '1772600001'
+      sourceHandle: source
+      target: '1772600003'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: http-request
+        targetType: code
+      id: 1772600002-source-1772600004-target
+      selected: false
+      source: '1772600002'
+      sourceHandle: source
+      target: '1772600004'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: http-request
+        targetType: code
+      id: 1772600003-source-1772600004-target
+      selected: false
+      source: '1772600003'
+      sourceHandle: source
+      target: '1772600004'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: llm
+      id: 1768746557884-source-1772600005-target
+      selected: false
+      source: '1768746557884'
+      sourceHandle: source
+      target: '1772600005'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1772600005-source-1768830612348-target
+      selected: false
+      source: '1772600005'
+      sourceHandle: source
+      target: '1768830612348'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: http-request
+      id: 1770443235033-source-1780000001-target
+      selected: false
+      source: '1770443235033'
+      sourceHandle: source
+      target: '1780000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: 1780000001-source-1780000002-target
+      selected: false
+      source: '1780000001'
+      sourceHandle: source
+      target: '1780000002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1769954998188-source-1780000002-target
+      selected: false
+      source: '1769954998188'
+      sourceHandle: source
+      target: '1780000002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1780000002-source-1780000003-target
+      selected: false
+      source: '1780000002'
+      sourceHandle: source
+      target: '1780000003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1780000003-true-source-1780000004-target
+      selected: false
+      source: '1780000003'
+      sourceHandle: 'true'
+      target: '1780000004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1780000003-false-source-1770469411002-target
+      selected: false
+      source: '1780000003'
+      sourceHandle: 'false'
+      target: '1770469411002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1770469838682-source-1780000004-target
+      selected: false
+      source: '1770469838682'
+      sourceHandle: source
+      target: '1780000004'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
         isInLoop: false
         sourceType: code
         targetType: llm
-      id: 1770469838682-source-1769350813065-target
-      source: '1770469838682'
+      id: 1780000004-source-1769350813065-target
+      selected: false
+      source: '1780000004'
       sourceHandle: source
       target: '1769350813065'
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: tool
+        targetType: code
+      id: 1772791200305-source-1770531933796-target
+      source: '1772791200305'
+      sourceHandle: source
+      target: '1770531933796'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: tool
+        targetType: http-request
+      id: 1769957710193-source-1772800459834-target
+      selected: false
+      source: '1769957710193'
+      sourceHandle: source
+      target: '1772800459834'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: http-request
+        targetType: code
+      id: 1772800459834-source-1772801585642-target
+      source: '1772800459834'
+      sourceHandle: source
+      target: '1772801585642'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        sourceType: code
+        targetType: tool
+      id: 1772801585642-source-1772791200305-target
+      source: '1772801585642'
+      sourceHandle: source
+      target: '1772791200305'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
     nodes:
     - data:
         error_handle_mode: terminated
         flatten_output: true
-        height: 200
+        height: 319
         is_parallel: false
         iterator_input_type: array[object]
         iterator_selector:
         - '1769349445686'
         - top_papers
         output_selector:
-        - '1768808667129'
-        - merged_paper
+        - '1772600004'
+        - enriched_paper
         output_type: array[object]
         parallel_nums: 10
         selected: false
         start_node_id: 1768746557884start
         title: 迭代
         type: iteration
-        width: 2053
-      height: 200
+        width: 3467
+      height: 319
       id: '1768746557884'
       position:
-        x: -322.23097232882606
-        y: -319.10612297652585
+        x: -1746.3918664008993
+        y: -259.3389413458491
       positionAbsolute:
-        x: -322.23097232882606
-        y: -319.10612297652585
+        x: -1746.3918664008993
+        y: -259.3389413458491
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
-      width: 2053
+      width: 3467
       zIndex: 1
     - data:
         desc: ''
@@ -425,8 +636,8 @@ workflow:
         x: 24
         y: 68
       positionAbsolute:
-        x: -298.23097232882606
-        y: -251.10612297652585
+        x: -1722.3918664008993
+        y: -191.3389413458491
       selectable: false
       sourcePosition: right
       targetPosition: left
@@ -444,7 +655,7 @@ workflow:
           completion_params:
             temperature: 0.7
           mode: chat
-          name: ernie-5.0-thinking-preview
+          name: ernie-4.5-turbo-128k-preview
           provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
         prompt_template:
         - id: f5b1fb7d-6e09-4847-a146-d397f127ef68
@@ -508,11 +719,11 @@ workflow:
       id: '1768746991605'
       parentId: '1768746557884'
       position:
-        x: 1441.4565028618445
+        x: 2041.4565028618445
         y: 65
       positionAbsolute:
-        x: 1119.2255305330184
-        y: -254.10612297652585
+        x: 295.06463646094517
+        y: -194.3389413458491
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -520,13 +731,17 @@ workflow:
       width: 241
       zIndex: 1002
     - data:
-        code: "def main(arg1: dict) -> dict:\n    \"\"\"\n    DataUnpack: 将迭代项 item\
-          \ (arg1) 拆解为独立的变量\n    \"\"\"\n    return {\n        \"title_str\": arg1.get('title',\
-          \ 'No Title'),\n        \"pdf_url\": arg1.get('pdf_url', ''),\n        \"\
-          summary_str\": arg1.get('summary', ''),\n        \"published\": arg1.get('published',\
-          \ ''),\n        \"authors\": arg1.get('authors', 'Unknown Authors'),\n \
-          \       \"comment\": arg1.get('comment', 'N/A'),\n        \"arxiv_id\":\
-          \ arg1.get('arxiv_id', '')\n    }"
+        code: "def main(arg1: dict) -> dict:\n    arxiv_id = arg1.get('arxiv_id',\
+          \ '')\n    raw_url = arg1.get('pdf_url', '')\n    pdf_url = f\"https://export.arxiv.org/pdf/{arxiv_id}.pdf\"\
+          \ if arxiv_id else raw_url\n\n    return {\n        \"title_str\":     \
+          \  arg1.get('title', 'No Title'),\n        \"pdf_url\":         pdf_url,\n\
+          \        \"summary_str\":     arg1.get('summary', ''),\n        \"published\"\
+          :       arg1.get('published', ''),\n        \"authors\":         arg1.get('authors',\
+          \ 'Unknown Authors'),\n        \"comment\":         arg1.get('comment',\
+          \ 'N/A'),\n        \"arxiv_id\":        arxiv_id,\n        \"source\": \
+          \         arg1.get('source', 'arxiv'),\n        \"upvotes\":         arg1.get('upvotes',\
+          \ 0) or 0,\n        \"hf_github_stars\": arg1.get('githubStars', 0) or 0,\n\
+          \        \"hf_github_repo\":  arg1.get('githubRepo', '') or '',\n    }"
         code_language: python3
         isInIteration: true
         isInLoop: false
@@ -541,10 +756,19 @@ workflow:
           comment:
             children: null
             type: string
+          hf_github_repo:
+            children: null
+            type: string
+          hf_github_stars:
+            children: null
+            type: number
           pdf_url:
             children: null
             type: string
           published:
+            children: null
+            type: string
+          source:
             children: null
             type: string
           summary_str:
@@ -553,6 +777,9 @@ workflow:
           title_str:
             children: null
             type: string
+          upvotes:
+            children: null
+            type: number
         selected: false
         title: DataUnpack
         type: code
@@ -566,11 +793,11 @@ workflow:
       id: '1768808528449'
       parentId: '1768746557884'
       position:
-        x: 78.20073681427095
-        y: 66.74110112659224
+        x: 50.91783861708382
+        y: 80.15716566510395
       positionAbsolute:
-        x: -244.0302355145551
-        y: -252.3650218499336
+        x: -1695.4740277838155
+        y: -179.18177568074515
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -578,28 +805,30 @@ workflow:
       width: 241
       zIndex: 1002
     - data:
-        code: "import json\nimport re\n\ndef main(title: str, url: str, summary: str,\
-          \ llm_string: str, pub_date: str, comment: str, authors: str) -> dict:\n\
-          \    pub_status = \"Preprint\"\n    comment = comment if comment else \"\
-          N/A\"\n    \n    if comment != \"N/A\":\n        conf_keywords = ['cvpr',\
-          \ 'iccv', 'eccv', 'nips', 'neurips', 'iclr', 'aaai', 'ijcai', 'acl', 'emnlp',\
-          \ 'naacl', 'siggraph', 'kdd', 'icml']\n        lower_comment = comment.lower()\n\
-          \        \n        for kw in conf_keywords:\n            if kw in lower_comment:\n\
-          \                display_comment = comment[:25] + \"...\" if len(comment)\
-          \ > 25 else comment\n                pub_status = f\"\U0001F389 {kw.upper()}\
-          \ ({display_comment})\"\n                break\n        else:\n        \
-          \    if 'conf' in lower_comment or 'proc' in lower_comment:\n          \
-          \      pub_status = \"\U0001F4C5 Conference/Journal\"\n            elif\
-          \ 'workshop' in lower_comment:\n                pub_status = \"\U0001F6E0\
-          ️ Workshop\"\n    \n    try:\n        clean_date = pub_date[:10]\n    except:\n\
-          \        clean_date = \"Recent\"\n\n    full_status_line = f\"{clean_date}\
-          \ | {pub_status}\"\n\n    ai_data = {\n        \"One_Liner\": \"AI is reading...\"\
-          ,\n        \"Architecture\": \"Integrated architecture\",\n        \"Dataset\"\
-          : \"Relevant data\",\n        \"Metrics\": \"Core metrics\",\n        \"\
-          Affiliation\": \"Extracting...\",\n        \"Code_Url\": \"N/A\"\n    }\n\
-          \n    try:\n        if llm_string:\n            clean_content = llm_string.strip()\n\
-          \            \n            code_block_match = re.search(\n             \
-          \   r'```(?:json)?\\s*(\\{.*?\\})\\s*```',\n                clean_content,\n\
+        code: "import json\nimport re\n\ndef main(title: str, url: str, summary: str,\n\
+          \    llm_string: str, pub_date: str, comment: str, authors: str,\n    source:\
+          \ str = \"arxiv\", upvotes: int = 0,\n    hf_github_stars: int = 0, hf_github_repo:\
+          \ str = \"\") -> dict:\n    pub_status = \"Preprint\"\n    comment = comment\
+          \ if comment else \"N/A\"\n    \n    if comment != \"N/A\":\n        conf_keywords\
+          \ = ['cvpr', 'iccv', 'eccv', 'nips', 'neurips', 'iclr', 'aaai', 'ijcai',\
+          \ 'acl', 'emnlp', 'naacl', 'siggraph', 'kdd', 'icml']\n        lower_comment\
+          \ = comment.lower()\n        \n        for kw in conf_keywords:\n      \
+          \      if kw in lower_comment:\n                display_comment = comment[:25]\
+          \ + \"...\" if len(comment) > 25 else comment\n                pub_status\
+          \ = f\"\U0001F389 {kw.upper()} ({display_comment})\"\n                break\n\
+          \        else:\n            if 'conf' in lower_comment or 'proc' in lower_comment:\n\
+          \                pub_status = \"\U0001F4C5 Conference/Journal\"\n      \
+          \      elif 'workshop' in lower_comment:\n                pub_status = \"\
+          \U0001F6E0️ Workshop\"\n    \n    try:\n        clean_date = pub_date[:10]\n\
+          \    except:\n        clean_date = \"Recent\"\n\n    full_status_line =\
+          \ f\"{clean_date} | {pub_status}\"\n\n    ai_data = {\n        \"One_Liner\"\
+          : \"AI is reading...\",\n        \"Architecture\": \"Integrated architecture\"\
+          ,\n        \"Dataset\": \"Relevant data\",\n        \"Metrics\": \"Core\
+          \ metrics\",\n        \"Affiliation\": \"Extracting...\",\n        \"Code_Url\"\
+          : \"N/A\",\n        \"Chinese_Abstract\": \"\" \n    }\n\n    try:\n   \
+          \     if llm_string:\n            clean_content = llm_string.strip()\n \
+          \           \n            code_block_match = re.search(\n              \
+          \  r'```(?:json)?\\s*(\\{.*?\\})\\s*```',\n                clean_content,\n\
           \                re.DOTALL\n            )\n            if code_block_match:\n\
           \                clean_json = code_block_match.group(1)\n            else:\n\
           \                match = re.search(r'\\{.*\\}', clean_content, re.DOTALL)\n\
@@ -627,13 +856,22 @@ workflow:
           \          display_code = \"✅ Code Available\"\n            final_code_url\
           \ = clean_url\n        elif \".\" in clean_url:\n            final_code_url\
           \ = f\"https://{clean_url.lstrip('www.')}\"\n            display_code =\
-          \ \"✅ Code Available\"\n\n    paper = {\n        \"title\": title or \"\
-          No Title\",\n        \"authors\": authors if authors else \"Unknown Authors\"\
-          ,\n        \"affiliation\": ai_data.get(\"Affiliation\", \"N/A\"),\n   \
-          \     \"pdf_url\": url,\n        \"summary\": summary,\n        \"published\"\
-          : full_status_line,\n        \"github_stats\": display_code,\n        \"\
-          code_url\": final_code_url,\n        \"ai_evaluation\": ai_data\n    }\n\
-          \    \n    return {\n        \"merged_paper\": paper\n    }\n"
+          \ \"✅ Code Available\"\n\n    # Fix 3: HF论文优先用 hf_github_repo 作为 code_url\n\
+          \    if hf_github_repo and final_code_url == 'N/A':\n        final_code_url\
+          \ = hf_github_repo\n        display_code = \"✅ Code Available\"\n\n    #\
+          \ 提取 arxiv_id（从 url 里解析，作为兜底）\n    arxiv_id_extracted = ''\n    try:\n \
+          \       import re as _re\n        m = _re.search(r'arxiv\\.org/(?:pdf|abs)/([\\\
+          d.]+)', url or '')\n        if m:\n            arxiv_id_extracted = m.group(1)\n\
+          \    except:\n        pass\n\n    paper = {\n        \"title\": title or\
+          \ \"No Title\",\n        \"authors\": authors if authors else \"Unknown\
+          \ Authors\",\n        \"affiliation\": ai_data.get(\"Affiliation\", \"N/A\"\
+          ),\n        \"pdf_url\": url,\n        \"arxiv_id\": arxiv_id_extracted,\n\
+          \        \"summary\": summary,\n        \"published\": full_status_line,\n\
+          \        \"github_stats\": display_code,\n        \"code_url\": final_code_url,\n\
+          \        \"source\": source or \"arxiv\",\n        \"upvotes\": upvotes\
+          \ or 0,\n        \"hf_github_stars\": hf_github_stars or 0,\n        \"\
+          hf_github_repo\": hf_github_repo or \"\",\n        \"ai_evaluation\": ai_data\n\
+          \    }\n    \n    return {\n        \"merged_paper\": paper\n    }\n"
         code_language: python3
         isInIteration: true
         isInLoop: false
@@ -681,15 +919,35 @@ workflow:
           - authors
           value_type: string
           variable: authors
+        - value_selector:
+          - '1768808528449'
+          - source
+          value_type: string
+          variable: source
+        - value_selector:
+          - '1768808528449'
+          - upvotes
+          value_type: number
+          variable: upvotes
+        - value_selector:
+          - '1768808528449'
+          - hf_github_stars
+          value_type: number
+          variable: hf_github_stars
+        - value_selector:
+          - '1768808528449'
+          - hf_github_repo
+          value_type: string
+          variable: hf_github_repo
       height: 50
       id: '1768808667129'
       parentId: '1768746557884'
       position:
-        x: 1710.345992405301
+        x: 2310.3459924053013
         y: 102.99999999999994
       positionAbsolute:
-        x: 1388.115020076475
-        y: -216.1061229765259
+        x: 563.954126004402
+        y: -156.33894134584915
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -720,573 +978,32 @@ workflow:
       type: custom
       width: 241
     - data:
-        isInIteration: true
-        isInLoop: false
-        is_team_authorization: true
-        iteration_id: '1768746557884'
-        paramSchemas:
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: The URL of an image or PDF file, or the Base64-encoded result of
-              the content of such a file.
-            ja_JP: The URL of an image or PDF file, or the Base64-encoded result of
-              the content of such a file.
-            pt_BR: The URL of an image or PDF file, or the Base64-encoded result of
-              the content of such a file.
-            zh_Hans: 图像文件或 PDF 文件的 URL，或上述类型文件内容的 Base64 编码结果。
-          label:
-            en_US: File
-            ja_JP: File
-            pt_BR: File
-            zh_Hans: 文件
-          llm_description: The URL of an image or PDF file, or the Base64-encoded
-            result of the content of such a file.
-          max: null
-          min: null
-          name: file
-          options: []
-          placeholder: null
-          precision: null
-          required: true
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: File type. 0 indicates a PDF file, and 1 indicates an image file.
-              If not specified, the file type will be inferred from the URL.
-            ja_JP: File type. 0 indicates a PDF file, and 1 indicates an image file.
-              If not specified, the file type will be inferred from the URL.
-            pt_BR: File type. 0 indicates a PDF file, and 1 indicates an image file.
-              If not specified, the file type will be inferred from the URL.
-            zh_Hans: 文件类型。0 表示 PDF 文件，1 表示图像文件。若不设置，则将根据 URL 推断文件类型。
-          label:
-            en_US: File Type
-            ja_JP: File Type
-            pt_BR: File Type
-            zh_Hans: 文件类型
-          llm_description: File type. 0 indicates a PDF file, and 1 indicates an image
-            file. If not specified, the file type will be inferred from the URL.
-          max: null
-          min: null
-          name: fileType
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: false
-          form: llm
-          human_description:
-            en_US: Whether to enable the document orientation classification function.
-              Enabling this feature allows the input image to be automatically rotated
-              to the correct orientation.
-            ja_JP: Whether to enable the document orientation classification function.
-              Enabling this feature allows the input image to be automatically rotated
-              to the correct orientation.
-            pt_BR: Whether to enable the document orientation classification function.
-              Enabling this feature allows the input image to be automatically rotated
-              to the correct orientation.
-            zh_Hans: 是否启用文档方向分类功能。启用该功能可以将输入图像自动转正。
-          label:
-            en_US: Whether to Enable Document Orientation Classification
-            ja_JP: Whether to Enable Document Orientation Classification
-            pt_BR: Whether to Enable Document Orientation Classification
-            zh_Hans: 是否启用文档方向分类
-          llm_description: Whether to enable the document orientation classification
-            function. Enabling this feature allows the input image to be automatically
-            rotated to the correct orientation. Keep this feature disabled unless
-            the user ask for it.
-          max: null
-          min: null
-          name: useDocOrientationClassify
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: false
-          form: llm
-          human_description:
-            en_US: Whether to enable the text image unwarping function. Enabling this
-              feature allows automatic correction of distorted text images.
-            ja_JP: Whether to enable the text image unwarping function. Enabling this
-              feature allows automatic correction of distorted text images.
-            pt_BR: Whether to enable the text image unwarping function. Enabling this
-              feature allows automatic correction of distorted text images.
-            zh_Hans: 是否启用文本图像矫正功能。启用该功能可以对发生畸变的文本图像进行自动矫正。
-          label:
-            en_US: Whether to Enable Text Image Unwarping
-            ja_JP: Whether to Enable Text Image Unwarping
-            pt_BR: Whether to Enable Text Image Unwarping
-            zh_Hans: 是否启用文本图像矫正
-          llm_description: Whether to enable the text image unwarping function. Enabling
-            this feature allows automatic correction of distorted text images. Keep
-            this feature disabled unless the user ask for it.
-          max: null
-          min: null
-          name: useDocUnwarping
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: true
-          form: llm
-          human_description:
-            en_US: Whether to enable the layout detection function.
-            ja_JP: Whether to enable the layout detection function.
-            pt_BR: Whether to enable the layout detection function.
-            zh_Hans: 是否启用版面检测功能。
-          label:
-            en_US: Whether to Enable Layout Detection
-            ja_JP: Whether to Enable Layout Detection
-            pt_BR: Whether to Enable Layout Detection
-            zh_Hans: 是否启用版面检测
-          llm_description: Whether to enable the layout detection function.
-          max: null
-          min: null
-          name: useLayoutDetection
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: false
-          form: llm
-          human_description:
-            en_US: Whether to enable the chart recognition function.
-            ja_JP: Whether to enable the chart recognition function.
-            pt_BR: Whether to enable the chart recognition function.
-            zh_Hans: 是否启用图表识别功能。
-          label:
-            en_US: Whether to Enable Chart Recognition
-            ja_JP: Whether to Enable Chart Recognition
-            pt_BR: Whether to Enable Chart Recognition
-            zh_Hans: 是否启用图表识别
-          llm_description: Whether to enable the chart recognition function.
-          max: null
-          min: null
-          name: useChartRecognition
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: true
-          form: llm
-          human_description:
-            en_US: Whether to perform NMS on layout detection results.
-            ja_JP: Whether to perform NMS on layout detection results.
-            pt_BR: Whether to perform NMS on layout detection results.
-            zh_Hans: 是否对版面检测结果进行 NMS。
-          label:
-            en_US: Whether to Perform NMS on Layout Detection Results
-            ja_JP: Whether to Perform NMS on Layout Detection Results
-            pt_BR: Whether to Perform NMS on Layout Detection Results
-            zh_Hans: 是否对版面检测结果进行 NMS
-          llm_description: Whether to perform NMS on layout detection results.
-          max: null
-          min: null
-          name: layoutNms
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Prompt type for the VLM. Possible values are "ocr", "formula",
-              "table", and "chart". Takes effect only when layout detection is disabled.
-            ja_JP: Prompt type for the VLM. Possible values are "ocr", "formula",
-              "table", and "chart". Takes effect only when layout detection is disabled.
-            pt_BR: Prompt type for the VLM. Possible values are "ocr", "formula",
-              "table", and "chart". Takes effect only when layout detection is disabled.
-            zh_Hans: VLM 的 prompt 类型。可能的值为："ocr"、"formula"、"table"、"chart"。仅当禁用版面检测时有效。
-          label:
-            en_US: Prompt Type for the VLM
-            ja_JP: Prompt Type for the VLM
-            pt_BR: Prompt Type for the VLM
-            zh_Hans: VLM 的 prompt 类型
-          llm_description: Prompt type for the VLM. Possible values are "ocr", "formula",
-            "table", and "chart". Takes effect only when layout detection is disabled.
-          max: null
-          min: null
-          name: promptLabel
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: string
-        - auto_generate: null
-          default: false
-          form: llm
-          human_description:
-            en_US: Whether to format block content.
-            ja_JP: Whether to format block content.
-            pt_BR: Whether to format block content.
-            zh_Hans: 是否格式化 block 内容。
-          label:
-            en_US: Whether to Format Block Content
-            ja_JP: Whether to Format Block Content
-            pt_BR: Whether to Format Block Content
-            zh_Hans: 是否格式化 block 内容
-          llm_description: Whether to format block content.
-          max: null
-          min: null
-          name: formatBlockContent
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Repetition penalty parameter used in VLM sampling.
-            ja_JP: Repetition penalty parameter used in VLM sampling.
-            pt_BR: Repetition penalty parameter used in VLM sampling.
-            zh_Hans: VLM 采样时使用的重复惩罚参数。
-          label:
-            en_US: Repetition Penalty Parameter Used in VLM Sampling
-            ja_JP: Repetition Penalty Parameter Used in VLM Sampling
-            pt_BR: Repetition Penalty Parameter Used in VLM Sampling
-            zh_Hans: VLM 采样时使用的重复惩罚参数
-          llm_description: Repetition penalty parameter used in VLM sampling.
-          max: null
-          min: null
-          name: repetitionPenalty
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Temperature parameter used in VLM sampling.
-            ja_JP: Temperature parameter used in VLM sampling.
-            pt_BR: Temperature parameter used in VLM sampling.
-            zh_Hans: VLM 采样时使用的温度参数。
-          label:
-            en_US: Temperature Parameter Used in VLM Sampling
-            ja_JP: Temperature Parameter Used in VLM Sampling
-            pt_BR: Temperature Parameter Used in VLM Sampling
-            zh_Hans: VLM 采样时使用的温度参数
-          llm_description: Temperature parameter used in VLM sampling.
-          max: null
-          min: null
-          name: temperature
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Top-p parameter used in VLM sampling.
-            ja_JP: Top-p parameter used in VLM sampling.
-            pt_BR: Top-p parameter used in VLM sampling.
-            zh_Hans: VLM 采样时使用的 top-p 参数。
-          label:
-            en_US: Top-p Parameter Used in VLM Sampling
-            ja_JP: Top-p Parameter Used in VLM Sampling
-            pt_BR: Top-p Parameter Used in VLM Sampling
-            zh_Hans: VLM 采样时使用的 top-p 参数
-          llm_description: Top-p parameter used in VLM sampling.
-          max: null
-          min: null
-          name: topP
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Minimum number of pixels allowed during VLM preprocessing.
-            ja_JP: Minimum number of pixels allowed during VLM preprocessing.
-            pt_BR: Minimum number of pixels allowed during VLM preprocessing.
-            zh_Hans: VLM 预处理时允许的最小像素数。
-          label:
-            en_US: Minimum Number of Pixels Allowed During VLM Preprocessing.
-            ja_JP: Minimum Number of Pixels Allowed During VLM Preprocessing.
-            pt_BR: Minimum Number of Pixels Allowed During VLM Preprocessing.
-            zh_Hans: VLM 预处理时允许的最小像素数。
-          llm_description: Minimum number of pixels allowed during VLM preprocessing.
-          max: null
-          min: null
-          name: minPixels
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: null
-          form: llm
-          human_description:
-            en_US: Maximum number of pixels allowed during VLM preprocessing.
-            ja_JP: Maximum number of pixels allowed during VLM preprocessing.
-            pt_BR: Maximum number of pixels allowed during VLM preprocessing.
-            zh_Hans: VLM 预处理时允许的最大像素数。
-          label:
-            en_US: Maximum Number of Pixels Allowed During VLM Preprocessing.
-            ja_JP: Maximum Number of Pixels Allowed During VLM Preprocessing.
-            pt_BR: Maximum Number of Pixels Allowed During VLM Preprocessing.
-            zh_Hans: VLM 预处理时允许的最大像素数。
-          llm_description: Maximum number of pixels allowed during VLM preprocessing.
-          max: null
-          min: null
-          name: maxPixels
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: number
-        - auto_generate: null
-          default: true
-          form: llm
-          human_description:
-            en_US: Whether to prettify the output Markdown text.
-            ja_JP: Whether to prettify the output Markdown text.
-            pt_BR: Whether to prettify the output Markdown text.
-            zh_Hans: 是否美化输出的 Markdown 文本。
-          label:
-            en_US: Whether to Prettify the Output Markdown Text
-            ja_JP: Whether to Prettify the Output Markdown Text
-            pt_BR: Whether to Prettify the Output Markdown Text
-            zh_Hans: 是否美化输出的 Markdown 文本
-          llm_description: Whether to prettify the output Markdown text.
-          max: null
-          min: null
-          name: prettifyMarkdown
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: false
-          form: llm
-          human_description:
-            en_US: Whether to include formula numbers in the output markdown text.
-            ja_JP: Whether to include formula numbers in the output markdown text.
-            pt_BR: Whether to include formula numbers in the output markdown text.
-            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号。
-          label:
-            en_US: Whether to Include Formula Numbers in the Output Markdown Text
-            ja_JP: Whether to Include Formula Numbers in the Output Markdown Text
-            pt_BR: Whether to Include Formula Numbers in the Output Markdown Text
-            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号
-          llm_description: Whether to include formula numbers in the output markdown
-            text.
-          max: null
-          min: null
-          name: showFormulaNumber
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        - auto_generate: null
-          default: false
-          form: llm
-          human_description:
-            en_US: Whether or not to return visualization results.
-            ja_JP: Whether or not to return visualization results.
-            pt_BR: Whether or not to return visualization results.
-            zh_Hans: 是否返回可视化结果。
-          label:
-            en_US: Whether to Return Visualization Results
-            ja_JP: Whether to Return Visualization Results
-            pt_BR: Whether to Return Visualization Results
-            zh_Hans: 是否返回可视化结果
-          llm_description: Whether or not to return visualization results.
-          max: null
-          min: null
-          name: visualize
-          options: []
-          placeholder: null
-          precision: null
-          required: false
-          scope: null
-          template: null
-          type: boolean
-        params:
-          file: ''
-          fileType: ''
-          formatBlockContent: ''
-          layoutNms: ''
-          maxPixels: ''
-          minPixels: ''
-          prettifyMarkdown: ''
-          promptLabel: ''
-          repetitionPenalty: ''
-          showFormulaNumber: ''
-          temperature: ''
-          topP: ''
-          useChartRecognition: ''
-          useDocOrientationClassify: ''
-          useDocUnwarping: ''
-          useLayoutDetection: ''
-          visualize: ''
-        plugin_id: langgenius/paddleocr
-        plugin_unique_identifier: langgenius/paddleocr:0.1.4@7b732d21da7e41c97ec4f8547742a3b34777deb3b7ad2e0c56948b5de45219c8
-        provider_icon: /console/api/workspaces/current/plugin/icon?tenant_id=be1517bb-1196-402b-b2bd-601dbc4b7e82&filename=f6742a8ecae19d42dedb6641125203e86a70016f465191b85a3bbe1588234c80.png
-        provider_id: langgenius/paddleocr/paddleocr
-        provider_name: langgenius/paddleocr/paddleocr
-        provider_type: builtin
-        retry_config:
-          max_retries: 5
-          retry_enabled: true
-          retry_interval: 1000
         selected: false
-        title: 大模型文档解析
-        tool_configurations: {}
-        tool_description: PaddleOCR 大模型文档解析工具，能够提取文档中的表格、公式、印章等信息，同时保留原始版面结构
-        tool_label: 大模型文档解析
-        tool_name: document_parsing_vl
-        tool_node_version: '2'
-        tool_parameters:
-          file:
-            type: mixed
-            value: '{{#1768808528449.pdf_url#}}'
-          fileType:
-            type: constant
-            value: 0
-          formatBlockContent:
-            type: constant
-            value: false
-          layoutNms:
-            type: constant
-            value: true
-          maxPixels:
-            type: constant
-            value: null
-          minPixels:
-            type: constant
-            value: null
-          prettifyMarkdown:
-            type: constant
-            value: true
-          promptLabel:
-            type: mixed
-            value: null
-          repetitionPenalty:
-            type: constant
-            value: null
-          showFormulaNumber:
-            type: constant
-            value: false
-          temperature:
-            type: constant
-            value: null
-          topP:
-            type: constant
-            value: null
-          useChartRecognition:
-            type: constant
-            value: true
-          useDocOrientationClassify:
-            type: constant
-            value: false
-          useDocUnwarping:
-            type: constant
-            value: false
-          useLayoutDetection:
-            type: constant
-            value: true
-          visualize:
-            type: constant
-            value: false
-        type: tool
-      height: 79
-      id: '1768813194176'
-      parentId: '1768746557884'
-      position:
-        x: 596.9307447959025
-        y: 71
-      positionAbsolute:
-        x: 274.6997724670764
-        y: -248.10612297652585
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 241
-      zIndex: 1002
-    - data:
-        selected: false
-        template: "\U0001F4C5 PaperEssence 科研日报\r\n根据您指定的研究内容“{{ raw_topic }}”，每天推送arxiv近段时间更新论文中挑选的3篇论文。\r\
-          \n--------------------------------------------------\r\n⚠️ 注：内容由 AI 生成，仅供学术参考。请在引用或深入研究前，务必点击\
-          \ PDF 链接查阅原始论文进行核实。\r\n生成日期: {{ items.target_date | default('Today') }}\r\
-          \n==================================================\r\n\r\n{# 自动适配数据结构\
-          \ #}\r\n{% set final_list = items.paper | default(items) %}\r\n\r\n{% for\
-          \ item in final_list %}\r\n\U0001F4C4 [{{ loop.index }}] {{ item.title }}\r\
-          \n--------------------------------------------------\r\n\U0001F464 作者: {{\
-          \ item.authors }}\r\n\U0001F3E2 机构: {{ item.affiliation }}\r\n\U0001F517\
-          \ PDF: {{ item.pdf_url }}\r\n\U0001F4C5 状态: {{ item.published }}\r\n{% if\
-          \ item.code_url and item.code_url != 'N/A' %}\r\n\U0001F4E6 Code: {{ item.github_stats\
-          \ }}\r\n   \U0001F517 {{ item.code_url }}\r\n{% else %}\r\n\U0001F4E6 Code:\
-          \ {{ item.github_stats }}\r\n{% endif %}\r\nEnglish Abstract:\r\n{{ item.summary\
-          \ | replace('\\n', ' ') }}\r\n\r\n中文摘要:\r\n{{ item.ai_evaluation.Chinese_Abstract\
-          \ }}\r\n\r\n\U0001F680 核心创新:\r\n{{ item.ai_evaluation.One_Liner }}\r\n\r\
-          \n\U0001F4CA 总结:\r\n{# 利用换行和缩进制造层级感，不依赖 HTML 标签 #}\r\n--------------------------------------------------\r\
-          \n\U0001F3D7️ 架构:\r\n{{ item.ai_evaluation.Architecture | replace('\\n-\
-          \ ', '\\n\\n   \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n\
-          \U0001F4BE 数据:\r\n{{ item.ai_evaluation.Dataset | replace('\\n- ', '\\n\\\
-          n   \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n\U0001F4C8\
-          \ 指标:\r\n{{ item.ai_evaluation.Metrics | replace('\\n- ', '\\n\\n   \U0001F539\
-          \ ') | replace('- ', '   \U0001F539 ') }}\r\n\r\n==================================================\r\
-          \n{% else %}\r\n⚠️ 今日无新论文更新。\r\n{% endfor %}"
+        template: "\U0001F4C5 PaperEssence 科研日报\n根据您指定的研究内容\"{{ raw_topic }}\"，每天推送arxiv近段时间更新论文中挑选的3篇论文。\n\
+          --------------------------------------------------\n⚠️ 注：内容由 AI 生成，仅供学术参考。请在引用或深入研究前，务必点击\
+          \ PDF 链接查阅原始论文进行核实。\n生成日期: {{ items.target_date | default('Today') }}\n\
+          ==================================================\n\n\U0001F4CC 【本期导读 ·\
+          \ 系列关联分析】\n{{ series_summary }}\n\n==================================================\n\
+          \n{# 自动适配数据结构 #}\n{% set final_list = items.paper | default(items) %}\n\n\
+          {% for item in final_list %}\n\U0001F4C4 [{{ loop.index }}] {{ item.title\
+          \ }}\n--------------------------------------------------\n\U0001F464 作者:\
+          \ {{ item.authors }}\n\U0001F3E2 机构: {{ item.affiliation }}\n\U0001F517\
+          \ PDF: {{ item.pdf_url }}\n\U0001F4C5 状态: {{ item.published }}\n{% if item.code_url\
+          \ and item.code_url != 'N/A' %}\n\U0001F4E6 Code: {{ item.github_stats }}\n\
+          \   \U0001F517 {{ item.code_url }}\n{% else %}\n\U0001F4E6 Code: {{ item.github_stats\
+          \ }}\n{% endif %}\n\n⭐ GitHub Stars: {{ item.github_stars_display | default('N/A')\
+          \ }}{% if item.github_star_count and item.github_star_count >= 100 %}  ←\
+          \ 已超过 100 Stars{% endif %}\n\n\U0001F680 社区热度: {{ item.x_heat_display |\
+          \ default('—') }}\n{% if item.x_hot %}\n   \U0001F4CE HuggingFace收录页: {{\
+          \ item.hf_papers_url }}\n{% endif %}\n\n\U0001F4CA 中文摘要:\n{{ item.ai_evaluation.Chinese_Abstract\
+          \ }}\n\n\U0001F680 核心创新:\n{{ item.ai_evaluation.One_Liner }}\n\n\U0001F4CA\
+          \ 总结:\n--------------------------------------------------\n\U0001F3D7️ 架构:\n\
+          {{ item.ai_evaluation.Architecture | replace('\\n- ', '\\n\\n   \U0001F539\
+          \ ') | replace('- ', '   \U0001F539 ') }}\n\n\U0001F4BE 数据:\n{{ item.ai_evaluation.Dataset\
+          \ | replace('\\n- ', '\\n\\n   \U0001F539 ') | replace('- ', '   \U0001F539\
+          \ ') }}\n\n\U0001F4C8 指标:\n{{ item.ai_evaluation.Metrics | replace('\\n-\
+          \ ', '\\n\\n   \U0001F539 ') | replace('- ', '   \U0001F539 ') }}\n\n==================================================\n\
+          {% else %}\n⚠️ 今日无新论文更新。\n{% endfor %}"
         title: 模板转换
         type: template-transform
         variables:
@@ -1300,6 +1017,11 @@ workflow:
           - raw_topic
           value_type: string
           variable: raw_topic
+        - value_selector:
+          - '1772600005'
+          - text
+          value_type: string
+          variable: series_summary
       height: 50
       id: '1768830612348'
       position:
@@ -1335,34 +1057,35 @@ workflow:
           monthly_days:
           - 1
           on_minute: 0
-          time: 5:00 AM
+          time: 4:01 PM
           weekdays:
           - sun
       height: 128
       id: '1769347575869'
       position:
-        x: -330.0432644426813
-        y: -669.2232020013064
+        x: -302.04326444268133
+        y: -741.114434222889
       positionAbsolute:
-        x: -330.0432644426813
-        y: -669.2232020013064
-      selected: false
+        x: -302.04326444268133
+        y: -741.114434222889
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 242
     - data:
-        code: "import os\n\ndef main(\n    SMTP_USER: str,\n    MY_RAW_TOPIC: str,\n\
+        code: "import os\n\ndef main(\n    send_email: str,\n    MY_RAW_TOPIC: str,\n\
           \    SMTP_PORT: str,\n    SMTP_SERVER: str,\n    SMTP_PASSWORD: str,\n \
-          \   table_name: str\n) -> dict:\n\n    user_email = SMTP_USER\n    raw_topic\
-          \ = MY_RAW_TOPIC\n\n    smtp_port = SMTP_PORT\n    smtp_server = SMTP_SERVER\n\
-          \    smtp_password = SMTP_PASSWORD\n    table_name = table_name\n\n    return\
-          \ {\n        # 搜索语句\n        \"raw_topic\": raw_topic,\n\n        # 接收邮箱\n\
-          \        \"user_email\": user_email,\n        # SMTP 配置（供后续邮件节点使用）\n   \
-          \     \"smtp_port\": smtp_port,\n        \"smtp_server\": smtp_server,\n\
-          \        \"smtp_password\": smtp_password,\n\n        # 其他不敏感的配置\n     \
-          \   \"fetch_count\": 50,\n        \"push_limit\": 3,\n        \"days_lookback\"\
-          : 30,\n        \"table_name\": table_name\n    }"
+          \   table_name: str,\n    re_email:str\n) -> dict:\n\n    re_email = re_email\n\
+          \    send_email = send_email\n    raw_topic = MY_RAW_TOPIC\n\n    smtp_port\
+          \ = SMTP_PORT\n    smtp_server = SMTP_SERVER\n    smtp_password = SMTP_PASSWORD\n\
+          \    table_name = table_name\n\n    return {\n        # 搜索语句\n        \"\
+          raw_topic\": raw_topic,\n\n        # 接收邮箱\n        \"send_email\": send_email,\n\
+          \        \"re_email\": re_email,\n        # SMTP 配置（供后续邮件节点使用）\n       \
+          \ \"smtp_port\": smtp_port,\n        \"smtp_server\": smtp_server,\n   \
+          \     \"smtp_password\": smtp_password,\n\n        # 其他不敏感的配置\n        \"\
+          fetch_count\": 50,\n        \"push_limit\": 3,\n        \"days_lookback\"\
+          : 900,\n        \"table_name\": table_name\n    }"
         code_language: python3
         outputs:
           days_lookback:
@@ -1377,6 +1100,12 @@ workflow:
           raw_topic:
             children: null
             type: string
+          re_email:
+            children: null
+            type: string
+          send_email:
+            children: null
+            type: string
           smtp_password:
             children: null
             type: string
@@ -1387,9 +1116,6 @@ workflow:
             children: null
             type: string
           table_name:
-            children: null
-            type: string
-          user_email:
             children: null
             type: string
         selected: false
@@ -1410,7 +1136,7 @@ workflow:
           - env
           - SMTP_USER
           value_type: secret
-          variable: SMTP_USER
+          variable: send_email
         - value_selector:
           - env
           - SMTP_PASSWORD
@@ -1426,14 +1152,19 @@ workflow:
           - table_name
           value_type: string
           variable: table_name
+        - value_selector:
+          - env
+          - re_email
+          value_type: secret
+          variable: re_email
       height: 50
       id: '1769347686844'
       position:
-        x: -35.10312416167743
-        y: -626.1144342228893
+        x: -10.618840728187848
+        y: -720.114434222889
       positionAbsolute:
-        x: -35.10312416167743
-        y: -626.1144342228893
+        x: -10.618840728187848
+        y: -720.114434222889
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1484,11 +1215,11 @@ workflow:
       height: 50
       id: '1769349445686'
       position:
-        x: 784.487649568333
-        y: -444.66450128500423
+        x: 792.487649568333
+        y: -424.6645012850043
       positionAbsolute:
-        x: 784.487649568333
-        y: -444.66450128500423
+        x: 792.487649568333
+        y: -424.6645012850043
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1509,20 +1240,32 @@ workflow:
           role: system
           text: "# Role\n你是由 NeurIPS, ICLR, CVPR 顶级会议 Area Chair 组成的评审委员会。你拥有极高的学术品味，对\
             \ \"Incremental Work\" (增量工作) 零容忍，只寻找能推动领域发展的 \"Groundbreaking Work\"\
-            \ (突破性工作)。\n\n# Task\n输入是{{#1770469838682.count#}}篇最新发布的计算机视觉与大模型领域论文。\n\
-            请执行严格的 **同行评审 (Peer Review)** 流程，从列表中筛选出 **Top 3** 篇最有价值的论文。\n\n# Review\
-            \ Criteria (评分标准)\n在脑海中对每篇论文进行打分 (不要输出分数，仅用于筛选)：\n1. **创新性 (Novelty)**:\n\
-            \   - ✅ 必须提出新的架构、新的训练范式、或解决了一个长期未决的痛点。\n   - ❌ 拒绝简单的 \"A+B\" 缝合怪、单纯的参数微调或已知方法的微小改动。\n\
-            2. **启发性 (Insight)**:\n   - ✅ 论文是否提供了令人惊讶的发现？是否挑战了现有的认知？\n   - ❌ 拒绝单纯的“刷榜”论文\
-            \ (仅在某个数据集上提升 0.1%)。\n3. **完整性 (Completeness)**:\n   - ✅ 摘要中是否包含明确的方法论、实验结论和具体指标。\n\
-            \n# Negative Filtering (负面过滤 - 遇到此类直接剔除)\n- 标题含有 \"A Survey of...\" 或\
-            \ \"Review\" 的综述文章 (除非该领域极度缺乏综述)。\n- 摘要空洞，充满 \"State-of-the-art\" 堆砌但没有讲清楚具体方法的文章。\n\
-            - 与计算机科学/AI 核心技术无关的边缘应用文章。\n\n# Output Constraints (CRITICAL)\n1. **纯净\
-            \ JSON**: 输出必须是原始 JSON 数组格式 `[...]`。**严禁**在 JSON 前后添加 \"Here is...\" 或\
-            \ \"```json\" 等 Markdown 标记。\n2. **结构完整**: 必须保留输入对象的所有原始字段 (title, pdf_url,\
-            \ summary, authors, published, etc.)，**严禁修改字段名**，严禁添加新字段。\n3. **数量控制**:\n\
-            \   - 如果输入论文 > 3 篇：严格输出评分最高的 **3** 篇。\n   - 如果输入论文 <= 3 篇：输出全部。\n\n# Input\
-            \ Data\n{{#1770469838682.result#}}}"
+            \ (突破性工作)。\n\n# Task\n\n# Priority Signals（必须遵守）\n每篇论文对象中包含以下预计算的优先级信号字段：\n\
+            - `upvotes`: HuggingFace Papers 社区 upvote 数，代表 X.com 社区热度（越高越优先）\n- `githubRepo`:\
+            \ 配套 GitHub 仓库链接（非空即表示有代码）\n- `githubStars`: GitHub Stars 数（> 100 为高质量信号）\n\
+            - `source`: 数据来源，`hf` 表示已被 HuggingFace Papers 收录（即已在 X.com 传播）\n\n## 强制优先规则：\n\
+            1. `source=hf` 的论文**必须优先**于 `source=arxiv` 的论文。\n2. `upvotes` 高的论文优先（体现\
+            \ X.com 社区真实热度）。\n3. `githubRepo` 非空的论文优先于没有代码的论文。\n4. 在满足以上条件的论文中，再按创新性/完整性评分选\
+            \ Top 3。\n\n输入是{{#1780000004.count#}}篇最新发布的计算机视觉与大模型领域论文。\n请执行严格的 **同行评审\
+            \ (Peer Review)** 流程，从列表中筛选出 **Top 3** 篇最有价值的论文。\n\n# Review Criteria\
+            \ (评分标准)\n在脑海中对每篇论文进行打分 (不要输出分数，仅用于筛选)：\n\n1. **创新性 (Novelty)**:\n   -\
+            \ ✅ 必须提出新的架构、新的训练范式、或解决了一个长期未决的痛点。\n   - ❌ 拒绝简单的 \"A+B\" 缝合怪、单纯的参数微调或已知方法的微小改动。\n\
+            \n2. **启发性 (Insight)**:\n   - ✅ 论文是否提供了令人惊讶的发现？是否挑战了现有的认知？\n   - ❌ 拒绝单纯的\"\
+            刷榜\"论文 (仅在某个数据集上提升 0.1%)。\n\n3. **完整性 (Completeness)**:\n   - ✅ 摘要中是否包含明确的方法论、实验结论和具体指标。\n\
+            \n4. **机构权威性 (Authority)** [加分项]:\n   - ✅ 优先选择来自顶级研究机构的论文，包括但不限于：MIT、Stanford、CMU、Oxford、Cambridge、ETH\
+            \ Zurich、Berkeley、Princeton、Google DeepMind、Google Research、OpenAI、Meta\
+            \ AI Research、Microsoft Research、Apple、NVIDIA Research、清华大学、北京大学、中科院、上海人工智能实验室等。\n\
+            \   - 同等质量下，权威机构论文优先。\n\n5. **系列关联性 (Series Coherence)** [重要]:\n   - ✅\
+            \ **强烈优先**选择在研究方向上有内在联系的3篇论文（如：同一技术问题的不同解法、同一方向的递进研究、共同构成一个完整研究图谱的论文）。\n\
+            \   - 目标：让读者读完这3篇后，能对某个研究方向形成连贯、深入的理解，而不是3个孤立的碎片。\n   - 示例：选择\"RAG改进 +\
+            \ RAG评估 + RAG在生产环境的挑战\"，而不是\"RAG改进 + 图像分割 + 语音识别\"。\n\n# Negative Filtering\
+            \ (负面过滤 - 遇到此类直接剔除)\n- 标题含有 \"A Survey of...\" 或 \"Review\" 的综述文章 (除非该领域极度缺乏综述)。\n\
+            - 摘要空洞，充满 \"State-of-the-art\" 堆砌但没有讲清楚具体方法的文章。\n- 与计算机科学/AI 核心技术无关的边缘应用文章。\n\
+            \n# Output Constraints (CRITICAL)\n1. **纯净 JSON**: 输出必须是原始 JSON 数组格式 `[...]`。**严禁**在\
+            \ JSON 前后添加 \"Here is...\" 或 \"```json\" 等 Markdown 标记。\n2. **结构完整**:\
+            \ 必须保留输入对象的所有原始字段 (title, pdf_url, summary, authors, published, etc.)，**严禁修改字段名**，严禁添加新字段。\n\
+            3. **数量控制**:\n   - 如果输入论文 > 3 篇：严格输出评分最高的 **3** 篇，并尽量保证它们有关联性。\n   - 如果输入论文\
+            \ <= 3 篇：输出全部。\n\n# Input Data\n{{#1780000004.result#}}"
         selected: false
         title: LLM初审
         type: llm
@@ -1531,11 +1274,11 @@ workflow:
       height: 86
       id: '1769350813065'
       position:
-        x: 376.0375398428883
-        y: -454.70982719662607
+        x: 378.0375398428883
+        y: -498.709827196626
       positionAbsolute:
-        x: 376.0375398428883
-        y: -454.70982719662607
+        x: 378.0375398428883
+        y: -498.709827196626
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1694,13 +1437,13 @@ workflow:
             value: '{{#1768830612348.output#}}'
           subject:
             type: mixed
-            value: PaperEssence-{{#1770469411002.cutoff_str#}}-{{#1770469411002.today_str#}}
+            value: PaperEssence-{{#1780000004.cutoff_str#}}-{{#1780000004.today_str#}}
           username_recv:
             type: mixed
-            value: '{{#1769347686844.user_email#}}'
+            value: '{{#1769347686844.re_email#}}'
           username_send:
             type: mixed
-            value: '{{#1769347686844.user_email#}}'
+            value: '{{#1769347686844.send_email#}}'
         type: tool
       height: 50
       id: '1769364120122'
@@ -1822,11 +1565,11 @@ workflow:
       height: 50
       id: '1769954998188'
       position:
-        x: 524.3775369091078
-        y: -626.1144342228893
+        x: 516.3775369091078
+        y: -692.1144342228893
       positionAbsolute:
-        x: 524.3775369091078
-        y: -626.1144342228893
+        x: 516.3775369091078
+        y: -692.1144342228893
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1906,7 +1649,7 @@ workflow:
         tool_parameters:
           data:
             type: mixed
-            value: "{\n  \"arxiv_id\": \"{{{{#1768808528449.arxiv_id#}}}}\"\n}"
+            value: '{"arxiv_id": "{{#1768808528449.arxiv_id#}}"}'
           table:
             type: mixed
             value: '{{#1769347686844.table_name#}}'
@@ -1915,11 +1658,11 @@ workflow:
       id: '1769957710193'
       parentId: '1768746557884'
       position:
-        x: 334.30073980784323
-        y: 78.20831614138342
+        x: 313.0807078766977
+        y: 66.51571656651038
       positionAbsolute:
-        x: 12.069767479017173
-        y: -240.89780683514243
+        x: -1433.3111585242016
+        y: -192.82322477933872
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2038,10 +1781,10 @@ workflow:
       id: '1770443235033'
       position:
         x: 252.9371576016536
-        y: -648.2232020013064
+        y: -734.2232020013062
       positionAbsolute:
         x: 252.9371576016536
-        y: -648.2232020013064
+        y: -734.2232020013062
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2082,11 +1825,11 @@ workflow:
       height: 135
       id: '1770469208395'
       position:
-        x: -240.5530570995624
-        y: -471.15643395617946
+        x: -426.5530570995621
+        y: -533.1564339561794
       positionAbsolute:
-        x: -240.5530570995624
-        y: -471.15643395617946
+        x: -426.5530570995621
+        y: -533.1564339561794
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2194,11 +1937,11 @@ workflow:
       height: 50
       id: '1770469411002'
       position:
-        x: 796.6254166026007
-        y: -626.1144342228893
+        x: 804.6254166026006
+        y: -734.2232020013062
       positionAbsolute:
-        x: 796.6254166026007
-        y: -626.1144342228893
+        x: 804.6254166026006
+        y: -734.2232020013062
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2313,11 +2056,11 @@ workflow:
       height: 50
       id: '1770469838682'
       position:
-        x: 47.15713480309881
-        y: -449.1111080445578
+        x: 35.15713480309881
+        y: -509.1111080445577
       positionAbsolute:
-        x: 47.15713480309881
-        y: -449.1111080445578
+        x: 35.15713480309881
+        y: -509.1111080445577
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2346,19 +2089,19 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1768813194176'
-          - json
-          value_type: array[object]
+          - '1772791200305'
+          - text
+          value_type: string
           variable: doc_json
       height: 78
       id: '1770531933796'
       parentId: '1768746557884'
       position:
-        x: 859.4565028618442
-        y: 68.99999999999994
+        x: 1462.487935994865
+        y: 65
       positionAbsolute:
-        x: 537.2255305330182
-        y: -250.1061229765259
+        x: -283.9039304060343
+        y: -194.3389413458491
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2408,7 +2151,7 @@ workflow:
         type: code
         variables:
         - value_selector:
-          - '1768813194176'
+          - '1772791200305'
           - text
           value_type: string
           variable: ocr_text
@@ -2416,11 +2159,1614 @@ workflow:
       id: '1770554824578'
       parentId: '1768746557884'
       position:
-        x: 1135.4565028618445
+        x: 1735.4565028618445
         y: 76.48220225318448
       positionAbsolute:
-        x: 813.2255305330184
-        y: -242.62392072334137
+        x: -10.935363539054833
+        y: -182.8567390926646
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "import re\n\ndef main(merged_paper: dict, arxiv_id: str) -> dict:\n\
+          \    code_url       = (merged_paper or {}).get('code_url', 'N/A') or 'N/A'\n\
+          \    hf_github_repo = (merged_paper or {}).get('hf_github_repo', '') or\
+          \ ''\n    github_api_url = 'https://api.github.com'  # fallback\n\n    #\
+          \ HF论文优先用 githubRepo，ArXiv 论文用 LLM 提取的 code_url\n    github_source = hf_github_repo\
+          \ if hf_github_repo else code_url\n\n    if github_source and github_source\
+          \ not in ('N/A', ''):\n        if 'github.com' in github_source.lower():\n\
+          \            match = re.search(r'github\\.com/([^/\\s?#]+/[^/\\s?#]+)',\
+          \ github_source)\n            if match:\n                repo_path = match.group(1).rstrip('/').rstrip('.git').rstrip('/')\n\
+          \                github_api_url = f'https://api.github.com/repos/{repo_path}'\n\
+          \n    hf_papers_url = f'https://huggingface.co/papers/{arxiv_id}'\n\n  \
+          \  return {\n        'github_api_url': github_api_url,\n        'hf_papers_url':\
+          \ hf_papers_url,\n    }\n"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          github_api_url:
+            children: null
+            type: string
+          hf_papers_url:
+            children: null
+            type: string
+        selected: false
+        title: 构建API请求URL
+        type: code
+        variables:
+        - value_selector:
+          - '1768808667129'
+          - merged_paper
+          value_type: object
+          variable: merged_paper
+        - value_selector:
+          - '1768808528449'
+          - arxiv_id
+          value_type: string
+          variable: arxiv_id
+      height: 50
+      id: '1772600001'
+      parentId: '1768746557884'
+      position:
+        x: 2610
+        y: 30
+      positionAbsolute:
+        x: 863.6081335991007
+        y: -229.3389413458491
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ''
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'User-Agent:PaperEssence-Bot
+
+          Accept:application/vnd.github.v3+json'
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 10
+          max_read_timeout: 10
+          max_write_timeout: 10
+        title: GitHub Stars API
+        type: http-request
+        url: '{{#1772600001.github_api_url#}}'
+        variables: []
+      height: 158
+      id: '1772600002'
+      parentId: '1768746557884'
+      position:
+        x: 2910
+        y: 20
+      positionAbsolute:
+        x: 1163.6081335991007
+        y: -239.3389413458491
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ''
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: User-Agent:PaperEssence-Bot
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 2
+          retry_enabled: true
+          retry_interval: 500
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 10
+          max_read_timeout: 10
+          max_write_timeout: 10
+        title: Altmetric热度检查
+        type: http-request
+        url: https://huggingface.co/papers/{{#1768808528449.arxiv_id#}}
+        variables: []
+      height: 174
+      id: '1772600003'
+      parentId: '1768746557884'
+      position:
+        x: 2910
+        y: 145
+      positionAbsolute:
+        x: 1163.6081335991007
+        y: -114.3389413458491
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "import json\n\ndef main(merged_paper: dict, github_body: str,\n   \
+          \            github_status: int, altmetric_body: str,\n               altmetric_status:\
+          \ int) -> dict:\n    paper = dict(merged_paper) if merged_paper else {}\n\
+          \    source = paper.get('source', 'arxiv')\n\n    # ── GitHub Stars ──\n\
+          \    star_count = 0\n    github_stars_display = 'N/A'\n    hf_github_stars\
+          \ = paper.get('hf_github_stars', 0) or 0\n\n    if source == 'hf' and hf_github_stars\
+          \ > 0:\n        # HF papers: use pre-fetched star count directly\n     \
+          \   star_count = hf_github_stars\n        github_stars_display = f'⭐ {star_count:,}\
+          \ stars'\n        if star_count >= 100:\n            github_stars_display\
+          \ += ' ✅'\n    else:\n        try:\n            if github_status == 200\
+          \ and github_body:\n                gh_data = json.loads(github_body)\n\
+          \                star_count = gh_data.get('stargazers_count', 0) or 0\n\
+          \                if star_count > 0:\n                    github_stars_display\
+          \ = f'⭐ {star_count:,} stars'\n                    if star_count >= 100:\n\
+          \                        github_stars_display += ' ✅'\n        except Exception:\n\
+          \            pass\n\n    # ── X.com 热度 ──\n    if source == 'hf':\n    \
+          \    x_hot = True\n        upvotes = paper.get('upvotes', 0) or 0\n    \
+          \    x_heat_display = f'⬆ {upvotes} upvotes（HuggingFace Papers 社区热度）'\n\
+          \    else:\n        x_hot = (altmetric_status == 200)\n        x_heat_display\
+          \ = '⬆ HuggingFace Papers 已收录' if x_hot else '—'\n\n    paper['github_star_count']\
+          \    = star_count\n    paper['github_stars_display'] = github_stars_display\n\
+          \    paper['x_hot']                = x_hot\n    paper['x_heat_display']\
+          \       = x_heat_display\n    paper['hf_papers_url']        = f\"https://huggingface.co/papers/{paper.get('arxiv_id',\
+          \ '')}\"\n\n    return {'enriched_paper': paper}\n"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          enriched_paper:
+            children: null
+            type: object
+        selected: false
+        title: 数据富化
+        type: code
+        variables:
+        - value_selector:
+          - '1768808667129'
+          - merged_paper
+          value_type: object
+          variable: merged_paper
+        - value_selector:
+          - '1772600002'
+          - body
+          value_type: string
+          variable: github_body
+        - value_selector:
+          - '1772600002'
+          - status_code
+          value_type: number
+          variable: github_status
+        - value_selector:
+          - '1772600003'
+          - body
+          value_type: string
+          variable: altmetric_body
+        - value_selector:
+          - '1772600003'
+          - status_code
+          value_type: number
+          variable: altmetric_status
+      height: 50
+      id: '1772600004'
+      parentId: '1768746557884'
+      position:
+        x: 3210
+        y: 76.2328183693233
+      positionAbsolute:
+        x: 1463.6081335991007
+        y: -183.1061229765258
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: ernie-4.5-turbo-128k-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
+        prompt_template:
+        - id: summary-llm-system-001
+          role: system
+          text: '# Role
+
+            你是一位资深 AI 研究员，负责为研究者撰写每日论文推送的导读总结。
+
+
+            # Task
+
+            以下是本次精选的 {{#1768746557884.output#}} 篇论文的基本信息。
+
+            请完成两项任务：
+
+
+            **Task 1 - 系列关联分析**：分析这几篇论文之间的内在联系，
+
+            说明它们共同构成了一个怎样的研究脉络或系列。
+
+            如果方向各有侧重，请解释它们共同指向的研究趋势。
+
+
+            **Task 2 - 导读总结**：撰写一段 150-200 字的总结，
+
+            用于放在邮件最开头，帮助读者快速了解本期推送的主题和价值。
+
+            语气专业但不晦涩，让研究者在 30 秒内抓住重点。
+
+
+            # Input
+
+            {{#1768746557884.output#}}
+
+
+            # Output Format
+
+            直接输出总结文本，不要添加标题或 Markdown 格式。
+
+            开头用一句话点明本期主题，然后展开介绍各篇的关联。'
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: 系列论文总结
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1772600005'
+      position:
+        x: 1899.9999999999993
+        y: -484
+      positionAbsolute:
+        x: 1899.9999999999993
+        y: -484
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ''
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: 'User-Agent:PaperEssence-Bot
+
+          Accept:application/json'
+        isInIteration: false
+        isInLoop: false
+        method: get
+        params: 'q:{{#1770443235033.text#}}
+
+          limit:50'
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1500
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 15
+          max_read_timeout: 15
+          max_write_timeout: 15
+        title: HF Papers Search
+        type: http-request
+        url: https://huggingface.co/api/papers/search
+        variables: []
+      height: 171
+      id: '1780000001'
+      position:
+        x: 252.9
+        y: -920
+      positionAbsolute:
+        x: 252.9
+        y: -920
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\n\ndef main(hf_body: str, supabase_output: list = None)\
+          \ -> dict:\n    pushed_ids = set()\n    if supabase_output and isinstance(supabase_output,\
+          \ list):\n        def extract_ids(obj):\n            ids = []\n        \
+          \    if isinstance(obj, dict):\n                if \"arxiv_id\" in obj:\n\
+          \                    val = obj[\"arxiv_id\"]\n                    if val:\n\
+          \                        ids.append(str(val).strip().split('v')[0])\n  \
+          \              for k, v in obj.items():\n                    ids.extend(extract_ids(v))\n\
+          \            elif isinstance(obj, list):\n                for item in obj:\n\
+          \                    ids.extend(extract_ids(item))\n            return ids\n\
+          \        pushed_ids = set(extract_ids(supabase_output))\n\n    try:\n  \
+          \      raw = json.loads(hf_body) if hf_body else []\n        if not isinstance(raw,\
+          \ list):\n            raw = []\n\n        papers = []\n        for item\
+          \ in raw:\n            paper_info = item.get('paper', item)\n          \
+          \  arxiv_id = paper_info.get('id', '')\n            if not arxiv_id:\n \
+          \               continue\n            clean_id = arxiv_id.strip().split('v')[0]\n\
+          \            if clean_id in pushed_ids:\n                continue\n\n  \
+          \          authors_raw = paper_info.get('authors', [])\n            names\
+          \ = [a.get('name', '') for a in authors_raw[:3] if isinstance(a, dict)]\n\
+          \            authors_str = ', '.join(names)\n            if len(authors_raw)\
+          \ > 3:\n                authors_str += ' et al.'\n\n            pub = paper_info.get('publishedAt',\
+          \ '') or ''\n            papers.append({\n                'arxiv_id': clean_id,\n\
+          \                'title': paper_info.get('title', 'No Title'),\n       \
+          \         'summary': paper_info.get('summary', ''),\n                'authors':\
+          \ authors_str,\n                'published': pub[:10] if pub else '',\n\
+          \                'pdf_url': f\"https://arxiv.org/pdf/{clean_id}.pdf\",\n\
+          \                'upvotes': paper_info.get('upvotes', 0) or 0,\n       \
+          \         'githubRepo': paper_info.get('githubRepo', '') or '',\n      \
+          \          'githubStars': paper_info.get('githubStars', 0) or 0,\n     \
+          \           'source': 'hf',\n                'comment': 'N/A',\n       \
+          \     })\n\n        papers.sort(key=lambda x: x.get('upvotes', 0), reverse=True)\n\
+          \n        return {\n            'hf_papers_json': json.dumps(papers, ensure_ascii=False),\n\
+          \            'hf_count': len(papers),\n        }\n    except Exception as\
+          \ e:\n        return {'hf_papers_json': '[]', 'hf_count': 0}\n"
+        code_language: python3
+        isInIteration: false
+        isInLoop: false
+        outputs:
+          hf_count:
+            children: null
+            type: number
+          hf_papers_json:
+            children: null
+            type: string
+        selected: false
+        title: HF结果解析过滤
+        type: code
+        variables:
+        - value_selector:
+          - '1780000001'
+          - body
+          value_type: string
+          variable: hf_body
+        - value_selector:
+          - '1769954998188'
+          - json
+          value_type: array[object]
+          variable: supabase_output
+      height: 50
+      id: '1780000002'
+      position:
+        x: 540
+        y: -920
+      positionAbsolute:
+        x: 540
+        y: -920
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≥
+            id: hf-count-check
+            value: '3'
+            varType: number
+            variable_selector:
+            - '1780000002'
+            - hf_count
+          logical_operator: and
+        selected: false
+        title: 'IF: HF结果充足(≥3篇)'
+        type: if-else
+      height: 122
+      id: '1780000003'
+      position:
+        x: 804
+        y: -920
+      positionAbsolute:
+        x: 804
+        y: -920
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nfrom datetime import datetime, timedelta\n\ndef main(\n\
+          \    hf_papers_json: str = '[]',\n    hf_count: int = 0,\n    arxiv_result:\
+          \ str = '[]',\n    arxiv_count: int = 0,\n    days_lookback: int = 900,\n\
+          ) -> dict:\n    today = datetime.now()\n    days = int(days_lookback) if\
+          \ days_lookback else 900\n    cutoff_date = today - timedelta(days=days)\n\
+          \    cutoff_str = cutoff_date.strftime('%Y-%m-%d')\n    today_str = today.strftime('%Y-%m-%d')\n\
+          \n    hf_ok = (hf_count or 0) >= 3\n    if hf_ok and hf_papers_json and\
+          \ hf_papers_json != '[]':\n        return {\n            'result': hf_papers_json,\n\
+          \            'count': hf_count,\n            'source': 'hf',\n         \
+          \   'cutoff_str': cutoff_str,\n            'today_str': today_str,\n   \
+          \     }\n    else:\n        return {\n            'result': arxiv_result\
+          \ if arxiv_result else '[]',\n            'count': arxiv_count or 0,\n \
+          \           'source': 'arxiv',\n            'cutoff_str': cutoff_str,\n\
+          \            'today_str': today_str,\n        }\n"
+        code_language: python3
+        default_value:
+        - key: result
+          type: string
+          value: '[]'
+        - key: count
+          type: number
+          value: 0
+        - key: source
+          type: string
+          value: arxiv
+        - key: cutoff_str
+          type: string
+          value: ''
+        - key: today_str
+          type: string
+          value: ''
+        error_strategy: default-value
+        isInIteration: false
+        isInLoop: false
+        outputs:
+          count:
+            children: null
+            type: number
+          cutoff_str:
+            children: null
+            type: string
+          result:
+            children: null
+            type: string
+          source:
+            children: null
+            type: string
+          today_str:
+            children: null
+            type: string
+        selected: false
+        title: 合并搜索结果
+        type: code
+        variables:
+        - value_selector:
+          - '1780000002'
+          - hf_papers_json
+          value_type: string
+          variable: hf_papers_json
+        - value_selector:
+          - '1780000002'
+          - hf_count
+          value_type: number
+          variable: hf_count
+        - value_selector:
+          - '1770469838682'
+          - result
+          value_type: string
+          variable: arxiv_result
+        - value_selector:
+          - '1770469838682'
+          - count
+          value_type: number
+          variable: arxiv_count
+        - value_selector:
+          - '1769347686844'
+          - days_lookback
+          value_type: number
+          variable: days_lookback
+      height: 86
+      id: '1780000004'
+      position:
+        x: 1080
+        y: -920
+      positionAbsolute:
+        x: 1080
+        y: -920
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        default_value:
+        - key: text
+          type: string
+          value: ''
+        - key: json
+          type: array[object]
+          value: '[]'
+        error_strategy: default-value
+        isInIteration: true
+        isInLoop: false
+        is_team_authorization: true
+        iteration_id: '1768746557884'
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file. The URL must be publicly accessible.
+            ja_JP: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file. The URL must be publicly accessible.
+            pt_BR: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file. The URL must be publicly accessible.
+            zh_Hans: 图像文件或 PDF 文件的 URL，或上述类型文件内容的 Base64 编码结果。URL 必须是公网可访问的。
+          label:
+            en_US: File
+            ja_JP: File
+            pt_BR: File
+            zh_Hans: 文件
+          llm_description: The URL of an image or PDF file, or the Base64-encoded
+            result of the content of such a file. The URL must be publicly accessible.
+          max: null
+          min: null
+          name: file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: auto
+          form: llm
+          human_description:
+            en_US: File type. "Auto Detect" will infer the type from URL, "PDF" for
+              PDF files, "Image" for image files.
+            ja_JP: File type. "Auto Detect" will infer the type from URL, "PDF" for
+              PDF files, "Image" for image files.
+            pt_BR: File type. "Auto Detect" will infer the type from URL, "PDF" for
+              PDF files, "Image" for image files.
+            zh_Hans: 文件类型。"自动检测" 将根据 URL 推断类型，"PDF" 表示 PDF 文件，"图片" 表示图像文件。
+          label:
+            en_US: File Type
+            ja_JP: File Type
+            pt_BR: File Type
+            zh_Hans: 文件类型
+          llm_description: File type. "auto" will infer the type from URL, "pdf" for
+            PDF files, "image" for image files.
+          max: null
+          min: null
+          name: fileType
+          options:
+          - icon: ''
+            label:
+              en_US: Auto Detect
+              ja_JP: Auto Detect
+              pt_BR: Auto Detect
+              zh_Hans: 自动检测
+            value: auto
+          - icon: ''
+            label:
+              en_US: PDF
+              ja_JP: PDF
+              pt_BR: PDF
+              zh_Hans: PDF
+            value: pdf
+          - icon: ''
+            label:
+              en_US: Image
+              ja_JP: Image
+              pt_BR: Image
+              zh_Hans: 图片
+            value: image
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            ja_JP: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            pt_BR: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            zh_Hans: 是否启用文档方向分类功能。启用该功能可以将输入图像自动转正。
+          label:
+            en_US: Whether to Enable Document Orientation Classification
+            ja_JP: Whether to Enable Document Orientation Classification
+            pt_BR: Whether to Enable Document Orientation Classification
+            zh_Hans: 是否启用文档方向分类
+          llm_description: Whether to enable the document orientation classification
+            function. Enabling this feature allows the input image to be automatically
+            rotated to the correct orientation. Keep this feature disabled unless
+            the user ask for it.
+          max: null
+          min: null
+          name: useDocOrientationClassify
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            ja_JP: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            pt_BR: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            zh_Hans: 是否启用文本图像矫正功能。启用该功能可以对发生畸变的文本图像进行自动矫正。
+          label:
+            en_US: Whether to Enable Text Image Unwarping
+            ja_JP: Whether to Enable Text Image Unwarping
+            pt_BR: Whether to Enable Text Image Unwarping
+            zh_Hans: 是否启用文本图像矫正
+          llm_description: Whether to enable the text image unwarping function. Enabling
+            this feature allows automatic correction of distorted text images. Keep
+            this feature disabled unless the user ask for it.
+          max: null
+          min: null
+          name: useDocUnwarping
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to enable the layout detection function.
+            ja_JP: Whether to enable the layout detection function.
+            pt_BR: Whether to enable the layout detection function.
+            zh_Hans: 是否启用版面检测功能。
+          label:
+            en_US: Whether to Enable Layout Detection
+            ja_JP: Whether to Enable Layout Detection
+            pt_BR: Whether to Enable Layout Detection
+            zh_Hans: 是否启用版面检测
+          llm_description: Whether to enable the layout detection function.
+          max: null
+          min: null
+          name: useLayoutDetection
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the chart recognition function (to recognize
+              line charts, bar charts, etc.).
+            ja_JP: Whether to enable the chart recognition function (to recognize
+              line charts, bar charts, etc.).
+            pt_BR: Whether to enable the chart recognition function (to recognize
+              line charts, bar charts, etc.).
+            zh_Hans: 是否启用图表识别功能（识别折线图、柱状图等）。
+          label:
+            en_US: Whether to Enable Chart Recognition
+            ja_JP: Whether to Enable Chart Recognition
+            pt_BR: Whether to Enable Chart Recognition
+            zh_Hans: 是否启用图表识别
+          llm_description: Whether to enable the chart recognition function (to recognize
+            line charts, bar charts, etc.).
+          max: null
+          min: null
+          name: useChartRecognition
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the seal recognition function.
+            ja_JP: Whether to enable the seal recognition function.
+            pt_BR: Whether to enable the seal recognition function.
+            zh_Hans: 是否启用印章文本识别功能。
+          label:
+            en_US: Whether to Enable Seal Recognition
+            ja_JP: Whether to Enable Seal Recognition
+            pt_BR: Whether to Enable Seal Recognition
+            zh_Hans: 是否启用印章文本识别
+          llm_description: Whether to enable the seal recognition function.
+          max: null
+          min: null
+          name: useSealRecognition
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Whether to recognize text in images blocks.
+            ja_JP: Whether to recognize text in images blocks.
+            pt_BR: Whether to recognize text in images blocks.
+            zh_Hans: 是否对图像块中的文字进行识别。
+          label:
+            en_US: Whether to Recognize Text in Image Blocks
+            ja_JP: Whether to Recognize Text in Image Blocks
+            pt_BR: Whether to Recognize Text in Image Blocks
+            zh_Hans: 是否对图像块中的文字进行识别
+          llm_description: Whether to recognize text in images blocks.
+          max: null
+          min: null
+          name: useOcrForImageBlock
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to perform NMS on layout detection results.
+            ja_JP: Whether to perform NMS on layout detection results.
+            pt_BR: Whether to perform NMS on layout detection results.
+            zh_Hans: 是否对版面检测结果进行 NMS。
+          label:
+            en_US: Whether to Perform NMS on Layout Detection Results
+            ja_JP: Whether to Perform NMS on Layout Detection Results
+            pt_BR: Whether to Perform NMS on Layout Detection Results
+            zh_Hans: 是否对版面检测结果进行 NMS
+          llm_description: Whether to perform NMS on layout detection results.
+          max: null
+          min: null
+          name: layoutNms
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: auto
+          form: llm
+          human_description:
+            en_US: Specifies the geometric representation mode for layout detection
+              results. It defines how the boundaries of detected regions (e.g., text
+              blocks, images, tables) are calculated and displayed. "Rectangle" corresponds
+              to an axis-aligned bounding box (x1, y1, x2, y2) and is suitable for
+              standard horizontally laid-out pages; "Quadrilateral" corresponds to
+              an arbitrary four-sided shape defined by four vertices and is suitable
+              for regions with skew or perspective distortion; "Polygon" corresponds
+              to a closed contour defined by multiple coordinate points and is suitable
+              for irregularly shaped or curved layout elements, offering the highest
+              precision; "Auto" indicates that the system automatically selects the
+              most appropriate shape representation based on the complexity and confidence
+              of the detected targets.
+            ja_JP: Specifies the geometric representation mode for layout detection
+              results. It defines how the boundaries of detected regions (e.g., text
+              blocks, images, tables) are calculated and displayed. "Rectangle" corresponds
+              to an axis-aligned bounding box (x1, y1, x2, y2) and is suitable for
+              standard horizontally laid-out pages; "Quadrilateral" corresponds to
+              an arbitrary four-sided shape defined by four vertices and is suitable
+              for regions with skew or perspective distortion; "Polygon" corresponds
+              to a closed contour defined by multiple coordinate points and is suitable
+              for irregularly shaped or curved layout elements, offering the highest
+              precision; "Auto" indicates that the system automatically selects the
+              most appropriate shape representation based on the complexity and confidence
+              of the detected targets.
+            pt_BR: Specifies the geometric representation mode for layout detection
+              results. It defines how the boundaries of detected regions (e.g., text
+              blocks, images, tables) are calculated and displayed. "Rectangle" corresponds
+              to an axis-aligned bounding box (x1, y1, x2, y2) and is suitable for
+              standard horizontally laid-out pages; "Quadrilateral" corresponds to
+              an arbitrary four-sided shape defined by four vertices and is suitable
+              for regions with skew or perspective distortion; "Polygon" corresponds
+              to a closed contour defined by multiple coordinate points and is suitable
+              for irregularly shaped or curved layout elements, offering the highest
+              precision; "Auto" indicates that the system automatically selects the
+              most appropriate shape representation based on the complexity and confidence
+              of the detected targets.
+            zh_Hans: 用于指定版面检测结果的几何形状表示模式。该参数决定了检测区域（如文本块、图片、表格等）边界的计算方式及展示形态。“矩形”对应水平正向的边界框（包含
+              x1, y1, x2, y2），适用于标准的水平排版版面；“四边形”对应由四个顶点组成的任意四边形，适用于存在倾斜、透视变形的区域；“多边形”对应由多个坐标点组成的闭合轮廓，适用于形状不规则或具有弧度的版面元素，精度最高；“自动”指示系统根据检测目标的复杂程度和置信度，自动选择最合适的形状表达方式。
+          label:
+            en_US: Layout Detection Shape Mode
+            ja_JP: Layout Detection Shape Mode
+            pt_BR: Layout Detection Shape Mode
+            zh_Hans: 版面检测形状模式
+          llm_description: Specifies the geometric representation mode for layout
+            detection results. It defines how the boundaries of detected regions (e.g.,
+            text blocks, images, tables) are calculated and displayed. "rect" corresponds
+            to an axis-aligned bounding box (x1, y1, x2, y2) and is suitable for standard
+            horizontally laid-out pages; "quad" corresponds to an arbitrary four-sided
+            shape defined by four vertices and is suitable for regions with skew or
+            perspective distortion; "poly" corresponds to a closed contour defined
+            by multiple coordinate points and is suitable for irregularly shaped or
+            curved layout elements, offering the highest precision; "auto" indicates
+            that the system automatically selects the most appropriate shape representation
+            based on the complexity and confidence of the detected targets.
+          max: null
+          min: null
+          name: layoutShapeMode
+          options:
+          - icon: ''
+            label:
+              en_US: Rectangle
+              ja_JP: Rectangle
+              pt_BR: Rectangle
+              zh_Hans: 矩形
+            value: rect
+          - icon: ''
+            label:
+              en_US: Quadrilateral
+              ja_JP: Quadrilateral
+              pt_BR: Quadrilateral
+              zh_Hans: 四边形
+            value: quad
+          - icon: ''
+            label:
+              en_US: Polygon
+              ja_JP: Polygon
+              pt_BR: Polygon
+              zh_Hans: 多边形
+            value: poly
+          - icon: ''
+            label:
+              en_US: Auto
+              ja_JP: Auto
+              pt_BR: Auto
+              zh_Hans: 自动
+            value: auto
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: undefined
+          form: llm
+          human_description:
+            en_US: Prompt type for the VLM. Takes effect only when layout detection
+              is disabled.
+            ja_JP: Prompt type for the VLM. Takes effect only when layout detection
+              is disabled.
+            pt_BR: Prompt type for the VLM. Takes effect only when layout detection
+              is disabled.
+            zh_Hans: VLM 的提示词类型。仅当禁用版面检测时有效。
+          label:
+            en_US: Prompt Type for the VLM
+            ja_JP: Prompt Type for the VLM
+            pt_BR: Prompt Type for the VLM
+            zh_Hans: VLM 的提示词类型
+          llm_description: Prompt type for the VLM. Takes effect only when layout
+            detection is disabled.
+          max: null
+          min: null
+          name: promptLabel
+          options:
+          - icon: ''
+            label:
+              en_US: OCR
+              ja_JP: OCR
+              pt_BR: OCR
+              zh_Hans: OCR
+            value: ocr
+          - icon: ''
+            label:
+              en_US: Formula Recognition
+              ja_JP: Formula Recognition
+              pt_BR: Formula Recognition
+              zh_Hans: 公式识别
+            value: formula
+          - icon: ''
+            label:
+              en_US: Table Recognition
+              ja_JP: Table Recognition
+              pt_BR: Table Recognition
+              zh_Hans: 表格识别
+            value: table
+          - icon: ''
+            label:
+              en_US: Chart Recognition
+              ja_JP: Chart Recognition
+              pt_BR: Chart Recognition
+              zh_Hans: 图表识别
+            value: chart
+          - icon: ''
+            label:
+              en_US: Seal Recognition
+              ja_JP: Seal Recognition
+              pt_BR: Seal Recognition
+              zh_Hans: 印章文本识别
+            value: seal
+          - icon: ''
+            label:
+              en_US: Spotting
+              ja_JP: Spotting
+              pt_BR: Spotting
+              zh_Hans: Spotting
+            value: spotting
+          - icon: ''
+            label:
+              en_US: Undefined
+              ja_JP: Undefined
+              pt_BR: Undefined
+              zh_Hans: 未定义
+            value: undefined
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to convert the block content into Markdown format.
+            ja_JP: Whether to convert the block content into Markdown format.
+            pt_BR: Whether to convert the block content into Markdown format.
+            zh_Hans: 是否将块内容转换为 Markdown 格式。
+          label:
+            en_US: Whether to Format Block Content
+            ja_JP: Whether to Format Block Content
+            pt_BR: Whether to Format Block Content
+            zh_Hans: 是否格式化块内容
+          llm_description: Whether to convert the block content into Markdown format.
+          max: null
+          min: null
+          name: formatBlockContent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Repetition penalty parameter used in VLM sampling.
+            ja_JP: Repetition penalty parameter used in VLM sampling.
+            pt_BR: Repetition penalty parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的重复惩罚参数。
+          label:
+            en_US: Repetition Penalty Parameter Used in VLM Sampling
+            ja_JP: Repetition Penalty Parameter Used in VLM Sampling
+            pt_BR: Repetition Penalty Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的重复惩罚参数
+          llm_description: Repetition penalty parameter used in VLM sampling.
+          max: null
+          min: null
+          name: repetitionPenalty
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Temperature parameter used in VLM sampling.
+            ja_JP: Temperature parameter used in VLM sampling.
+            pt_BR: Temperature parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的温度参数。
+          label:
+            en_US: Temperature Parameter Used in VLM Sampling
+            ja_JP: Temperature Parameter Used in VLM Sampling
+            pt_BR: Temperature Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的温度参数
+          llm_description: Temperature parameter used in VLM sampling.
+          max: null
+          min: null
+          name: temperature
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top-p parameter used in VLM sampling.
+            ja_JP: Top-p parameter used in VLM sampling.
+            pt_BR: Top-p parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的 top-p 参数。
+          label:
+            en_US: Top-p Parameter Used in VLM Sampling
+            ja_JP: Top-p Parameter Used in VLM Sampling
+            pt_BR: Top-p Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的 top-p 参数
+          llm_description: Top-p parameter used in VLM sampling.
+          max: null
+          min: null
+          name: topP
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Minimum number of pixels allowed during VLM preprocessing.
+            ja_JP: Minimum number of pixels allowed during VLM preprocessing.
+            pt_BR: Minimum number of pixels allowed during VLM preprocessing.
+            zh_Hans: VLM 预处理时允许的最小像素数。
+          label:
+            en_US: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            ja_JP: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            pt_BR: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            zh_Hans: VLM 预处理时允许的最小像素数。
+          llm_description: Minimum number of pixels allowed during VLM preprocessing.
+          max: null
+          min: null
+          name: minPixels
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum number of pixels allowed during VLM preprocessing.
+            ja_JP: Maximum number of pixels allowed during VLM preprocessing.
+            pt_BR: Maximum number of pixels allowed during VLM preprocessing.
+            zh_Hans: VLM 预处理时允许的最大像素数。
+          label:
+            en_US: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            ja_JP: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            pt_BR: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            zh_Hans: VLM 预处理时允许的最大像素数。
+          llm_description: Maximum number of pixels allowed during VLM preprocessing.
+          max: null
+          min: null
+          name: maxPixels
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum number of new tokens to generate.
+            ja_JP: Maximum number of new tokens to generate.
+            pt_BR: Maximum number of new tokens to generate.
+            zh_Hans: 生成的最大新令牌数。
+          label:
+            en_US: Maximum Number of New Tokens
+            ja_JP: Maximum Number of New Tokens
+            pt_BR: Maximum Number of New Tokens
+            zh_Hans: 最大新令牌数
+          llm_description: Maximum number of new tokens to generate.
+          max: null
+          min: null
+          name: maxNewTokens
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Whether to merge layout blocks.
+            ja_JP: Whether to merge layout blocks.
+            pt_BR: Whether to merge layout blocks.
+            zh_Hans: 是否合并版面块。
+          label:
+            en_US: Whether to Merge Layout Blocks
+            ja_JP: Whether to Merge Layout Blocks
+            pt_BR: Whether to Merge Layout Blocks
+            zh_Hans: 是否合并版面块
+          llm_description: Whether to merge layout blocks.
+          max: null
+          min: null
+          name: mergeLayoutBlocks
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 'Comma-separated list of labels to ignore when generating Markdown
+              output. For example: "header,footer,page_number".'
+            ja_JP: 'Comma-separated list of labels to ignore when generating Markdown
+              output. For example: "header,footer,page_number".'
+            pt_BR: 'Comma-separated list of labels to ignore when generating Markdown
+              output. For example: "header,footer,page_number".'
+            zh_Hans: 生成 Markdown 输出时要忽略的标签列表，使用逗号分隔。例如："header,footer,page_number"。
+          label:
+            en_US: Labels to Ignore in Markdown Output
+            ja_JP: Labels to Ignore in Markdown Output
+            pt_BR: Labels to Ignore in Markdown Output
+            zh_Hans: Markdown 输出中忽略的标签
+          llm_description: 'Comma-separated list of labels to ignore when generating
+            Markdown output. For example: "header,footer,page_number".'
+          max: null
+          min: null
+          name: markdownIgnoreLabels
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to prettify the output Markdown text.
+            ja_JP: Whether to prettify the output Markdown text.
+            pt_BR: Whether to prettify the output Markdown text.
+            zh_Hans: 是否美化输出的 Markdown 文本。
+          label:
+            en_US: Whether to Prettify the Output Markdown Text
+            ja_JP: Whether to Prettify the Output Markdown Text
+            pt_BR: Whether to Prettify the Output Markdown Text
+            zh_Hans: 是否美化输出的 Markdown 文本
+          llm_description: Whether to prettify the output Markdown text.
+          max: null
+          min: null
+          name: prettifyMarkdown
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to include formula numbers in the output markdown text.
+            ja_JP: Whether to include formula numbers in the output markdown text.
+            pt_BR: Whether to include formula numbers in the output markdown text.
+            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号。
+          label:
+            en_US: Whether to Include Formula Numbers in the Output Markdown Text
+            ja_JP: Whether to Include Formula Numbers in the Output Markdown Text
+            pt_BR: Whether to Include Formula Numbers in the Output Markdown Text
+            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号
+          llm_description: Whether to include formula numbers in the output markdown
+            text.
+          max: null
+          min: null
+          name: showFormulaNumber
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to restructure pages in the output.
+            ja_JP: Whether to restructure pages in the output.
+            pt_BR: Whether to restructure pages in the output.
+            zh_Hans: 是否对输出页面进行重构。
+          label:
+            en_US: Whether to Restructure Pages
+            ja_JP: Whether to Restructure Pages
+            pt_BR: Whether to Restructure Pages
+            zh_Hans: 是否重构页面
+          llm_description: Whether to restructure pages in the output.
+          max: null
+          min: null
+          name: restructurePages
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to merge tables across pages in the output. Takes effect
+              only when restructuring pages is on.
+            ja_JP: Whether to merge tables across pages in the output. Takes effect
+              only when restructuring pages is on.
+            pt_BR: Whether to merge tables across pages in the output. Takes effect
+              only when restructuring pages is on.
+            zh_Hans: 是否在输出中合并表格。仅在启用页面重构时有效。
+          label:
+            en_US: Whether to Merge Tables across Pages
+            ja_JP: Whether to Merge Tables across Pages
+            pt_BR: Whether to Merge Tables across Pages
+            zh_Hans: 是否合并跨页表格
+          llm_description: Whether to merge tables across pages in the output. Takes
+            effect only when restructuring pages is on.
+          max: null
+          min: null
+          name: mergeTables
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to relevel titles in the output. Takes effect only when
+              restructuring pages is on.
+            ja_JP: Whether to relevel titles in the output. Takes effect only when
+              restructuring pages is on.
+            pt_BR: Whether to relevel titles in the output. Takes effect only when
+              restructuring pages is on.
+            zh_Hans: 是否在输出中重新调整标题级别。仅在启用页面重构时有效。
+          label:
+            en_US: Whether to Relevel Titles
+            ja_JP: Whether to Relevel Titles
+            pt_BR: Whether to Relevel Titles
+            zh_Hans: 是否重新调整标题级别
+          llm_description: Whether to relevel titles in the output. Takes effect only
+            when restructuring pages is on.
+          max: null
+          min: null
+          name: relevelTitles
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether or not to return visualization results.
+            ja_JP: Whether or not to return visualization results.
+            pt_BR: Whether or not to return visualization results.
+            zh_Hans: 是否返回可视化结果。
+          label:
+            en_US: Whether to Return Visualization Results
+            ja_JP: Whether to Return Visualization Results
+            pt_BR: Whether to Return Visualization Results
+            zh_Hans: 是否返回可视化结果
+          llm_description: Whether or not to return visualization results.
+          max: null
+          min: null
+          name: visualize
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          file: ''
+          fileType: ''
+          formatBlockContent: ''
+          layoutNms: ''
+          layoutShapeMode: ''
+          markdownIgnoreLabels: ''
+          maxNewTokens: ''
+          maxPixels: ''
+          mergeLayoutBlocks: ''
+          mergeTables: ''
+          minPixels: ''
+          prettifyMarkdown: ''
+          promptLabel: ''
+          relevelTitles: ''
+          repetitionPenalty: ''
+          restructurePages: ''
+          showFormulaNumber: ''
+          temperature: ''
+          topP: ''
+          useChartRecognition: ''
+          useDocOrientationClassify: ''
+          useDocUnwarping: ''
+          useLayoutDetection: ''
+          useOcrForImageBlock: ''
+          useSealRecognition: ''
+          visualize: ''
+        plugin_id: langgenius/paddleocr
+        plugin_unique_identifier: langgenius/paddleocr:0.2.1@51eb09456be19a284571c18f9569e2a104ee138ef06e21183e2b7b1e26e4c49d
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=1301167d-1b10-4e9b-be0d-37c629c3718b&filename=f6742a8ecae19d42dedb6641125203e86a70016f465191b85a3bbe1588234c80.png
+        provider_id: langgenius/paddleocr/paddleocr
+        provider_name: langgenius/paddleocr/paddleocr
+        provider_type: builtin
+        selected: false
+        title: 大模型文档解析
+        tool_configurations: {}
+        tool_description: PaddleOCR 大模型文档解析工具，能够提取文档中的表格、公式、印章等信息，同时保留原始版面结构
+        tool_label: 大模型文档解析
+        tool_name: document_parsing_vl
+        tool_node_version: '2'
+        tool_parameters:
+          file:
+            type: mixed
+            value: '{{#1772801585642.pdf_url_for_ocr#}}'
+          fileType:
+            type: constant
+            value: pdf
+          formatBlockContent:
+            type: constant
+            value: false
+          layoutNms:
+            type: constant
+            value: true
+          layoutShapeMode:
+            type: constant
+            value: auto
+          markdownIgnoreLabels:
+            type: mixed
+            value: null
+          maxNewTokens:
+            type: constant
+            value: null
+          maxPixels:
+            type: constant
+            value: null
+          mergeLayoutBlocks:
+            type: constant
+            value: null
+          mergeTables:
+            type: constant
+            value: true
+          minPixels:
+            type: constant
+            value: null
+          prettifyMarkdown:
+            type: constant
+            value: true
+          promptLabel:
+            type: constant
+            value: undefined
+          relevelTitles:
+            type: constant
+            value: true
+          repetitionPenalty:
+            type: constant
+            value: null
+          restructurePages:
+            type: constant
+            value: false
+          showFormulaNumber:
+            type: constant
+            value: false
+          temperature:
+            type: constant
+            value: null
+          topP:
+            type: constant
+            value: null
+          useChartRecognition:
+            type: constant
+            value: false
+          useDocOrientationClassify:
+            type: constant
+            value: false
+          useDocUnwarping:
+            type: constant
+            value: false
+          useLayoutDetection:
+            type: constant
+            value: true
+          useOcrForImageBlock:
+            type: constant
+            value: null
+          useSealRecognition:
+            type: constant
+            value: false
+          visualize:
+            type: constant
+            value: false
+        type: tool
+      height: 86
+      id: '1772791200305'
+      parentId: '1768746557884'
+      position:
+        x: 1206.0976424969117
+        y: 73.11401674232104
+      positionAbsolute:
+        x: -540.2942239039876
+        y: -186.22492460352805
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        default_value:
+        - key: body
+          type: string
+          value: ''
+        - key: status_code
+          type: number
+          value: 0
+        - key: headers
+          type: object
+          value: '{}'
+        error_strategy: default-value
+        headers: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求 5
+        type: http-request
+        url: '{{#1768808528449.pdf_url#}}'
+        variables: []
+      height: 158
+      id: '1772800459834'
+      parentId: '1768746557884'
+      position:
+        x: 587.9090436987867
+        y: 135.25839596924726
+      positionAbsolute:
+        x: -1158.4828227021126
+        y: -124.08054537660183
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "def main(files: list) -> dict:\n    if files and len(files) > 0:\n\
+          \        url = files[0].get('url', '')\n        return {'pdf_url_for_ocr':\
+          \ url}\n    return {'pdf_url_for_ocr': ''}"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1768746557884'
+        outputs:
+          pdf_url_for_ocr:
+            children: null
+            type: string
+        selected: false
+        title: 代码执行 13
+        type: code
+        variables:
+        - value_selector:
+          - '1772800459834'
+          - files
+          value_type: array[file]
+          variable: files
+      height: 50
+      id: '1772801585642'
+      parentId: '1768746557884'
+      position:
+        x: 887.9090436987868
+        y: 203.46564146221507
+      positionAbsolute:
+        x: -858.4828227021125
+        y: -55.87329988363402
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2428,7 +3774,7 @@ workflow:
       width: 241
       zIndex: 1002
     viewport:
-      x: 274.3654861644126
-      y: 532.0530614882631
-      zoom: 0.5000000000000007
+      x: 798.6755935702804
+      y: 832.4447434693777
+      zoom: 0.6597539553864482
   rag_pipeline_variables: []

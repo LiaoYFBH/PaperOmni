@@ -1,0 +1,1805 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: paper2ppt
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: bowenliang123/md_exporter:3.4.0@a5ce3ac3114f3dd6ab4fe49f0bb931a31af49ff555e479ec45e8aaa5d44157ee
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/paddleocr:0.2.1@51eb09456be19a284571c18f9569e2a104ee138ef06e21183e2b7b1e26e4c49d
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: paddle-aistudio/ernie-paddle-aistudio:0.1.1@3281d45224736abd0cd14336b54e1a6ddc681ca3fcc5528ae254957765d92adf
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1770646935156-source-1770647008371-target
+      selected: false
+      source: '1770646935156'
+      sourceHandle: source
+      target: '1770647008371'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1770647008371-source-1770647077867-target
+      selected: false
+      source: '1770647008371'
+      sourceHandle: source
+      target: '1770647077867'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1770647077867-source-1770651300989-target
+      selected: false
+      source: '1770647077867'
+      sourceHandle: source
+      target: '1770651300989'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1770651300989-source-1770699958509-target
+      selected: false
+      source: '1770651300989'
+      sourceHandle: source
+      target: '1770699958509'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1770699958509-source-1770702871054-target
+      selected: false
+      source: '1770699958509'
+      sourceHandle: source
+      target: '1770702871054'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: iteration
+      id: 1770702871054-source-1770704051735-target
+      selected: false
+      source: '1770702871054'
+      sourceHandle: source
+      target: '1770704051735'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1770704051735'
+        sourceType: iteration-start
+        targetType: code
+      id: 1770704051735start-source-1770704241210-target
+      selected: false
+      source: 1770704051735start
+      sourceHandle: source
+      target: '1770704241210'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1770704051735-source-1770705755135-target
+      selected: false
+      source: '1770704051735'
+      sourceHandle: source
+      target: '1770705755135'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: tool
+      id: 1770706911965-source-1770706534729-target
+      selected: false
+      source: '1770706911965'
+      sourceHandle: source
+      target: '1770706534729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1770647077867-source-1770711041899-target
+      source: '1770647077867'
+      sourceHandle: source
+      target: '1770711041899'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1770704051735'
+        sourceType: code
+        targetType: llm
+      id: 1770704241210-source-1770704061999-target
+      source: '1770704241210'
+      sourceHandle: source
+      target: '1770704061999'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1770705755135-source-1770705755136-target
+      selected: false
+      source: '1770705755135'
+      sourceHandle: source
+      target: '1770705755136'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: template-transform
+      id: 1770705755136-source-1770706911965-target
+      selected: false
+      source: '1770705755136'
+      sourceHandle: source
+      target: '1770706911965'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: ppt_reqs
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: ppt_reqs
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: paper
+          options: []
+          placeholder: ''
+          required: true
+          type: file
+          variable: paper
+        - default: ''
+          hint: ''
+          label: time
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: time
+        - default: ''
+          hint: ''
+          label: disp
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: disp
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          default: ''
+          hint: ''
+          label: ppt模板文件
+          options: []
+          placeholder: ''
+          required: false
+          type: file
+          variable: ppt_tmp
+      height: 211
+      id: '1770646935156'
+      position:
+        x: 51.16104622490525
+        y: 172.82396070856987
+      positionAbsolute:
+        x: 51.16104622490525
+        y: 172.82396070856987
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file.
+            ja_JP: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file.
+            pt_BR: The URL of an image or PDF file, or the Base64-encoded result of
+              the content of such a file.
+            zh_Hans: 图像文件或 PDF 文件的 URL，或上述类型文件内容的 Base64 编码结果。
+          label:
+            en_US: File
+            ja_JP: File
+            pt_BR: File
+            zh_Hans: 文件
+          llm_description: The URL of an image or PDF file, or the Base64-encoded
+            result of the content of such a file.
+          max: null
+          min: null
+          name: file
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: File type. 0 indicates a PDF file, and 1 indicates an image file.
+              If not specified, the file type will be inferred from the URL.
+            ja_JP: File type. 0 indicates a PDF file, and 1 indicates an image file.
+              If not specified, the file type will be inferred from the URL.
+            pt_BR: File type. 0 indicates a PDF file, and 1 indicates an image file.
+              If not specified, the file type will be inferred from the URL.
+            zh_Hans: 文件类型。0 表示 PDF 文件，1 表示图像文件。若不设置，则将根据 URL 推断文件类型。
+          label:
+            en_US: File Type
+            ja_JP: File Type
+            pt_BR: File Type
+            zh_Hans: 文件类型
+          llm_description: File type. 0 indicates a PDF file, and 1 indicates an image
+            file. If not specified, the file type will be inferred from the URL.
+          max: null
+          min: null
+          name: fileType
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            ja_JP: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            pt_BR: Whether to enable the document orientation classification function.
+              Enabling this feature allows the input image to be automatically rotated
+              to the correct orientation.
+            zh_Hans: 是否启用文档方向分类功能。启用该功能可以将输入图像自动转正。
+          label:
+            en_US: Whether to Enable Document Orientation Classification
+            ja_JP: Whether to Enable Document Orientation Classification
+            pt_BR: Whether to Enable Document Orientation Classification
+            zh_Hans: 是否启用文档方向分类
+          llm_description: Whether to enable the document orientation classification
+            function. Enabling this feature allows the input image to be automatically
+            rotated to the correct orientation. Keep this feature disabled unless
+            the user ask for it.
+          max: null
+          min: null
+          name: useDocOrientationClassify
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            ja_JP: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            pt_BR: Whether to enable the text image unwarping function. Enabling this
+              feature allows automatic correction of distorted text images.
+            zh_Hans: 是否启用文本图像矫正功能。启用该功能可以对发生畸变的文本图像进行自动矫正。
+          label:
+            en_US: Whether to Enable Text Image Unwarping
+            ja_JP: Whether to Enable Text Image Unwarping
+            pt_BR: Whether to Enable Text Image Unwarping
+            zh_Hans: 是否启用文本图像矫正
+          llm_description: Whether to enable the text image unwarping function. Enabling
+            this feature allows automatic correction of distorted text images. Keep
+            this feature disabled unless the user ask for it.
+          max: null
+          min: null
+          name: useDocUnwarping
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to enable the layout detection function.
+            ja_JP: Whether to enable the layout detection function.
+            pt_BR: Whether to enable the layout detection function.
+            zh_Hans: 是否启用版面检测功能。
+          label:
+            en_US: Whether to Enable Layout Detection
+            ja_JP: Whether to Enable Layout Detection
+            pt_BR: Whether to Enable Layout Detection
+            zh_Hans: 是否启用版面检测
+          llm_description: Whether to enable the layout detection function.
+          max: null
+          min: null
+          name: useLayoutDetection
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to enable the chart recognition function.
+            ja_JP: Whether to enable the chart recognition function.
+            pt_BR: Whether to enable the chart recognition function.
+            zh_Hans: 是否启用图表识别功能。
+          label:
+            en_US: Whether to Enable Chart Recognition
+            ja_JP: Whether to Enable Chart Recognition
+            pt_BR: Whether to Enable Chart Recognition
+            zh_Hans: 是否启用图表识别
+          llm_description: Whether to enable the chart recognition function.
+          max: null
+          min: null
+          name: useChartRecognition
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to perform NMS on layout detection results.
+            ja_JP: Whether to perform NMS on layout detection results.
+            pt_BR: Whether to perform NMS on layout detection results.
+            zh_Hans: 是否对版面检测结果进行 NMS。
+          label:
+            en_US: Whether to Perform NMS on Layout Detection Results
+            ja_JP: Whether to Perform NMS on Layout Detection Results
+            pt_BR: Whether to Perform NMS on Layout Detection Results
+            zh_Hans: 是否对版面检测结果进行 NMS
+          llm_description: Whether to perform NMS on layout detection results.
+          max: null
+          min: null
+          name: layoutNms
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Prompt type for the VLM. Possible values are "ocr", "formula",
+              "table", and "chart". Takes effect only when layout detection is disabled.
+            ja_JP: Prompt type for the VLM. Possible values are "ocr", "formula",
+              "table", and "chart". Takes effect only when layout detection is disabled.
+            pt_BR: Prompt type for the VLM. Possible values are "ocr", "formula",
+              "table", and "chart". Takes effect only when layout detection is disabled.
+            zh_Hans: VLM 的 prompt 类型。可能的值为："ocr"、"formula"、"table"、"chart"。仅当禁用版面检测时有效。
+          label:
+            en_US: Prompt Type for the VLM
+            ja_JP: Prompt Type for the VLM
+            pt_BR: Prompt Type for the VLM
+            zh_Hans: VLM 的 prompt 类型
+          llm_description: Prompt type for the VLM. Possible values are "ocr", "formula",
+            "table", and "chart". Takes effect only when layout detection is disabled.
+          max: null
+          min: null
+          name: promptLabel
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to format block content.
+            ja_JP: Whether to format block content.
+            pt_BR: Whether to format block content.
+            zh_Hans: 是否格式化 block 内容。
+          label:
+            en_US: Whether to Format Block Content
+            ja_JP: Whether to Format Block Content
+            pt_BR: Whether to Format Block Content
+            zh_Hans: 是否格式化 block 内容
+          llm_description: Whether to format block content.
+          max: null
+          min: null
+          name: formatBlockContent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Repetition penalty parameter used in VLM sampling.
+            ja_JP: Repetition penalty parameter used in VLM sampling.
+            pt_BR: Repetition penalty parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的重复惩罚参数。
+          label:
+            en_US: Repetition Penalty Parameter Used in VLM Sampling
+            ja_JP: Repetition Penalty Parameter Used in VLM Sampling
+            pt_BR: Repetition Penalty Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的重复惩罚参数
+          llm_description: Repetition penalty parameter used in VLM sampling.
+          max: null
+          min: null
+          name: repetitionPenalty
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Temperature parameter used in VLM sampling.
+            ja_JP: Temperature parameter used in VLM sampling.
+            pt_BR: Temperature parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的温度参数。
+          label:
+            en_US: Temperature Parameter Used in VLM Sampling
+            ja_JP: Temperature Parameter Used in VLM Sampling
+            pt_BR: Temperature Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的温度参数
+          llm_description: Temperature parameter used in VLM sampling.
+          max: null
+          min: null
+          name: temperature
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Top-p parameter used in VLM sampling.
+            ja_JP: Top-p parameter used in VLM sampling.
+            pt_BR: Top-p parameter used in VLM sampling.
+            zh_Hans: VLM 采样时使用的 top-p 参数。
+          label:
+            en_US: Top-p Parameter Used in VLM Sampling
+            ja_JP: Top-p Parameter Used in VLM Sampling
+            pt_BR: Top-p Parameter Used in VLM Sampling
+            zh_Hans: VLM 采样时使用的 top-p 参数
+          llm_description: Top-p parameter used in VLM sampling.
+          max: null
+          min: null
+          name: topP
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Minimum number of pixels allowed during VLM preprocessing.
+            ja_JP: Minimum number of pixels allowed during VLM preprocessing.
+            pt_BR: Minimum number of pixels allowed during VLM preprocessing.
+            zh_Hans: VLM 预处理时允许的最小像素数。
+          label:
+            en_US: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            ja_JP: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            pt_BR: Minimum Number of Pixels Allowed During VLM Preprocessing.
+            zh_Hans: VLM 预处理时允许的最小像素数。
+          llm_description: Minimum number of pixels allowed during VLM preprocessing.
+          max: null
+          min: null
+          name: minPixels
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Maximum number of pixels allowed during VLM preprocessing.
+            ja_JP: Maximum number of pixels allowed during VLM preprocessing.
+            pt_BR: Maximum number of pixels allowed during VLM preprocessing.
+            zh_Hans: VLM 预处理时允许的最大像素数。
+          label:
+            en_US: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            ja_JP: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            pt_BR: Maximum Number of Pixels Allowed During VLM Preprocessing.
+            zh_Hans: VLM 预处理时允许的最大像素数。
+          llm_description: Maximum number of pixels allowed during VLM preprocessing.
+          max: null
+          min: null
+          name: maxPixels
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: true
+          form: llm
+          human_description:
+            en_US: Whether to prettify the output Markdown text.
+            ja_JP: Whether to prettify the output Markdown text.
+            pt_BR: Whether to prettify the output Markdown text.
+            zh_Hans: 是否美化输出的 Markdown 文本。
+          label:
+            en_US: Whether to Prettify the Output Markdown Text
+            ja_JP: Whether to Prettify the Output Markdown Text
+            pt_BR: Whether to Prettify the Output Markdown Text
+            zh_Hans: 是否美化输出的 Markdown 文本
+          llm_description: Whether to prettify the output Markdown text.
+          max: null
+          min: null
+          name: prettifyMarkdown
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether to include formula numbers in the output markdown text.
+            ja_JP: Whether to include formula numbers in the output markdown text.
+            pt_BR: Whether to include formula numbers in the output markdown text.
+            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号。
+          label:
+            en_US: Whether to Include Formula Numbers in the Output Markdown Text
+            ja_JP: Whether to Include Formula Numbers in the Output Markdown Text
+            pt_BR: Whether to Include Formula Numbers in the Output Markdown Text
+            zh_Hans: 是否在输出的 Markdown 文本中包含公式编号
+          llm_description: Whether to include formula numbers in the output markdown
+            text.
+          max: null
+          min: null
+          name: showFormulaNumber
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: false
+          form: llm
+          human_description:
+            en_US: Whether or not to return visualization results.
+            ja_JP: Whether or not to return visualization results.
+            pt_BR: Whether or not to return visualization results.
+            zh_Hans: 是否返回可视化结果。
+          label:
+            en_US: Whether to Return Visualization Results
+            ja_JP: Whether to Return Visualization Results
+            pt_BR: Whether to Return Visualization Results
+            zh_Hans: 是否返回可视化结果
+          llm_description: Whether or not to return visualization results.
+          max: null
+          min: null
+          name: visualize
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          file: ''
+          fileType: ''
+          formatBlockContent: ''
+          layoutNms: ''
+          maxPixels: ''
+          minPixels: ''
+          prettifyMarkdown: ''
+          promptLabel: ''
+          repetitionPenalty: ''
+          showFormulaNumber: ''
+          temperature: ''
+          topP: ''
+          useChartRecognition: ''
+          useDocOrientationClassify: ''
+          useDocUnwarping: ''
+          useLayoutDetection: ''
+          visualize: ''
+        plugin_id: langgenius/paddleocr
+        plugin_unique_identifier: langgenius/paddleocr:0.1.4@7b732d21da7e41c97ec4f8547742a3b34777deb3b7ad2e0c56948b5de45219c8
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=1301167d-1b10-4e9b-be0d-37c629c3718b&filename=f6742a8ecae19d42dedb6641125203e86a70016f465191b85a3bbe1588234c80.png
+        provider_id: langgenius/paddleocr/paddleocr
+        provider_name: langgenius/paddleocr/paddleocr
+        provider_type: builtin
+        retry_config:
+          max_retries: 2
+          retry_enabled: true
+          retry_interval: 5000
+        selected: false
+        title: 大模型文档解析
+        tool_configurations: {}
+        tool_description: PaddleOCR 大模型文档解析工具，能够提取文档中的表格、公式、印章等信息，同时保留原始版面结构
+        tool_label: 大模型文档解析
+        tool_name: document_parsing_vl
+        tool_node_version: '2'
+        tool_parameters:
+          file:
+            type: mixed
+            value: '{{#1770646935156.paper.url#}}'
+          fileType:
+            type: constant
+            value: pdf
+          formatBlockContent:
+            type: constant
+            value: true
+          layoutNms:
+            type: constant
+            value: true
+          maxPixels:
+            type: constant
+            value: null
+          minPixels:
+            type: constant
+            value: null
+          prettifyMarkdown:
+            type: constant
+            value: true
+          promptLabel:
+            type: mixed
+            value: null
+          repetitionPenalty:
+            type: constant
+            value: null
+          showFormulaNumber:
+            type: constant
+            value: false
+          temperature:
+            type: constant
+            value: null
+          topP:
+            type: constant
+            value: null
+          useChartRecognition:
+            type: constant
+            value: false
+          useDocOrientationClassify:
+            type: constant
+            value: false
+          useDocUnwarping:
+            type: constant
+            value: false
+          useLayoutDetection:
+            type: constant
+            value: true
+          visualize:
+            type: constant
+            value: false
+        type: tool
+      height: 79
+      id: '1770647008371'
+      position:
+        x: 379.31009634423793
+        y: 282
+      positionAbsolute:
+        x: 379.31009634423793
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "\"\"\"\n代码节点：提取摘要和目录\n功能：从OCR纯文本中提取关键信息（摘要+目录）\n输入：ocr_result（String类型，OCR解析的纯文本）\n\
+          输出：{chinese_abstract, english_abstract, table_of_contents, error}\n\"\"\"\
+          \n\nimport re\n\ndef main(arg1):\n    \"\"\"\n    Dify代码节点入口函数\n    \n \
+          \   参数:\n        arg1: OCR解析的纯文本字符串（直接传入）\n    \n    返回:\n        dict:\
+          \ {\n            \"chinese_abstract\": \"中文摘要内容\",\n            \"english_abstract\"\
+          : \"英文摘要内容\", \n            \"table_of_contents\": \"目录结构\",\n         \
+          \   \"error\": \"错误信息（无错误时为空字符串）\"\n        }\n    \"\"\"\n    \n    # ==========\
+          \ 辅助函数定义 ==========\n    \n    def extract_chinese_abstract(text):\n   \
+          \     \"\"\"提取中文摘要\"\"\"\n        # 匹配 \"摘要\" 到 \"关键词\" 或 \"Abstract\" 之间的内容\n\
+          \        pattern = r'##?\\s*摘\\s*要\\s*\\n+(.*?)(?=##?\\s*(?:关键词|Abstract|ABSTRACT|目录|第.*?章))'\n\
+          \        match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)\n \
+          \       \n        if match:\n            abstract = match.group(1).strip()\n\
+          \            # 清理多余空行\n            abstract = re.sub(r'\\n{3,}', '\\n\\\
+          n', abstract)\n            return abstract\n        \n        return \"\"\
+          \n    \n    \n    def extract_english_abstract(text):\n        \"\"\"提取英文摘要\"\
+          \"\"\n        # 匹配 \"Abstract\" 到 \"Keywords\" 或 \"目录\" 之间的内容\n        pattern\
+          \ = r'##?\\s*Abstract\\s*\\n+(.*?)(?=##?\\s*(?:Keywords|KEYWORDS|目录|第.*?章))'\n\
+          \        match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)\n \
+          \       \n        if match:\n            abstract = match.group(1).strip()\n\
+          \            # 清理多余空行\n            abstract = re.sub(r'\\n{3,}', '\\n\\\
+          n', abstract)\n            return abstract\n        \n        return \"\"\
+          \n    \n    \n    def extract_table_of_contents(text):\n        \"\"\"提取目录结构\"\
+          \"\"\n        toc_lines = []\n        \n        # 方法1: 查找 \"目录\" 或 \"CONTENTS\"\
+          \ 标题后的内容\n        pattern = r'##?\\s*(?:目\\s*录|目录|CONTENTS|Contents|TABLE\
+          \ OF CONTENTS)\\s*\\n+(.*?)(?=##?\\s*(?:第.*?章|Chapter|引言|绪论|Introduction))'\n\
+          \        match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)\n \
+          \       \n        if match:\n            toc_content = match.group(1)\n\
+          \            # 提取目录项（包含页码的行）\n            lines = toc_content.split('\\\
+          n')\n            for line in lines:\n                line = line.strip()\n\
+          \                # 匹配章节格式：第X章、1.、1.1、Chapter等，且包含页码\n                if\
+          \ re.search(r'(第.*?章|^\\d+\\.|\\d+\\.\\d+|Chapter\\s+\\d+|Section\\s+\\\
+          d+)', line):\n                    if line and len(line) > 3:  # 过滤太短的行\n\
+          \                        toc_lines.append(line)\n        \n        # 方法2:\
+          \ 如果没找到目录区域，尝试提取所有章节标题\n        if not toc_lines:\n            # 匹配 ## 标题格式\n\
+          \            chapter_pattern = r'##\\s+(第.*?章.*?|Chapter\\s+\\d+.*?|\\d+\\\
+          ..*?)$'\n            for line in text.split('\\n'):\n                if\
+          \ re.match(chapter_pattern, line.strip()):\n                    toc_lines.append(line.strip().replace('##',\
+          \ '').strip())\n        \n        return '\\n'.join(toc_lines) if toc_lines\
+          \ else \"\"\n    \n    \n    # ========== 主逻辑 ==========\n    \n    # 1.\
+          \ 获取OCR文本（直接就是字符串）\n    try:\n        ocr_text = str(arg1)\n    except Exception\
+          \ as e:\n        return {\n            \"chinese_abstract\": \"\",\n   \
+          \         \"english_abstract\": \"\",\n            \"table_of_contents\"\
+          : \"\",\n            \"error\": f\"输入参数错误: {str(e)}\"\n        }\n    \n\
+          \    # 2. 提取摘要和目录\n    try:\n        chinese_abstract = extract_chinese_abstract(ocr_text)\n\
+          \        english_abstract = extract_english_abstract(ocr_text)\n       \
+          \ table_of_contents = extract_table_of_contents(ocr_text)\n        \n  \
+          \      return {\n            \"chinese_abstract\": chinese_abstract,\n \
+          \           \"english_abstract\": english_abstract,\n            \"table_of_contents\"\
+          : table_of_contents,\n            \"error\": \"\"\n        }\n    except\
+          \ Exception as e:\n        return {\n            \"chinese_abstract\": \"\
+          \",\n            \"english_abstract\": \"\",\n            \"table_of_contents\"\
+          : \"\",\n            \"error\": f\"提取失败: {str(e)}\"\n        }\n"
+        code_language: python3
+        outputs:
+          chinese_abstract:
+            children: null
+            type: string
+          english_abstract:
+            children: null
+            type: string
+          error:
+            children: null
+            type: string
+          table_of_contents:
+            children: null
+            type: string
+        selected: false
+        title: 提取摘要和目录
+        type: code
+        variables:
+        - value_selector:
+          - '1770647008371'
+          - text
+          value_type: string
+          variable: arg1
+      height: 50
+      id: '1770647077867'
+      position:
+        x: 682
+        y: 282
+      positionAbsolute:
+        x: 682
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: ernie-4.5-turbo-128k-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
+        prompt_template:
+        - id: 9c251c8a-8ffe-410b-83d6-d0dda47ed9f2
+          role: system
+          text: "你是一位经验丰富的学术答辩PPT规划专家。请根据论文的摘要和目录，为学生规划一个专业、清晰、重点突出的答辩PPT大纲。\n\n##\
+            \ 论文信息\n\n### 中文摘要\n{{#1770647077867.chinese_abstract#}}\n\n### 英文摘要\n\
+            {{#1770647077867.english_abstract#}}\n\n### 目录结构\n{{#1770647077867.table_of_contents#}}\n\
+            \n## 答辩要求\n- 答辩时长：{{#1770646935156.time#}}分钟\n- 学科类型：{{#1770646935156.disp#}}\n\
+            - PPT总页数：15-20页（根据时长调整）\n\n---\n\n## 规划要求\n\n### 1. 标准答辩结构\n请按照以下结构规划PPT：\n\
+            \n**开场部分（2-3页）**\n- 封面（1页）：论文标题、作者、导师、答辩日期\n- 研究背景与意义（1-2页）：为什么研究这个问题\n\
+            \n**核心内容（10-14页）**\n- 研究问题与目标（1-2页）：要解决什么问题\n- 研究方法（3-4页）⭐ **重点**：如何解决问题\n\
+            - 实验/研究结果（3-4页）⭐ **重点**：取得了什么成果\n- 创新点与贡献（1-2页）：本研究的亮点\n\n**收尾部分（2-3页）**\n\
+            - 不足与展望（1页）：局限性和未来方向\n- 致谢+Q&A（1页）\n\n### 2. 每页PPT必须明确指定\n\n对于每一页PPT，你需要指定：\n\
+            \n1. **标题**：简洁明确（不超过15字）\n2. **内容来源**：具体到章节（如\"第3章 3.2节\"或\"摘要\"）\n3.\
+            \ **内容类型**：\n   - 纯文字要点\n   - 文字+图表\n   - 文字+公式\n   - 文字+表格\n4. **预期元素**：\n\
+            \   - 如果需要图表，说明图表类型（流程图/架构图/对比表/柱状图/折线图等）\n   - 如果需要公式，说明公式作用\n5. **讲解时长**：建议每页讲解时间（秒/分钟）\n\
+            \n### 3. 智能内容分配规则\n\n**根据目录结构智能判断：**\n\n- 如果目录中有\"实验设计\"\"研究设计\"章节 → 必须在\"\
+            研究方法\"部分引用\n- 如果目录中有\"实验结果\"\"对比实验\"\"消融实验\"章节 → 必须在\"结果\"部分引用\n- 如果目录中有\"\
+            相关工作\"\"文献综述\"章节 → 可在\"研究背景\"部分简要引用\n- 如果目录中有\"系统实现\"\"算法实现\"章节 → 可选择性引用关键部分\n\
+            \n**重点章节识别：**\n- 方法类章节（第3章、第4章等）→ 重点提取\n- 结果类章节（实验、验证、分析等）→ 重点提取\n- 理论基础章节\
+            \ → 简要提及\n- 绪论/总结章节 → 提炼核心观点\n\n### 4. 学科特点适配\n\n**理工科**：\n- 强调方法的技术细节（算法流程、系统架构）\n\
+            - 突出实验数据和对比结果\n- 多用流程图、架构图、对比表\n\n**文科**：\n- 强调理论框架和研究视角\n- 突出案例分析和论证逻辑\n\
+            - 多用概念图、关系图、案例展示\n\n**医学**：\n- 强调研究设计和样本特征\n- 突出临床数据和统计分析\n- 多用数据表、统计图、病例图\n\
+            \n---\n\n## 输出格式（JSON）\n\n请严格按照以下JSON格式输出：\n\n```json\n{\n  \"ppt_outline\"\
+            : [\n    {\n      \"slide_number\": 1,\n      \"title\": \"论文标题\",\n \
+            \     \"type\": \"cover\",\n      \"content_source\": \"摘要\",\n      \"\
+            required_elements\": [\"论文标题\", \"作者姓名\", \"导师姓名\", \"答辩日期\", \"学校/学院\"\
+            ],\n      \"speaking_time\": \"30秒\",\n      \"notes\": \"简要介绍论文主题，不要展开\"\
+            \n    },\n    {\n      \"slide_number\": 2,\n      \"title\": \"研究背景\"\
+            ,\n      \"type\": \"content_with_text\",\n      \"content_source\": \"\
+            第1章 1.1节\",\n      \"required_elements\": [\"研究领域现状\", \"存在的问题\", \"研究必要性\"\
+            ],\n      \"expected_figure_type\": null,\n      \"speaking_time\": \"\
+            1分钟\",\n      \"notes\": \"说明研究背景，引出问题\"\n    },\n    {\n      \"slide_number\"\
+            : 5,\n      \"title\": \"研究方法概述\",\n      \"type\": \"content_with_figure\"\
+            ,\n      \"content_source\": \"第3章 3.1节\",\n      \"required_elements\"\
+            : [\"方法流程图\", \"核心步骤文字说明\"],\n      \"expected_figure_type\": \"流程图/架构图\"\
+            ,\n      \"speaking_time\": \"2分钟\",\n      \"notes\": \"重点讲解方法的创新点和关键步骤\"\
+            \n    },\n    {\n      \"slide_number\": 8,\n      \"title\": \"实验结果对比\"\
+            ,\n      \"type\": \"content_with_table\",\n      \"content_source\":\
+            \ \"第4章 4.2节\",\n      \"required_elements\": [\"对比实验表格\", \"性能提升数据\"\
+            , \"结论文字\"],\n      \"expected_figure_type\": \"对比表/柱状图\",\n      \"speaking_time\"\
+            : \"2分钟\",\n      \"notes\": \"强调本方法相比基线方法的优势\"\n    }\n  ],\n  \"total_slides\"\
+            : 18,\n  \"key_chapters\": [\"第3章\", \"第4章\"],\n  \"optional_chapters\"\
+            : [\"第2章\"],\n  \"time_allocation\": {\n    \"opening\": \"2分钟\",\n  \
+            \  \"method\": \"8分钟\",\n    \"results\": \"7分钟\",\n    \"closing\": \"\
+            3分钟\"\n  },\n  \"presentation_tips\": [\n    \"方法部分是重点，需要讲清楚创新点\",\n \
+            \   \"实验结果要用数据说话，突出优势\",\n    \"控制每页讲解时间，避免超时\"\n  ]\n}"
+        selected: false
+        title: LLM大纲编写
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1770651300989'
+      position:
+        x: 983
+        y: 282
+      positionAbsolute:
+        x: 983
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\nimport re\n\ndef main(ocr_text: str, ocr_json: list, ppt_outline_text:\
+          \ str) -> dict:\n    if not ocr_text or not isinstance(ocr_text, str):\n\
+          \        return {\"result\": json.dumps({\"error\": \"ocr_text empty\",\
+          \ \"slide_contents\": [], \"total_slides\": 0}, ensure_ascii=False)}\n \
+          \   if not ppt_outline_text:\n        return {\"result\": json.dumps({\"\
+          error\": \"outline empty\", \"slide_contents\": [], \"total_slides\": 0},\
+          \ ensure_ascii=False)}\n\n    # 解析大纲\n    outline_text = ppt_outline_text.strip()\n\
+          \    ppt_outline_obj = None\n    for text in [outline_text, re.sub(r'^```json\\\
+          s*|\\s*```$', '', outline_text, flags=re.DOTALL)]:\n        try:\n     \
+          \       ppt_outline_obj = json.loads(text)\n            break\n        except\
+          \ Exception:\n            pass\n    if not ppt_outline_obj:\n        return\
+          \ {\"result\": json.dumps({\"error\": \"Failed to parse outline\", \"slide_contents\"\
+          : [], \"total_slides\": 0}, ensure_ascii=False)}\n\n    ppt_slides = ppt_outline_obj.get(\"\
+          ppt_outline\", [])\n    if not ppt_slides:\n        return {\"result\":\
+          \ json.dumps({\"error\": \"No ppt_outline\", \"slide_contents\": [], \"\
+          total_slides\": 0}, ensure_ascii=False)}\n\n    # 提取全部图片\n    all_images\
+          \ = extract_all_images(ocr_json or [])\n\n    # ── 核心修复：图片预分配，每张图只分配给一张幻灯片\
+          \ ──────────\n    image_assignment = assign_images_uniquely(ppt_slides,\
+          \ all_images)\n\n    result = {\n        \"slide_contents\": [],\n     \
+          \   \"total_slides\": len(ppt_slides),\n        \"extraction_summary\":\
+          \ {\"total_images_found\": len(all_images), \"slides_with_content\": 0}\n\
+          \    }\n\n    for slide in ppt_slides:\n        sn = slide.get(\"slide_number\"\
+          )\n        content_source = slide.get(\"content_source\", \"\")\n      \
+          \  title = slide.get(\"title\", \"\")\n        extracted_text = extract_chapter_text(ocr_text,\
+          \ content_source, title)\n        assigned_img = image_assignment.get(sn)\
+          \  # None 或单张图片\n        extracted_images = [assigned_img] if assigned_img\
+          \ else []\n\n        slide_content = {\n            \"slide_number\": sn,\n\
+          \            \"title\": title,\n            \"content_source\": content_source,\n\
+          \            \"expected_figure_type\": slide.get(\"expected_figure_type\"\
+          ),\n            \"extracted_text\": extracted_text,\n            \"extracted_images\"\
+          : extracted_images,\n            \"text_length\": len(extracted_text),\n\
+          \            \"image_count\": len(extracted_images)\n        }\n       \
+          \ result[\"slide_contents\"].append(slide_content)\n        if extracted_text\
+          \ or extracted_images:\n            result[\"extraction_summary\"][\"slides_with_content\"\
+          ] += 1\n\n    return {\"result\": json.dumps(result, ensure_ascii=False,\
+          \ indent=2)}\n\n\n# ── 图片提取 ──────────────────────────────────────────────────\n\
+          def extract_all_images(ocr_json: list) -> list:\n    images, seen = [],\
+          \ set()\n    for item in ocr_json:\n        if not isinstance(item, dict):\n\
+          \            continue\n        for layout_item in item.get(\"result\", {}).get(\"\
+          layoutParsingResults\", []):\n            page = layout_item.get(\"page\"\
+          , 0)\n            md = layout_item.get(\"markdown\", {})\n            page_text\
+          \ = md.get(\"text\", \"\")\n            for fname, url in md.get(\"images\"\
+          , {}).items():\n                if fname not in seen:\n                \
+          \    seen.add(fname)\n                    images.append({\"filename\": fname,\
+          \ \"url\": url, \"caption\": extract_figure_caption(page_text), \"page\"\
+          : page})\n    return images\n\n\ndef extract_figure_caption(text: str) ->\
+          \ str:\n    for pat in [\n        r'[Ff]igure\\s+\\d+[:\\.]?\\s*[A-Z][^\\\
+          n]{5,80}',\n        r'[Ff]ig\\.\\s*\\d+[:\\.]?\\s*[A-Z][^\\n]{5,60}',\n\
+          \        r'图\\s*\\d+[\\s:\\-]\\s*[^\\n]{5,40}',\n    ]:\n        m = re.search(pat,\
+          \ text)\n        if m:\n            return m.group(0).strip()[:80]\n   \
+          \ return \"\"\n\n\n# ── 图片唯一分配 ─────────────────────────────────────────────\n\
+          def assign_images_uniquely(ppt_slides: list, all_images: list) -> dict:\n\
+          \    \"\"\"\n    每张图只分配给一张幻灯片：\n    - 按页码排序图片\n    - 按幻灯片顺序，有 expected_figure_type\
+          \ 的优先获得图片\n    - 一旦分配出去，同一张图不再重复\n    \"\"\"\n    images_sorted = sorted(all_images,\
+          \ key=lambda x: x.get('page', 0))\n    slides_need_img = [s for s in ppt_slides\
+          \ if s.get('expected_figure_type')]\n    assignment = {}\n    for i, slide\
+          \ in enumerate(slides_need_img):\n        if i < len(images_sorted):\n \
+          \           assignment[slide['slide_number']] = images_sorted[i]\n    return\
+          \ assignment\n\n\n# ── 文本提取（支持中英文，带标题关键词兜底）─────────────────────\ndef extract_chapter_text(ocr_text:\
+          \ str, content_source: str, title: str = \"\") -> str:\n    cs = (content_source\
+          \ or \"\").strip()\n    if not cs or cs in (\"null\", \"None\"):\n     \
+          \   return \"\"\n\n    # 摘要/Abstract\n    if any(k in cs for k in [\"摘要\"\
+          , \"Abstract\", \"abstract\"]):\n        return _extract_abstract(ocr_text)\n\
+          \n    # 1. 优先按章节数字提取（英文 \"3\", \"3.1\" 等）\n    en_match = re.search(r'\\\
+          b(\\d+(?:\\.\\d+)*)\\b', cs)\n    if en_match:\n        text = _extract_by_section_number(ocr_text,\
+          \ en_match.group(1))\n        if text:\n            return text\n\n    #\
+          \ 2. 中文\"第X章\"\n    zh_match = re.search(r'第(\\d+)章', cs)\n    if zh_match:\n\
+          \        text = _extract_by_chinese_chapter(ocr_text, zh_match.group(1))\n\
+          \        if text:\n            return text\n\n    # 3. 用幻灯片标题关键词兜底（对空白页效果显著）\n\
+          \    keywords_to_try = []\n    # 英文关键词映射\n    title_kw_map = {\n       \
+          \ \"背景\": [\"Introduction\", \"Background\", \"Related\"],\n        \"目标\"\
+          : [\"challenge\", \"problem\", \"CH1\", \"CH2\"],\n        \"方法\": [\"Methodology\"\
+          , \"Method\", \"RSTC\", \"SAOT\"],\n        \"实验\": [\"Experiment\", \"\
+          Evaluation\", \"dataset\"],\n        \"结果\": [\"Result\", \"Performance\"\
+          , \"ACC\", \"NMI\"],\n        \"消融\": [\"Ablation\", \"variant\"],\n   \
+          \     \"创新\": [\"contribution\", \"propose\", \"novel\"],\n        \"不足\"\
+          : [\"Limitation\", \"limitation\", \"future\"],\n        \"展望\": [\"future\"\
+          , \"conclusion\", \"Conclusion\"],\n    }\n    for kw_zh, kw_en_list in\
+          \ title_kw_map.items():\n        if kw_zh in title:\n            keywords_to_try.extend(kw_en_list)\n\
+          \n    for kw in keywords_to_try:\n        idx = ocr_text.find(kw)\n    \
+          \    if idx >= 0:\n            start = max(0, idx - 100)\n            return\
+          \ ocr_text[start: idx + 2500].strip()[:3000]\n\n    # 4. 最终兜底：从摘要返回\n  \
+          \  return _extract_abstract(ocr_text)[:1500]\n\n\ndef _extract_by_section_number(text:\
+          \ str, section_num: str) -> str:\n    depth = len(section_num.split('.'))\n\
+          \    candidates = [\n        rf'(?:^|\\n)#{{{min(depth+1,4)}}}\\s+{re.escape(section_num)}[\\\
+          s\\.\\:]',\n        rf'(?:^|\\n)##\\s+{re.escape(section_num)}\\s',\n  \
+          \      rf'(?:^|\\n){re.escape(section_num)}\\s+[A-Z\\u4e00-\\u9fff]',\n\
+          \    ]\n    start_match = None\n    for pat in candidates:\n        start_match\
+          \ = re.search(pat, text, re.MULTILINE)\n        if start_match:\n      \
+          \      break\n    if not start_match:\n        return \"\"\n    start_pos\
+          \ = start_match.start()\n    parts = section_num.split('.')\n    next_num\
+          \ = str(int(parts[-1]) + 1)\n    next_section = '.'.join(parts[:-1] + [next_num])\
+          \ if len(parts) > 1 else next_num\n    end_pos = len(text)\n    for pat\
+          \ in [rf'(?:^|\\n)#{{{min(depth+1,4)}}}\\s+{re.escape(next_section)}',\n\
+          \                rf'(?:^|\\n)##\\s+{str(int(parts[0])+1)}[\\s\\.]']:\n \
+          \       m = re.search(pat, text[start_pos + 5:], re.MULTILINE)\n       \
+          \ if m:\n            end_pos = start_pos + 5 + m.start()\n            break\n\
+          \    return text[start_pos:end_pos].strip()[:3500]\n\n\ndef _extract_by_chinese_chapter(text:\
+          \ str, chapter_num: str) -> str:\n    m = re.search(rf'##\\s*第{chapter_num}章.*?\\\
+          n', text)\n    if not m:\n        m = re.search(rf'第{chapter_num}章.*?\\\
+          n', text)\n    if not m:\n        return \"\"\n    start_pos = m.start()\n\
+          \    em = re.search(rf'##\\s*第{int(chapter_num)+1}章|##\\s*参考文献', text[start_pos\
+          \ + 10:])\n    end_pos = start_pos + 10 + em.start() if em else len(text)\n\
+          \    return text[start_pos:end_pos].strip()[:3500]\n\n\ndef _extract_abstract(text:\
+          \ str) -> str:\n    for pat in [\n        r'##\\s*Abstract\\s*\\n+(.*?)(?=##\\\
+          s*(?:Keywords?|Introduction|\\d+\\s+\\w))',\n        r'Abstract\\s*\\n+(.*?)(?=\\\
+          n\\d+\\s+[A-Z])',\n        r'##\\s*摘要\\s*\\n+(.*?)(?=##)',\n    ]:\n   \
+          \     m = re.search(pat, text, re.DOTALL | re.IGNORECASE)\n        if m:\n\
+          \            return m.group(1).strip()[:2500]\n    return text[:2000].strip()\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: OCR结果拆分
+        type: code
+        variables:
+        - value_selector:
+          - '1770647008371'
+          - text
+          value_type: string
+          variable: ocr_text
+        - value_selector:
+          - '1770647008371'
+          - json
+          value_type: array[object]
+          variable: ocr_json
+        - value_selector:
+          - '1770651300989'
+          - text
+          value_type: string
+          variable: ppt_outline_text
+      height: 50
+      id: '1770699958509'
+      position:
+        x: 1284
+        y: 282
+      positionAbsolute:
+        x: 1284
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\n\ndef main(split_result: str) -> dict:\n    \"\"\"\n \
+          \   解析\"按大纲拆分OCR结果\"节点的输出，提取slide_contents数组\n    \n    输入：\n        split_result:\
+          \ 来自\"按大纲拆分OCR结果\"节点的result变量（String）\n    \n    输出：\n        slide_contents:\
+          \ 所有幻灯片内容的数组（Array）\n        total_slides: 总页数（Number）\n        summary:\
+          \ 提取摘要（String，JSON格式）\n    \n    用途：\n        将JSON字符串解析为数组，供循环节点使用\n  \
+          \  \"\"\"\n    try:\n        # 解析JSON字符串\n        result_obj = json.loads(split_result)\n\
+          \        \n        # 提取关键字段\n        slide_contents = result_obj.get(\"\
+          slide_contents\", [])\n        total_slides = result_obj.get(\"total_slides\"\
+          , 0)\n        extraction_summary = result_obj.get(\"extraction_summary\"\
+          , {})\n        \n        return {\n            \"slide_contents\": slide_contents,\n\
+          \            \"total_slides\": total_slides,\n            \"summary\": json.dumps(extraction_summary,\
+          \ ensure_ascii=False)\n        }\n    \n    except json.JSONDecodeError\
+          \ as e:\n        # JSON解析失败\n        return {\n            \"slide_contents\"\
+          : [],\n            \"total_slides\": 0,\n            \"summary\": json.dumps({\n\
+          \                \"error\": f\"JSON解析失败: {str(e)}\",\n                \"\
+          input_preview\": split_result[:200]\n            }, ensure_ascii=False)\n\
+          \        }\n    \n    except Exception as e:\n        # 其他错误\n        return\
+          \ {\n            \"slide_contents\": [],\n            \"total_slides\":\
+          \ 0,\n            \"summary\": json.dumps({\n                \"error\":\
+          \ f\"处理失败: {str(e)}\"\n            }, ensure_ascii=False)\n        }\n"
+        code_language: python3
+        outputs:
+          slide_contents:
+            children: null
+            type: array[object]
+          summary:
+            children: null
+            type: string
+          total_slides:
+            children: null
+            type: number
+        selected: false
+        title: 解析拆分结果节点
+        type: code
+        variables:
+        - value_selector:
+          - '1770699958509'
+          - result
+          value_type: string
+          variable: split_result
+      height: 50
+      id: '1770702871054'
+      position:
+        x: -33.850201139517395
+        y: 514.9107048259632
+      positionAbsolute:
+        x: -33.850201139517395
+        y: 514.9107048259632
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        error_handle_mode: terminated
+        flatten_output: true
+        height: 178
+        is_parallel: false
+        iterator_input_type: array[object]
+        iterator_selector:
+        - '1770702871054'
+        - slide_contents
+        output_selector:
+        - '1770704061999'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1770704051735start
+        title: 迭代
+        type: iteration
+        width: 759
+      height: 178
+      id: '1770704051735'
+      position:
+        x: 244.73828273817253
+        y: 502.50162258044736
+      positionAbsolute:
+        x: 244.73828273817253
+        y: 502.50162258044736
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 759
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1770704051735start
+      parentId: '1770704051735'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 268.73828273817253
+        y: 570.5016225804474
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1770704051735'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: ernie-4.5-turbo-128k-preview
+          provider: paddle-aistudio/ernie-paddle-aistudio/ernie-paddle-aistudio-api
+        prompt_template:
+        - id: 91c7d0da-8961-4aa5-b5af-e95b6e621eae
+          role: system
+          text: "请为第{{#1770704241210.slide_number#}}页PPT生成内容。\n\n页面信息：\n- 标题：{{#1770704241210.title#}}\n\
+            - 章节来源：{{#1770704241210.content_source#}}\n- 候选图片数量：{{#1770704241210.image_count#}}（0或1，已预先分配好，无需筛选）\n\
+            \n章节文本（前3000字）：\n{{#1770704241210.extracted_text#}}\n\n候选图片（JSON）：\n{{#1770704241210.extracted_images#}}\n\
+            \n## 任务说明\n\n**第一步：选择版面类型**\n- \"two_col\"：内容可分两个并列方面（问题vs方案、方法对比）\n-\
+            \ \"table\"：多行多列实验数据/对比表格\n- \"data_highlight\"：核心是关键指标/数字\n- \"method_flow\"\
+            ：步骤/流程类内容\n- \"text\"：默认纯文字要点\n\n**第二步：生成内容要点**\n- content_points / left_points+right_points\
+            \ / table_header+table_rows 按版面类型填写\n- **若章节文本为空**：请根据幻灯片标题自行生成合理的学术答辩要点（4-5条），不要留空\n\
+            - 要点精炼，每条12-18字\n\n**第三步：图片处理（重要）**\n- 候选图片数量=1：将候选图片的url和filename填入selected_image（直接使用，不要填null）\n\
+            - 候选图片数量=0：selected_image全部填null\n\n**第四步：其他字段**\n- formulas：最核心LaTeX公式（用$$包裹），无则\
+            \ []\n- key_stat：最核心量化数据，无则 \"\"\n- details：一句话关键结论（20-40字），无则 \"\"\n\n\
+            输出格式（严格JSON，禁止markdown代码块）：\n{\n  \"slide_number\": {{items.slide_number}},\n\
+            \  \"title\": \"页面标题\",\n  \"layout\": \"text\",\n  \"selected_image\"\
+            : {\n    \"filename\": null,\n    \"url\": null\n  },\n  \"content_points\"\
+            : [\"要点1\",\"要点2\",\"要点3\",\"要点4\"],\n  \"left_points\": [],\n  \"right_points\"\
+            : [],\n  \"table_header\": [],\n  \"table_rows\": [],\n  \"formulas\"\
+            : [],\n  \"key_stat\": \"\",\n  \"details\": \"\"\n}\n\n注意：所有字段必须存在，缺省填[]或\"\
+            \"，不能省略任何字段。"
+        reasoning_format: separated
+        selected: false
+        title: LLM 3
+        type: llm
+        vision:
+          enabled: false
+      height: 86
+      id: '1770704061999'
+      parentId: '1770704051735'
+      position:
+        x: 477.94214499650536
+        y: 65
+      positionAbsolute:
+        x: 722.6804277346779
+        y: 567.5016225804474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "import json\n\ndef main(item: str) -> dict:\n    \"\"\"\n    在迭代节点内解包当前项，提取所有字段\n\
+          \    \n    输入：\n        item: 迭代节点的当前项（可能是JSON字符串或对象）\n    \n    输出：\n \
+          \       slide_number: 页码（Number）\n        title: 标题（String）\n        content_source:\
+          \ 章节来源（String）\n        expected_figure_type: 期望图片类型（String）\n        extracted_text:\
+          \ 提取的文本（String）\n        extracted_images: 候选图片（String，JSON格式）\n       \
+          \ text_length: 文本长度（Number）\n        image_count: 图片数量（Number）\n    \n \
+          \   用途：\n        将迭代变量解包为独立的字段，供LLM节点使用\n    \"\"\"\n    try:\n        #\
+          \ 如果item是字符串，尝试解析为JSON\n        if isinstance(item, str):\n            item_obj\
+          \ = json.loads(item)\n        else:\n            item_obj = item\n     \
+          \   \n        # 提取所有字段\n        slide_number = item_obj.get(\"slide_number\"\
+          , 0)\n        title = item_obj.get(\"title\", \"\")\n        content_source\
+          \ = item_obj.get(\"content_source\", \"\")\n        expected_figure_type\
+          \ = item_obj.get(\"expected_figure_type\", \"\")\n        extracted_text\
+          \ = item_obj.get(\"extracted_text\", \"\")\n        extracted_images = item_obj.get(\"\
+          extracted_images\", [])\n        text_length = item_obj.get(\"text_length\"\
+          , 0)\n        image_count = item_obj.get(\"image_count\", 0)\n        \n\
+          \        # 限制文本长度（避免超过LLM上下文限制）\n        if len(extracted_text) > 3000:\n\
+          \            extracted_text = extracted_text[:3000] + \"...(已截断)\"\n   \
+          \     \n        return {\n            \"slide_number\": slide_number,\n\
+          \            \"title\": title,\n            \"content_source\": content_source,\n\
+          \            \"expected_figure_type\": str(expected_figure_type) if expected_figure_type\
+          \ else \"\",\n            \"extracted_text\": extracted_text,\n        \
+          \    \"extracted_images\": json.dumps(extracted_images, ensure_ascii=False),\n\
+          \            \"text_length\": text_length,\n            \"image_count\"\
+          : image_count\n        }\n    \n    except json.JSONDecodeError as e:\n\
+          \        # JSON解析失败\n        return {\n            \"slide_number\": 0,\n\
+          \            \"title\": \"解析失败\",\n            \"content_source\": \"\"\
+          ,\n            \"expected_figure_type\": \"\",\n            \"extracted_text\"\
+          : f\"JSON解析失败: {str(e)}\",\n            \"extracted_images\": \"[]\",\n\
+          \            \"text_length\": 0,\n            \"image_count\": 0\n     \
+          \   }\n    \n    except Exception as e:\n        # 其他错误\n        return\
+          \ {\n            \"slide_number\": 0,\n            \"title\": \"处理失败\",\n\
+          \            \"content_source\": \"\",\n            \"expected_figure_type\"\
+          : \"\",\n            \"extracted_text\": f\"处理失败: {str(e)}\",\n        \
+          \    \"extracted_images\": \"[]\",\n            \"text_length\": 0,\n  \
+          \          \"image_count\": 0\n        }\n"
+        code_language: python3
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1770704051735'
+        outputs:
+          content_source:
+            children: null
+            type: string
+          expected_figure_type:
+            children: null
+            type: string
+          extracted_images:
+            children: null
+            type: string
+          extracted_text:
+            children: null
+            type: string
+          image_count:
+            children: null
+            type: number
+          slide_number:
+            children: null
+            type: number
+          text_length:
+            children: null
+            type: number
+          title:
+            children: null
+            type: string
+        selected: false
+        title: 解包
+        type: code
+        variables:
+        - value_selector:
+          - '1770704051735'
+          - item
+          value_type: object
+          variable: item
+      height: 50
+      id: '1770704241210'
+      parentId: '1770704051735'
+      position:
+        x: 128
+        y: 68
+      positionAbsolute:
+        x: 372.73828273817253
+        y: 570.5016225804474
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "\"\"\"\n代码节点：收集所有页面内容\n功能：整合迭代节点输出的所有页面数据\n输入：iteration_output（Array[String]，迭代节点的output数组）\n\
+          输出：{slides_json, total_slides, error}\n\"\"\"\n\nimport json\n\ndef main(iteration_output):\n\
+          \    try:\n        slides = []\n\n        if not iteration_output:\n   \
+          \         return {\n                \"total_slides\": 0,\n             \
+          \   \"slides_json\": \"[]\",\n                \"error\": \"\"\n        \
+          \    }\n\n        if isinstance(iteration_output, dict):\n            iteration_output\
+          \ = list(iteration_output.values())\n\n        if not isinstance(iteration_output,\
+          \ (list, tuple)):\n            return {\n                \"total_slides\"\
+          : 0,\n                \"slides_json\": \"[]\",\n                \"error\"\
+          : f\"iteration_output类型异常: {type(iteration_output).__name__}\"\n       \
+          \     }\n\n        for item in iteration_output:\n            if not item:\n\
+          \                continue\n\n            if isinstance(item, dict):\n  \
+          \              slides.append(item)\n                continue\n\n       \
+          \     if isinstance(item, list):\n                for sub in item:\n   \
+          \                 if isinstance(sub, dict):\n                        slides.append(sub)\n\
+          \                    elif isinstance(sub, str) and sub.strip():\n      \
+          \                  try:\n                            slide_data = json.loads(sub.strip())\n\
+          \                            if isinstance(slide_data, dict):\n        \
+          \                        slides.append(slide_data)\n                   \
+          \     except json.JSONDecodeError:\n                            continue\n\
+          \                continue\n\n            if not isinstance(item, str):\n\
+          \                continue\n\n            cleaned_item = item.strip()\n \
+          \           if cleaned_item.startswith('```json'):\n                cleaned_item\
+          \ = cleaned_item[7:]\n            if cleaned_item.startswith('```'):\n \
+          \               cleaned_item = cleaned_item[3:]\n            if cleaned_item.endswith('```'):\n\
+          \                cleaned_item = cleaned_item[:-3]\n            cleaned_item\
+          \ = cleaned_item.strip()\n\n            if not cleaned_item:\n         \
+          \       continue\n\n            try:\n                slide_data = json.loads(cleaned_item)\n\
+          \                if isinstance(slide_data, dict):\n                    slides.append(slide_data)\n\
+          \                elif isinstance(slide_data, list):\n                  \
+          \  for sub in slide_data:\n                        if isinstance(sub, dict):\n\
+          \                            slides.append(sub)\n            except json.JSONDecodeError\
+          \ as e:\n                print(f\"解析失败: {str(e)}, 内容: {cleaned_item[:100]}\"\
+          )\n                continue\n\n        slides = [s for s in slides if isinstance(s,\
+          \ dict)]\n        slides.sort(key=lambda x: x.get('slide_number', 0))\n\
+          \        slides_json = json.dumps(slides, ensure_ascii=False, indent=2)\n\
+          \n        return {\n            \"total_slides\": len(slides),\n       \
+          \     \"slides_json\": slides_json,\n            \"error\": \"\"\n     \
+          \   }\n\n    except Exception as e:\n        return {\n            \"total_slides\"\
+          : 0,\n            \"slides_json\": \"[]\",\n            \"error\": f\"收集页面内容失败:\
+          \ {str(e)}\"\n        }\n"
+        code_language: python3
+        outputs:
+          error:
+            children: null
+            type: string
+          slides_json:
+            children: null
+            type: string
+          total_slides:
+            children: null
+            type: number
+        selected: false
+        title: 收集所有页面内容节点
+        type: code
+        variables:
+        - value_selector:
+          - '1770704051735'
+          - output
+          value_type: array[string]
+          variable: iteration_output
+      height: 50
+      id: '1770705755135'
+      position:
+        x: 1058.1114532096149
+        y: 514.9107048259632
+      positionAbsolute:
+        x: 1058.1114532096149
+        y: 514.9107048259632
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Markdown text for slides
+            ja_JP: Markdown text for slides
+            pt_BR: Markdown text for slides
+            zh_Hans: 用于幻灯片的Markdown文本
+          label:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          llm_description: ''
+          max: null
+          min: null
+          name: md_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: An optional .pptx file that serves as a template for the generated
+              presentation
+            ja_JP: An optional .pptx file that serves as a template for the generated
+              presentation
+            pt_BR: An optional .pptx file that serves as a template for the generated
+              presentation
+            zh_Hans: 可选，一个.pptx文件，作为生成的演示文稿的模板
+          label:
+            en_US: PPTX Template File
+            ja_JP: PPTX Template File
+            pt_BR: PPTX Template File
+            zh_Hans: PPTX 模板文件
+          llm_description: An optional .pptx file that serves as a template for the
+            generated presentation
+          max: null
+          min: null
+          name: pptx_template_file
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: file
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Optional custom output file name, and the filename suffix is not
+              required.
+            ja_JP: Optional custom output file name, and the filename suffix is not
+              required.
+            pt_BR: Optional custom output file name, and the filename suffix is not
+              required.
+            zh_Hans: 可选的自定义输出文件名，后缀名无需指定
+          label:
+            en_US: Output Filename
+            ja_JP: Output Filename
+            pt_BR: Output Filename
+            zh_Hans: 输出文件名
+          llm_description: ''
+          max: null
+          min: null
+          name: output_filename
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          md_text: ''
+          output_filename: ''
+          pptx_template_file: ''
+        plugin_id: bowenliang123/md_exporter
+        plugin_unique_identifier: bowenliang123/md_exporter:3.4.0@a5ce3ac3114f3dd6ab4fe49f0bb931a31af49ff555e479ec45e8aaa5d44157ee
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=1301167d-1b10-4e9b-be0d-37c629c3718b&filename=f0bad95cda1671b4e49f0e05df6122ef9ec5d554e138f128795d11d3806c00ef.svg
+        provider_id: bowenliang123/md_exporter/md_exporter
+        provider_name: bowenliang123/md_exporter/md_exporter
+        provider_type: builtin
+        selected: true
+        title: Markdown ⮕ PPTX
+        tool_configurations: {}
+        tool_description: 将 Markdown 转换为 PPTX 文件的工具
+        tool_label: Markdown ⮕ PPTX
+        tool_name: md_to_pptx
+        tool_node_version: '2'
+        tool_parameters:
+          md_text:
+            type: mixed
+            value: '{{#1770706911965.output#}}'
+          output_filename:
+            type: mixed
+            value: test_ppt
+          pptx_template_file:
+            type: variable
+            value:
+            - '1770646935156'
+            - ppt_tmp
+        type: tool
+      height: 50
+      id: '1770706534729'
+      position:
+        x: 1652.83501134617
+        y: 514.9107048259632
+      positionAbsolute:
+        x: 1652.83501134617
+        y: 514.9107048259632
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        selected: false
+        template: '# 论文答辩PPT
+
+
+
+          {% for s in slide %}
+
+          ---
+
+
+          ## {{ s.title }}
+
+
+
+          {{ s.body }}
+
+          {% if s.formula_str and s.formula_str != "" %}
+
+
+          {{ s.formula_str }}
+
+          {% endif %}
+
+          {% if s.key_stat and s.key_stat != "" %}
+
+
+          > 📊 **核心数据：** {{ s.key_stat }}
+
+          {% endif %}
+
+          {% if s.details and s.details != "" %}
+
+
+          > 💡 **结论：** {{ s.details }}
+
+          {% endif %}
+
+          {% if s.image_url and s.image_url != "" %}
+
+
+          ![]({{ s.image_url }})
+
+          {% if s.image_caption and s.image_caption != "" %}
+
+          *{{ s.image_caption }}*
+
+          {% endif %}
+
+          {% endif %}
+
+
+
+          {% endfor %}'
+        title: 模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1770705755136'
+          - slides
+          value_type: array[object]
+          variable: slide
+      height: 50
+      id: '1770706911965'
+      position:
+        x: 1353.7316458980906
+        y: 514.9107048259632
+      positionAbsolute:
+        x: 1353.7316458980906
+        y: 514.9107048259632
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        outputs:
+        - value_selector:
+          - '1770647008371'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: 输出
+        type: end
+      height: 87
+      id: '1770711041899'
+      position:
+        x: 963.2740398577446
+        y: 162.21876732564863
+      positionAbsolute:
+        x: 963.2740398577446
+        y: 162.21876732564863
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import re\nimport json\n\ndef main(slides_json: str) -> dict:\n   \
+          \ try:\n        slides = json.loads(slides_json)\n        if not isinstance(slides,\
+          \ list):\n            return {\"slides\": []}\n\n        safe_slides = []\n\
+          \        for s in slides:\n            if not isinstance(s, dict):\n   \
+          \             continue\n\n            layout        = s.get(\"layout\",\
+          \ \"text\")\n            content_points = s.get(\"content_points\", [])\
+          \ or []\n            left_points    = s.get(\"left_points\", []) or []\n\
+          \            right_points   = s.get(\"right_points\", []) or []\n      \
+          \      table_header   = s.get(\"table_header\", []) or []\n            table_rows\
+          \     = s.get(\"table_rows\", []) or []\n            formulas       = s.get(\"\
+          formulas\", []) or []\n            image          = s.get(\"selected_image\"\
+          ) or {}\n            key_stat = str(s.get(\"key_stat\", \"\") or \"\").strip()\n\
+          \            details  = str(s.get(\"details\", \"\") or \"\").strip()\n\n\
+          \            # 主体内容渲染\n            body = \"\"\n            if layout ==\
+          \ \"table\" and table_header:\n                body += \"| \" + \" | \"\
+          .join(str(h) for h in table_header) + \" |\\n\"\n                body +=\
+          \ \"|\" + \" :---: |\" * len(table_header) + \"\\n\"\n                for\
+          \ row in table_rows:\n                    body += \"| \" + \" | \".join(str(c)\
+          \ for c in row) + \" |\\n\"\n            elif layout == \"two_col\" and\
+          \ left_points:\n                body += \"| 核心概念 | 关键说明 |\\n|---------|----------|\\\
+          n\"\n                for i in range(len(left_points)):\n               \
+          \     right = right_points[i] if i < len(right_points) else \"\"\n     \
+          \               body += f\"| **{left_points[i]}** | {right} |\\n\"\n   \
+          \         elif layout == \"data_highlight\" and content_points:\n      \
+          \          for point in content_points:\n                    body += f\"\
+          - ### {point}\\n\"\n            elif layout == \"method_flow\" and content_points:\n\
+          \                for idx, point in enumerate(content_points, 1):\n     \
+          \               body += f\"{idx}. **{point}**\\n\"\n            else:\n\
+          \                for point in content_points:\n                    body\
+          \ += f\"- **{point}**\\n\"\n\n            # 公式渲染 — 兼容两种格式：\n           \
+          \ #   dict 格式: {\"latex\": \"$$...$$\", \"description\": \"说明\"}\n     \
+          \       #   string 格式: \"$$...$$\"\n            formula_str = \"\"\n   \
+          \         for item in formulas:\n                if isinstance(item, dict):\n\
+          \                    latex = str(item.get(\"latex\", \"\") or \"\")\n  \
+          \                  desc  = str(item.get(\"description\", \"\") or \"\")\n\
+          \                elif isinstance(item, str):\n                    latex\
+          \ = item\n                    desc  = \"\"\n                else:\n    \
+          \                continue\n                if latex.strip():\n         \
+          \           formula_str += latex.strip() + \"\\n\"\n                   \
+          \ if desc.strip():\n                        formula_str += f\"*{desc.strip()}*\\\
+          n\"\n\n            # 图片处理\n            image_url = str(image.get(\"url\"\
+          , \"\") or \"\")\n            if image_url in (\"null\", \"None\", \"\"\
+          ):\n                image_url = \"\"\n            raw_caption = str(image.get(\"\
+          caption\", \"\") or \"\")\n            m = re.search(r'[Ff]ig(?:ure)?\\\
+          .?\\s*\\d+|图\\s*\\d+', raw_caption)\n            image_caption = m.group(0)\
+          \ if m else \"\"\n\n            clean = lambda x: x if x not in (\"null\"\
+          , \"None\") else \"\"\n            safe_slides.append({\n              \
+          \  \"slide_number\": s.get(\"slide_number\", 0),\n                \"title\"\
+          : str(s.get(\"title\", \"\")),\n                \"layout\": layout,\n  \
+          \              \"body\": body,\n                \"formula_str\": formula_str,\n\
+          \                \"key_stat\": clean(key_stat),\n                \"details\"\
+          : clean(details),\n                \"image_url\": image_url,\n         \
+          \       \"image_caption\": image_caption,\n            })\n\n        return\
+          \ {\"slides\": safe_slides}\n    except Exception:\n        return {\"slides\"\
+          : []}\n"
+        code_language: python3
+        outputs:
+          slides:
+            children: null
+            type: array[object]
+        selected: false
+        title: 解析slides节点
+        type: code
+        variables:
+        - value_selector:
+          - '1770705755135'
+          - slides_json
+          value_type: string
+          variable: slides_json
+      height: 50
+      id: '1770705755136'
+      position:
+        x: 1224.4194768875473
+        y: 663.214619414773
+      positionAbsolute:
+        x: 1224.4194768875473
+        y: 663.214619414773
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: -112.13506240168181
+      y: 163.4263769725567
+      zoom: 0.4854545039733851
+  rag_pipeline_variables: []
