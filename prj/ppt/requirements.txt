@@ -1,0 +1,7 @@
+gradio
+requests
+python-pptx
+python-dotenv
+Pillow
+lxml
+# dotenv
